@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hello UI Slider</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/d6.css">
+</head>
+<body >
+            <div id="slider" class="ui-slider">
+                <div class="ui-slider-group">
+                    <div class="ui-slider-item">
+                        <img class="ui-slider-img" src="img/1.png">
+                    </div>
+                    <div class="ui-slider-item">
+                        <img class="ui-slider-img" src="img/2.png">
+                    </div>
+                    <div class="ui-slider-item">
+                        <img class="ui-slider-img" src="img/3.png">
+                    </div>
+                    <div class="ui-slider-item">
+                        <img class="ui-slider-img" src="img/4.png">
+                    </div>
+                </div>
+            </div> 
+        <script src="../dist/js/zepto.js"></script>
+        <script src="../dist/js/d6.js"></script>
+</body>
+<script>
+
+    domReady(function(require){
+        $('#slider').slider( { 
+            loop:true,
+            dots:true,
+            gestur:true,
+            guide:true,
+            mulViewNum:1,
+            fullPage:true
+        }).ref.on('slide',function(e,index){
+           console.log(index);
+        }).on('moveend',function(){
+           console.log('moveend');
+        });
+    });
+</script>
+</html>

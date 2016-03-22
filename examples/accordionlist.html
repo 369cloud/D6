@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello UI Accordion-List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../dist/css/d6.css">
+    <style type="text/css">
+    .ui-content{
+        
+    }
+    </style>
+</head>
+    
+<body>
+    <header class="ui-nav-bar">
+      <div class="ui-nav-bar-inner">
+        <a class="ui-action-back ui-nav-bar-link"><i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i></a>
+        <h1 class="ui-nav-bar-title">Accordion-List</h1>
+        <a class="ui-nav-bar-link"></a>
+      </div>
+    </header>
+    <div class="ui-accordion-list ui-content">
+        <ul>
+            <li class="ui-accordion-list-item">
+                <a class="ui-accordion-list-item-link">
+                    <div class="ui-accordion-list-item-inner">
+                        按钮
+                    </div>
+                </a>
+                <div class="ui-accordion-list-item-content">
+                    <ul>
+                        <li class="ui-accordion-list-item">
+                            <a class="ui-accordion-list-item-link">
+                                <div class="ui-accordion-list-item-inner">
+                                    第十三章 内能
+                                </div>
+                            </a>
+                        </li>
+                        <li class="ui-accordion-list-item">
+                            <a class="ui-accordion-list-item-link">
+                                <div class="ui-accordion-list-item-inner">
+                                   第十四章 内能的利用
+                                </div>
+                            </a>
+                            <div class="ui-accordion-list-item-content">
+                                <img src="img/1.png" width="100%" />
+                            </div>
+                        </li>
+                        <li class="ui-accordion-list-item">
+                            <a class="ui-accordion-list-item-link">
+                                <div class="ui-accordion-list-item-inner">
+                                    第十三章 电流和电力
+                                </div>
+                            </a>
+                            <div class="ui-accordion-list-item-content">
+                                <img src="img/2.png" width="100%" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="ui-accordion-list-item">
+                <a class="ui-accordion-list-item-link">
+                    <div class="ui-accordion-list-item-inner">
+                        第十四章 内能的利用
+                    </div>
+                </a>
+                <div class="ui-accordion-list-item-content">
+                    <img src="img/1.png" width="100%" />
+                </div>
+            </li>
+            <li class="ui-accordion-list-item">
+                <a class="ui-accordion-list-item-link">
+                    <div class="ui-accordion-list-item-inner">
+                        第十三章 电流和电力
+                    </div>
+                </a>
+                <div class="ui-accordion-list-item-content">
+                    <img src="img/2.png" width="100%" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="../dist/js/zepto.js"></script>
+    <script src="../dist/js/d6.js"></script>
+</body>
+<script>
+domReady(function(require) {
+    require("accordionList");
+    $('.ui-accordion-list').accordionList({});
+    $('.ui-accordion-list').on('tapped',function(e,el){
+    })
+})
+</script>
+
+</html>

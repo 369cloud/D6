@@ -1,0 +1,30 @@
+/* === lazy-loader === */
+.ui-lazy-loader {
+  position: absolute;
+}
+.ui-lazy-loader-content {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+.ui-lazy-loader-content .ui-lazy,
+.ui-lazy-loader-content .ui-lazy-loaded{
+   -webkit-animation: lazyFadeIn 600ms;
+  animation: lazyFadeIn 600ms;
+}
+@-webkit-keyframes lazyFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lazyFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,84 @@
+/* === card === */
+.card {
+  background: #fff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  position: relative;
+  border-radius: 2px;
+  font-size: 1em;
+}
+
+.card-header {
+  border-radius: 2px 2px 0 0;
+  font-size: 17px;
+}
+
+.card-header,
+.card-footer {
+  min-height: 44px;
+  position: relative;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.card-header:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  top: auto;
+  height: 1px;
+  width: 100%;
+  background-color: #e1e1e1;
+  display: block;
+  z-index: 15;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+.card-content {
+  position: relative;
+}
+
+.card-content-inner {
+  padding: 15px;
+  position: relative;
+  display:box;
+  display:-moz-box;
+  display:-webkit-box; 
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.card-content-inner div {
+  width: 100%;
+}
+
+.card-header-name {
+  position: relative;
+  left:0;
+  font-size: 1em;
+}
+
+.card-inner > b {
+  padding-left: 30px;
+}

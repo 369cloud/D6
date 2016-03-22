@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hello UI Fullpage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/d6.css">
+    <style type="text/css">
+
+</style>
+</head>
+<body >
+    <div  class="ui-fullpage">
+            <div class="ui-fullpage-page ">
+                <img class = "ui-fullpage-pageinner" src="img/1.png"></img>
+            </div>
+            <div class="ui-fullpage-page">
+                <img class = "ui-fullpage-pageinner" src="img/2.png"></img>
+            </div>
+            <div class="ui-fullpage-page">
+                <img class = "ui-fullpage-pageinner" src="img/3.png"></img>
+            </div>
+            <div class="ui-fullpage-page">
+                <img class = "ui-fullpage-pageinner" src="img/4.png"></img>
+            </div>
+    </div>
+        <script src="../dist/js/zepto.js"></script>
+        <script src="../dist/js/d6.js"></script>
+</body>
+<script>
+
+    domReady(function(require){
+        $('.ui-fullpage').fullpage({
+            loop:true,
+            dots:true,
+            arrow:true
+        });
+    });
+</script>
+</html>

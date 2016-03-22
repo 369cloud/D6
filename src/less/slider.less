@@ -1,0 +1,161 @@
+/* === slider === */
+.ui-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  display: -webkit-box !important;
+}
+.ui-slider-group {
+  height: 100%;
+  width: 100%;
+  display: none;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  /*内容不换行*/
+  -webkit-transform: translateZ(0);
+}
+.ui-slider-item {
+  display: -webkit-box !important;
+  display: box !important;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #e3e3e3;
+  text-align: center;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+}
+.ui-slider-img {
+  width: 100%;
+  display: -webkit-box !important;
+  display: box !important;
+  display: -webkit-flex;
+  display: flex;
+  background-size:100% 100%;
+  -webkit-box-orient:vertical;
+}
+.ui-slider-dots {
+  display: none;
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  text-align: center;
+}
+.ui-dots-right .ui-slider-dots {
+  text-align: right;
+}
+.ui-slider-dots > b {
+  display: inline-block;
+  margin: 0 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(144, 144, 144, 0.8);
+}
+.ui-slider-item > p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  pointer-events: none;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 0;
+  text-indent: 10px;
+  margin-bottom: 0px;
+}
+.ui-slider-dots .ui-state-active {
+  background: #fff;
+}
+.ui-slider-pre,
+.ui-slider-next {
+  position: absolute;
+  z-index: 99;
+  width: 50px;
+  height: 60px;
+  top: 50%;
+  left: 0;
+  margin-top: -30px;
+  outline: none;
+}
+.ui-slider-next {
+  right: 0;
+  left: auto;
+}
+.ui-slider-pre:after,
+.ui-slider-next:after {
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.3) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAfCAYAAABar7u7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGhSURBVGhD5ZldisIwFIW7gHmaV0EQZg2CC3ABwuxj1jC77Kvgq1AQhAGpc85MlBiamib3FpMELpbYJOd+uflt00Smvu/fYYvI4urFqI0a1RuyG0CDn7DzFQm/37M2HtAYNRltZ2oNKJL+ioFyYcNWWqbXLFMDNC1tYdD7ow5nCAryjhDyJuNWei3UYjTd+ajC8URKh/x1ujuyNVATqHTqkZMTlBtidTg5QlGHkzMUNTgjUDayM4J+bWLDqiQoYpFTIhQLzmZgtbo83eeUDCUaTg1QJsOpCUowHEDZwdyzD3e02a0+U9c3+uiZc3bNwB+nGqDYkQN/T86huGuQ2TqZvEr4mko/1/fp64D/LcF8wPY1wvFA2ZPJX0fjYVUbnBEoq4forwlOMBRrIio+ciZDqQGOB8qBoyVo8TDD6lDShJwMxYmcIuCIQSkJjjiUEuCoQckZjjoUCw53yFnMOSNQ/ne00skcHx7g8GQOe5lv2NTi3hawQ+/bfGkovsjhyRQ278fzEeeohZpuW41ZoDhweCrnvc1WqxNi66Umo62NjZRfmhjpn+jUO/gAAAAASUVORK5CYII=") no-repeat;
+  background-size: 35px 15px;
+  outline: none;
+  content: '\0020';
+  display: inline-block;
+  background-position: 3px center;
+  left: 0;
+  top: 50%;
+  margin-top: -20px;
+  border-radius: 0 20px 20px 0;
+}
+.ui-slider-next:after {
+  background-position: -18px center;
+  right: 0;
+  left: auto;
+  border-radius: 20px 0 0 20px;
+}
+.ui-slider .ui-slider-group .ui-slider-item img {
+  width: 100%;
+}
+.ui-fullscreen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.ui-fullscreen .ui-segmented-control ~ .ui-slider-group {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+.ui-fullscreen .ui-slider-item > a {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

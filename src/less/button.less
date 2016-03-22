@@ -1,0 +1,224 @@
+/* === button === */
+.ui-button-row {
+  position: relative;
+  padding-top: 5px;
+  text-align: center;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+.ui-btn {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-transition: all;
+          transition: all;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+}
+input[type="button"]:enabled:active, input[type="button"].ui-active:enabled,
+input[type="submit"]:enabled:active,
+input[type="submit"].ui-active:enabled,
+input[type="reset"]:enabled:active,
+input[type="reset"].ui-active:enabled,
+button:enabled:active,
+button.ui-active:enabled,
+.ui-btn:enabled:active,
+.ui-btn.ui-active:enabled {
+  color: #fff;
+  background-color: #929292;
+}
+input[type="button"]:disabled, input[type="button"].ui-disabled,
+input[type="submit"]:disabled,
+input[type="submit"].ui-disabled,
+input[type="reset"]:disabled,
+input[type="reset"].ui-disabled,
+button:disabled,
+button.ui-disabled,
+.ui-btn:disabled,
+.ui-btn.ui-disabled {
+  opacity: .6;
+}
+
+input[type="submit"],
+.ui-btn-primary, .ui-btn-blue {
+  color: #fff;
+  background-color: #007aff;
+  border: 1px solid #007aff;
+}
+input[type="submit"]:enabled:active, input[type="submit"].ui-active:enabled,
+.ui-btn-primary:enabled:active,
+.ui-btn-primary.ui-active:enabled, .ui-btn-blue:enabled:active, .ui-btn-blue.ui-active:enabled {
+  color: #fff;
+  background-color: #0062cc;
+  border: 1px solid #0062cc;
+}
+
+.ui-btn-positive, .ui-btn-success, .ui-btn-green {
+  color: #fff;
+  background-color: #4cd964;
+  border: 1px solid #4cd964;
+}
+.ui-btn-positive:enabled:active, .ui-btn-positive.ui-active:enabled, .ui-btn-success:enabled:active, .ui-btn-success.ui-active:enabled, .ui-btn-green:enabled:active, .ui-btn-green.ui-active:enabled {
+  color: #fff;
+  background-color: #2ac845;
+  border: 1px solid #2ac845;
+}
+
+.ui-btn-warning, .ui-btn-yellow {
+  color: #fff;
+  background-color: #f0ad4e;
+  border: 1px solid #f0ad4e;
+}
+.ui-btn-warning:enabled:active, .ui-btn-warning.ui-active:enabled, .ui-btn-yellow:enabled:active, .ui-btn-yellow.ui-active:enabled {
+  color: #fff;
+  background-color: #ec971f;
+  border: 1px solid #ec971f;
+}
+
+.ui-btn-negative, .ui-btn-danger, .ui-btn-red {
+  color: #fff;
+  background-color: #dd524d;
+  border: 1px solid #dd524d;
+}
+.ui-btn-negative:enabled:active, .ui-btn-negative.ui-active:enabled, .ui-btn-danger:enabled:active, .ui-btn-danger.ui-active:enabled, .ui-btn-red:enabled:active, .ui-btn-red.ui-active:enabled {
+  color: #fff;
+  background-color: #cf2d28;
+  border: 1px solid #cf2d28;
+}
+
+.ui-btn-royal, .ui-btn-purple {
+  color: #fff;
+  background-color: #8a6de9;
+  border: 1px solid #8a6de9;
+}
+.ui-btn-royal:enabled:active, .ui-btn-royal.ui-active:enabled, .ui-btn-purple:enabled:active, .ui-btn-purple.ui-active:enabled {
+  color: #fff;
+  background-color: #6641e2;
+  border: 1px solid #6641e2;
+}
+
+.ui-btn-grey {
+  color: #fff;
+  background-color: #c7c7cc;
+  border: 1px solid #c7c7cc;
+}
+.ui-btn-grey:enabled:active, .ui-btn-grey.ui-active:enabled {
+  color: #fff;
+  background-color: #acacb4;
+  border: 1px solid #acacb4;
+}
+
+.ui-btn-outlined {
+  background-color: transparent;
+}
+.ui-btn-outlined.ui-btn-primary, .ui-btn-outlined.ui-btn-blue {
+  color: #007aff;
+}
+.ui-btn-outlined.ui-btn-positive, .ui-btn-outlined.ui-btn-success, .ui-btn-outlined.ui-btn-green {
+  color: #4cd964;
+}
+.ui-btn-outlined.ui-btn-warning, .ui-btn-outlined.ui-btn-yellow {
+  color: #f0ad4e;
+}
+.ui-btn-outlined.ui-btn-negative, .ui-btn-outlined.ui-btn-danger, .ui-btn-outlined.ui-btn-red {
+  color: #dd524d;
+}
+.ui-btn-outlined.ui-btn-royal, .ui-btn-outlined.ui-btn-purple {
+  color: #8a6de9;
+}
+.ui-btn-outlined.ui-btn-primary:enabled:active, .ui-btn-outlined.ui-btn-blue:enabled:active, .ui-btn-outlined.ui-btn-positive:enabled:active, .ui-btn-outlined.ui-btn-success:enabled:active, .ui-btn-outlined.ui-btn-green:enabled:active, .ui-btn-outlined.ui-btn-warning:enabled:active, .ui-btn-outlined.ui-btn-yellow:enabled:active, .ui-btn-outlined.ui-btn-negative:enabled:active, .ui-btn-outlined.ui-btn-danger:enabled:active, .ui-btn-outlined.ui-btn-red:enabled:active, .ui-btn-outlined.ui-btn-royal:enabled:active, .ui-btn-outlined.ui-btn-purple:enabled:active {
+  color: #fff;
+}
+
+.ui-btn-link {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #007aff;
+  background-color: transparent;
+  border: 0;
+}
+.ui-btn-link:enabled:active, .ui-btn-link.ui-active:enabled {
+  color: #0062cc;
+  background-color: transparent;
+}
+
+.ui-btn-block {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.ui-btn .ui-badge {
+  margin: -2px -4px -2px 4px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, .15);
+}
+
+.ui-btn .ui-badge-inverted,
+.ui-btn:enabled:active .ui-badge-inverted {
+  background-color: transparent;
+}
+
+.ui-btn-primary:enabled:active .ui-badge-inverted,
+.ui-btn-positive:enabled:active .ui-badge-inverted,
+.ui-btn-negative:enabled:active .ui-badge-inverted {
+  color: #fff;
+}
+
+.ui-btn-block .ui-badge {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.ui-btn .ui-icon {
+  font-size: inherit;
+}
+
+.ui-btn.ui-icon {
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+.ui-btn.ui-fab {
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  border-radius: 50%;
+  outline: none;
+}
+.ui-btn.ui-fab.ui-btn-mini {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+.ui-btn.ui-fab .ui-icon {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 24px;
+}

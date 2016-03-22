@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello UI CustomListView</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../dist/css/d6.css">
+	</head>
+
+	<body>
+    <header class="ui-nav-bar">
+        <div class="ui-nav-bar-inner">
+            <a class="ui-action-back ui-nav-bar-link">
+                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav">
+          </i>
+            </a>
+            <h1 class="ui-nav-bar-title">CustomListView</h1>
+            <a class="ui-nav-bar-link"></a>
+        </div>
+    </header>
+    	<div class="ui-list-block ui-content">
+            <ul>
+              <li><div class="ui-list-item-content">
+                  <div class="ui-list-item-inner"> 
+                    <div class="ui-list-item-title">item</div>
+                    <div class="ui-list-item-after">
+                      <div class="ui-switch ui-active">
+                        <div class="ui-switch-handle"></div>
+                      </div></div>
+                  </div>
+                  </div>
+              </li>
+              <li><div class="ui-list-item-link ui-list-item-content">
+                  <div class="ui-list-item-inner"> 
+                    <div class="ui-list-item-title">item</div>
+                    <div class="ui-list-item-after">你的iPhone</div>
+                  </div>
+                  </div>
+              </li>
+              <li><div class="ui-list-item-link ui-list-item-content">
+                  <div class="ui-list-item-inner"> 
+                    <div class="ui-list-item-title">item</div>
+                    <div class="ui-list-item-after"><span class="ui-badge ui-badge-red">15</span></div>
+                  </div>
+                  </div>
+              </li>
+              <li><div class="ui-list-item-link ui-list-item-content ui-list-button">
+                  <div class="ui-list-item-inner"> 
+                    <div class="ui-list-item-title">item</div>
+                    <div class="ui-list-item-after">
+                    </div>
+                  </div>
+                  </div>
+              </li>
+            </ul>
+      </div>
+    <script src="../dist/js/zepto.js"></script>
+	  <script src="../dist/js/d6.js"></script>
+</body>
+    <script>
+        domReady(function(require){
+          $('.ui-switch').switch();
+        });
+    </script>
+</html>

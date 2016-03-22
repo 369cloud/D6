@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello UI PhotoBrowser</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../dist/css/d6.css">
+        <link rel="stylesheet" href="../dist/css/button-ex.css">
+    <style type="text/css">
+
+
+</style>
+	</head>
+	<body>
+        <header class="ui-nav-bar">
+        <div class="ui-nav-bar-inner">
+            <a class="ui-action-back ui-nav-bar-link">
+                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+            </a>
+            <h1 class="ui-nav-bar-title">PhotoBrowser</h1>
+            <a class="ui-nav-bar-link"></a>
+        </div>
+    </header>
+    <div class="ui-photo-browser">
+                <div class="ui-photo-browser-container">
+                                <div class="ui-slider-item">
+                                    <img class="ui-slider-img" src="img/p1.jpg">
+                                </div>
+                                <div class="ui-slider-item">
+                                    <img class="ui-slider-img" src="img/p2.jpg">
+                                </div>
+                                <div class="ui-slider-item">
+                                    <img class="ui-slider-img" src="img/p3.jpg">
+                                </div>
+                                <div class="ui-slider-item">
+                                    <img class="ui-slider-img" src="img/p4.jpg">
+                                </div>
+                </div>
+    </div>
+    <span class="button-wrap">
+        <a class="button button-pill button-raised button-primary">打开图片浏览器</a>
+    </span>
+      
+        <script src="../dist/js/zepto.js"></script>
+		<script src="../dist/js/d6.js"></script>
+</body>
+<script>
+  domReady(function(require){
+        $('.button').button(function(){
+            $('.ui-photo-browser').photobrowser({
+                captions: ['描述1','描述2','描述3','描述4']
+            }).open()
+        })
+  })
+   </script>
+</html>

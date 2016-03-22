@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Hello UI SwipeListView</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../dist/css/d6.css">
+  </head>
+
+  <body>
+    <header class="ui-nav-bar">
+        <div class="ui-nav-bar-inner">
+            <a class="ui-action-back ui-nav-bar-link">
+                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+            </a>
+            <h1 class="ui-nav-bar-title">SwipeListView</h1>
+            <a class="ui-nav-bar-link"></a>
+        </div>
+    </header>
+        <div class = ' ui-content'>
+           <div class="ui-list-block">
+            <ul>
+              <li class="ui-swipeout">
+                      <div class="ui-list-item-content ui-swipeout-content">
+                        <div class="ui-list-item-inner"> 
+                          <div class="ui-list-item-title">左滑显示删除按钮</div>
+                        </div>
+                      </div>
+                      <div class="ui-swipeout-actions-right"><span class="ui-swipeout-delete">删除</span></div>
+                  </li>
+                  <li class="ui-swipeout">
+                      <div class="ui-list-item-content ui-swipeout-content">
+                        <div class="ui-list-item-inner"> 
+                          <div class="ui-list-item-title">右滑显示删除按钮</div>
+                        </div>
+                      </div>
+                      <div class="ui-swipeout-actions-left"><span class="ui-swipeout-delete">删除</span></div>
+                  </li>
+            </ul>
+          </div>  
+
+          <div class="ui-list-block ui-media-list">
+                <ul>
+                  <li class="ui-swipeout">
+                    <div class="ui-swipeout-content"><div class="ui-list-item-link ui-list-item-content">
+                        <div class="ui-list-item-inner">
+                          <div class="ui-list-item-title-row">
+                            <div class="ui-list-item-title">左滑显示删除按钮</div>
+                          </div>
+                        </div></div></div>
+                    <div class="ui-swipeout-actions-right"><span class="ui-swipeout-delete">Delete</span></div>
+                  </li>
+                  
+                <li class="ui-swipeout">
+                    <div class="ui-swipeout-content"><div class="ui-list-item-link ui-list-item-content">
+                        <div class="ui-list-item-inner">
+                          <div class="ui-list-item-title-row">
+                            <div class="ui-list-item-title">右滑显示删除按钮</div>
+                          </div>
+                        </div></div></div>
+                    <div class="ui-swipeout-actions-left"><span class="ui-swipeout-delete">删除</span></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="ui-list-block">
+            <ul>
+                  <li class="ui-swipeout">
+                      <div class="ui-list-item-content ui-swipeout-content">
+                        <div class="ui-item-media"><img class="ui-media-inset" src="img/1.png"></div>
+                        <div class="ui-list-item-inner"> 
+                          <div class="ui-list-item-title">右滑显示按钮</div>
+                        </div>
+                      </div>
+                      <div class="ui-swipeout-actions-left"><span class="bg-green">Reply</span><span  class="bg-blue">Forward</span></div>
+                    </li>
+                    <li class="ui-swipeout">
+                      <div class="ui-list-item-content ui-swipeout-content">
+                            <div class="ui-item-media"><img class="ui-media-inset" src="img/1.png"></div>
+                            <div class="ui-list-item-inner"> 
+                              <div class="ui-list-item-title">左滑显示按钮</div>
+                            </div>
+                      </div>
+                      <div class="ui-swipeout-actions-right"><span class="bg-green">Reply</span><span  class="bg-blue">Forward</span></div>
+                    </li>
+            </ul>
+          </div>  
+          <div class="ui-list-block ui-media-list">
+              <ul>
+                    <li class="ui-swipeout">
+                      <div class="ui-swipeout-content">
+                          <div class="ui-list-item-content ui-list-item-link">
+                            <div class="ui-item-media"><img class="ui-media-inset" src="img/1.png"></div>
+                            <div class="ui-list-item-inner"> 
+                              <div class="ui-list-item-title">左滑显示按钮</div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="ui-swipeout-actions-right"><span class="bg-green">Reply</span><span  class="bg-blue">Forward</span></div>
+                    </li>
+
+                    <li class="ui-swipeout">
+                      <div class="ui-swipeout-content">
+                          <div class="ui-list-item-content ui-list-item-link">
+                            <div class="ui-item-media"><img class="ui-media-inset" src="img/1.png"></div>
+                            <div class="ui-list-item-inner"> 
+                              <div class="ui-list-item-title">右滑显示按钮</div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="ui-swipeout-actions-left"><span class="bg-green">Reply</span><span  class="bg-blue">Forward</span></div>
+                    </li>
+            </ul>
+          </div>
+
+          <div class="ui-list-block ui-media-list">
+            <ul>
+              <li class="ui-swipeout">
+                <div class="ui-swipeout-content"><div class="ui-list-item-link ui-list-item-content">
+                    <div class="ui-list-item-inner">
+                      <div class="ui-list-item-title-row">
+                        <div class="ui-list-item-title">计费通知</div>
+                        <div class="ui-list-item-after">17:14</div>
+                      </div>
+                      <div class="ui-media-item-subtitle">您支付了7元</div>
+                      <div class="ui-media-item-text">您2015-05-17 21:09:49的用车服务已完成，行驶10.00分钟3.70公里，原价10.00元，使用优惠券3.00元，应付7.00元，2小时后系统将自动从您的信用卡中扣款，账户有余额时优先扣除余额。</div>
+                    </div></div></div>
+                <div class="ui-swipeout-actions-left"><span class="bg-green ui-swipeout-overswipe">Reply</span><span class="bg-blue">Forward</span></div>
+                <div class="ui-swipeout-actions-right"><span>More</span><span class="bg-orange">Mark</span><span class="ui-swipeout-delete ui-swipeout-overswipe">Delete</span></div>
+              </li>
+              <li class="ui-swipeout">
+                <div class="ui-swipeout-content"><div class="ui-list-item-link ui-list-item-content">
+                    <div class="ui-list-item-inner">
+                      <div class="ui-list-item-title-row">
+                        <div class="ui-list-item-title">计费通知</div>
+                        <div class="ui-list-item-after">17:14</div>
+                      </div>
+                      <div class="ui-media-item-subtitle">您支付了7元</div>
+                      <div class="ui-media-item-text">您2015-05-17 21:09:49的用车服务已完成，行驶10.00分钟3.70公里，原价10.00元，使用优惠券3.00元，应付7.00元，2小时后系统将自动从您的信用卡中扣款，账户有余额时优先扣除余额。</div>
+                    </div></div></div>
+                <div class="ui-swipeout-actions-left"><span class="bg-green ui-swipeout-overswipe">Reply</span><span class="bg-blue">Forward</span></div>
+                <div class="ui-swipeout-actions-right"><span>More</span><span class="bg-orange">Mark</span><span class="ui-swipeout-delete ui-swipeout-overswipe">Delete</span></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="ui-list-block ui-media-list">
+            <ul>
+              <li class="ui-swipeout">
+                <div class="ui-swipeout-content"><div class="ui-list-item-content">
+                    <div class="ui-list-item-inner">
+                      <div class="ui-list-item-title-row">
+                        <div class="ui-list-item-title">计费通知</div>
+                        <div class="ui-list-item-after">17:14</div>
+                      </div>
+                      <div class="ui-media-item-subtitle">您支付了7元</div>
+                      <div class="ui-media-item-text">您2015-05-17 21:09:49的用车服务已完成，行驶10.00分钟3.70公里，原价10.00元，使用优惠券3.00元，应付7.00元，2小时后系统将自动从您的信用卡中扣款，账户有余额时优先扣除余额。</div>
+                    </div></div></div>
+                <div class="ui-swipeout-actions-left"><span class="bg-green ui-swipeout-overswipe">Reply</span><span class="bg-blue">Forward</span></div>
+                <div class="ui-swipeout-actions-right"><span>More</span><span class="bg-orange">Mark</span><span class="ui-swipeout-delete ui-swipeout-overswipe">Delete</span></div>
+              </li>
+              <li class="ui-swipeout">
+                <div class="ui-swipeout-content"><div class="ui-list-item-content">
+                    <div class="ui-list-item-inner">
+                      <div class="ui-list-item-title-row">
+                        <div class="ui-list-item-title">计费通知</div>
+                        <div class="ui-list-item-after">17:14</div>
+                      </div>
+                      <div class="ui-media-item-subtitle">您支付了7元</div>
+                      <div class="ui-media-item-text">您2015-05-17 21:09:49的用车服务已完成，行驶10.00分钟3.70公里，原价10.00元，使用优惠券3.00元，应付7.00元，2小时后系统将自动从您的信用卡中扣款，账户有余额时优先扣除余额。</div>
+                    </div></div></div>
+                <div class="ui-swipeout-actions-left"><span class="bg-green">Reply</span><span class="bg-blue">Forward</span></div>
+                <div class="ui-swipeout-actions-right "><span >More</span><span class="bg-orange">Mark</span><span class="ui-swipeout-delete ui-swipeout-overswipe">Delete</span></div>
+              </li>
+            </ul>
+          </div>
+      </div>
+  <script src="../dist/js/zepto.js"></script>
+  <script src="../dist/js/d6.js"></script>
+</body>
+<script>
+
+  domReady(function(require){
+    $('.ui-swipeout').swipelist();
+    $('.ui-swipeout').on('delete',function(e,sp){
+      setTimeout(function(){
+        sp.delete()
+      },1000)
+      return false;
+    }).on('open',function(e,sp){
+      console.log('open');
+    }).on('close',function(e,sp){
+      console.log('close');
+    }).on('opened',function(e,sp){
+      console.log('opened');
+    }).on('closed',function(e,sp){
+      console.log('closed');
+    }).on('deleted',function(e,sp){
+      console.log('deleted');
+    }).on('tapped',function(e,sp){
+      console.log('singleTap');
+    })
+  });
+</script>
+</html>

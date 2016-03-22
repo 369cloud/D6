@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hello UI LazyLoadImage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/d6.css">
+    <style type="text/css">
+.ui-lazy-loader {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #efeff4;
+ }
+ .ui-lazy-loader-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    padding: 10px 15px;
+ }
+ .ui-lazy-loader-content .ui-lazy,
+ .ui-lazy-loader-content .ui-lazy-loaded {
+    display: block;
+    width: 100%;
+    height: auto;
+   -webkit-animation: lazyFadeIn 600ms;
+   animation: lazyFadeIn 600ms;
+ }
+ p {
+  margin: 1em 0;
+}
+</style>
+</head>
+<body class="ui-lazy-loader loader">
+
+    <header class="ui-nav-bar">
+        <div class="ui-nav-bar-inner">
+            <a class="ui-action-back ui-nav-bar-link">
+                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+            </a>
+            <h1 class="ui-nav-bar-title">LazyLoadImage</h1>
+            <a class="ui-nav-bar-link"></a>
+        </div>
+    </header>
+    <div class="ui-lazy-loader-content loader-content ui-content">
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/peaceful_bamboo_grove.jpg" class="ui-lazy" /></p>
+                        
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/peaceful_lake.jpg"  class="ui-lazy" /></p>
+                       
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/quiet_rainforest.jpg"  class="ui-lazy" /></p>
+                       
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/mossy_glade.jpg"  class="ui-lazy" /></p>
+                       
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/quiet_zen_retreat.jpg"  class="ui-lazy" /></p>
+                       
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/still_sunset.jpg"  class="ui-lazy" /></p>
+                        
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/reading_a_book.jpg"  class="ui-lazy" /></p>
+                        
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/zen_tranquility.jpg"  class="ui-lazy" /></p>
+                        
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/calm_zen_garden.jpg"  class="ui-lazy" /></p>
+                       
+                        <p> <img data-src="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/calm_ocean.jpg"  class="ui-lazy" /></p>
+                       
+                        <div style='height:300px;' data-background="http://www.freeimages.co.uk/galleries/sports/relaxation/thumbs/beach_walk.jpg" class="ui-lazy"></div>
+    </div> 
+        <script src="../dist/js/zepto.js"></script>
+        <script src="../dist/js/d6.js"></script>
+</body>
+<script>
+
+    domReady(function(require){
+        $('.ui-lazy-loader').lazyloadimage();
+    });
+</script>
+</html>

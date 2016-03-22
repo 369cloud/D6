@@ -1,0 +1,378 @@
+/* === input === */
+.ui-input-row {
+  overflow: hidden;
+  clear: left;
+  position: relative;
+}
+
+.ui-input-row * {
+  -webkit-box-sizing: border-box;
+          
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ui-input-row button,
+.ui-input-row input,
+.ui-input-row optgroup,
+.ui-input-row select,
+.ui-input-row textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.ui-input-row input {
+  line-height: normal;
+}
+
+.ui-input-row input,
+.ui-input-row textarea,
+.ui-input-row select {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ui-input-row input[type="search"] {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+
+.ui-input-row select,
+.ui-input-row textarea,
+.ui-input-row input[type="text"],
+.ui-input-row input[type="search"],
+.ui-input-row input[type="password"],
+.ui-input-row input[type="datetime"],
+.ui-input-row input[type="datetime-local"],
+.ui-input-row input[type="date"],
+.ui-input-row input[type="month"],
+.ui-input-row input[type="time"],
+.ui-input-row input[type="week"],
+.ui-input-row input[type="number"],
+.ui-input-row input[type="email"],
+.ui-input-row input[type="url"],
+.ui-input-row input[type="tel"],
+.ui-input-row input[type="color"] {
+  width: 100%;
+  height: 40px;
+  -webkit-appearance: none;
+  padding: 10px 15px;
+  line-height: 21px;
+  -webkit-user-select: text;
+  background-color: #fff;
+  border-radius: 3px;
+  outline: none;
+}
+
+.ui-input-row input[type="search"] {
+  height: 34px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .1);
+  border: 0;
+  border-radius: 6px;
+}
+
+.ui-input-row button,
+.ui-input-row select {
+  text-transform: none;
+}
+.ui-input-row select {
+  height: auto;
+  margin-top: 1px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 0 !important;
+}
+
+.ui-input-row textarea {
+  height: auto;
+  resize: none;
+}
+
+.ui-search {
+  position: relative;
+}
+
+.ui-search input[type="search"] {
+  padding-left: 30px;
+}
+
+.ui-search input[type=search]::-webkit-search-cancel-button { 
+  display: none; 
+}
+
+.ui-hidden {
+  display: none !important;
+}
+
+.ui-input-row .ui-input-clear ~ .ui-icon-clear, .ui-input-row .ui-input-speech ~ .ui-icon-speech {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+  color: #999;
+  text-align: center;
+}
+
+.ui-input-row.ui-search .ui-icon-clear {
+  top: 7px;
+}
+
+.ui-search .ui-placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: inline-block;
+  height: 34px;
+  font-size: 16px;
+  line-height: 34px;
+  color: #999;
+  text-align: center;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+}
+
+.ui-search .ui-placeholder .ui-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+.ui-input-row .ui-input-clear ~ .ui-icon-clear ~ .ui-icon-speech {
+  display: none;
+}
+
+.ui-input-row .ui-input-clear ~ .ui-icon-clear.ui-hidden ~ .ui-icon-speech {
+  display: inline-block;
+}
+
+.ui-input-row .ui-icon-speech ~ .ui-placeholder {
+  right: 38px;
+}
+
+.ui-input-group {
+  position: relative;
+  padding: 0;
+  background-color: #fff;
+  border: 0;
+}
+.ui-input-group .ui-button-row {
+  height: 45px;
+}
+
+.ui-input-group:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  background-color: #c8c7cc;
+  -webkit-transform: scaleY(.5);
+          transform: scaleY(.5);
+}
+
+.ui-input-group:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  background-color: #c8c7cc;
+  -webkit-transform: scaleY(.5);
+          transform: scaleY(.5);
+}
+
+.ui-input-group .ui-input-row {
+  height: 40px;
+}
+
+.ui-input-row label {
+  float: left;
+  width: 35%;
+  padding: 10px 15px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.1;
+}
+
+.ui-input-row select {
+  height: 37px;
+  padding: 0;
+  font-size: 17px;
+}
+
+.ui-input-row label ~ select,
+.ui-input-row label ~ textarea,
+.ui-input-row label ~ input[type="text"],
+.ui-input-row label ~ input[type="search"],
+.ui-input-row label ~ input[type="password"],
+.ui-input-row label ~ input[type="datetime"],
+.ui-input-row label ~ input[type="datetime-local"],
+.ui-input-row label ~ input[type="date"],
+.ui-input-row label ~ input[type="month"],
+.ui-input-row label ~ label ~ input[type="time"],
+.ui-input-row label ~ input[type="week"],
+.ui-input-row label ~ input[type="number"],
+.ui-input-row label ~ input[type="email"],
+.ui-input-row label ~ input[type="url"],
+.ui-input-row label ~ input[type="tel"],
+.ui-input-row label ~ input[type="color"] {
+  width: 65%;
+  float: right;
+  padding-left: 0;
+  margin-bottom: 0;
+  border: 0;
+}
+
+.ui-input-group .ui-input-row:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 15px;
+  height: 1px;
+  content: '';
+  background-color: #c8c7cc;
+  -webkit-transform: scaleY(.5);
+          transform: scaleY(.5);
+}
+
+.ui-input-row:last-child,
+.ui-input-row label + input, .ui-input-row .ui-btn + input {
+  background-image: none;
+}
+
+.ui-input-group input:last-child {
+  background-image: none;
+}
+
+.ui-input-group input[type=text],
+.ui-input-group textarea {
+  margin-bottom: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.ui-input-group input[type=text],
+.ui-input-group textarea {
+  margin-bottom: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+
+.ui-search:before {
+  position: absolute;
+  right: 50%;
+  display: none;
+  margin-top: 3px;
+  margin-right: 31px;
+  font-family: FontAwesome;
+  font-size: 20px;
+  font-weight: normal;
+  content: '\e466';
+}
+
+.ui-search.ui-active:before {
+  right: auto;
+  left: 5px;
+  display: block;
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.ui-search.ui-active input[type="search"] {
+  text-align: left;
+}
+
+.ui-search.ui-active .ui-placeholder {
+  display: none;
+}
+
+.ui-radio, .ui-checkbox {
+  position: relative;
+}
+
+.ui-radio label, .ui-checkbox label {
+  display: inline-block;
+  float: none;
+  width: 100%;
+}
+
+.ui-radio.ui-left label, .ui-checkbox.ui-left label {
+  padding-left: 58px;
+}
+
+.ui-radio.ui-left input[type="radio"], .ui-checkbox.ui-left input[type="checkbox"] {
+  left: 20px;
+}
+
+.ui-radio input[type="radio"], .ui-checkbox input[type="checkbox"] {
+  position: absolute;
+  top: 4px;
+  right: 20px;
+  display: inline-block;
+  width: 28px;
+  height: 26px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0;
+  outline: 0 !important;
+}
+
+.ui-radio input[type="radio"]:before, .ui-checkbox input[type="checkbox"]:before {
+  font-family: FontAwesome;
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 1;
+  color: rgba(170, 170, 170, .6);
+  text-decoration: none;
+  background: none;
+  border-radius: 0;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.ui-checkbox input[type="checkbox"]:before {
+  content: "\e411";
+}
+.ui-checkbox input[type="checkbox"]:checked:before {
+  content: "\e442";
+}
+.ui-radio input[type="radio"]:checked:before, .ui-checkbox input[type="checkbox"]:checked:before {
+  color: #007aff;
+}
+.ui-radio input[type="radio"]:checked:before {
+  content: "\e441";
+}
+.ui-radio input[type="radio"]:before {
+  content: "\e411";
+}
+
+.ui-input-row.ui-input-textarea{
+  margin: 10px 5px;
+}

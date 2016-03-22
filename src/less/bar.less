@@ -1,0 +1,141 @@
+/* === bar === */
+
+.ui-nav-bar {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  left: 0;
+  top: 0;
+  height: 44px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 17px;
+  position: relative;
+  margin: 0;
+  z-index: 500;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-box-shadow: 0px 1px 6px #CCC;
+  box-shadow: 0px 1px 6px #CCC;
+}
+.ui-nav-bar a {
+    outline: 0;
+    text-decoration: none;
+    color: @blue;
+    background: transparent;
+}
+.ui-nav-bar:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  top: auto;
+  height: 1px;
+  width: 100%;
+  background-color: #c4c4c4;
+  display: block;
+  z-index: 15;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+   -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.ui-nav-bar-inner{
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.ui-nav-bar .ui-nav-bar-link{
+  line-height: 44px;
+  height: 44px;
+  display: inline-block;
+}
+.ui-nav-bar .ui-nav-bar-des{
+  font-size: 0.8em;
+}
+.ui-nav-bar-title {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 -10px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 44px;
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+  right: 40px;
+  left: 40px;
+  width: auto;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 
+
+.ui-nav-bar .ui-nav-bar-icon {
+  position: relative;
+  z-index: 20;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 24px;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+.ui-nav-bar .ui-nav-bar-left{
+  float: left;
+  margin-left: 10px;
+  font-size:30px;
+  padding-top:5px;
+}
+.ui-nav-bar .ui-nav-bar-right{
+  float: right;
+  margin-right: 17px;
+}
+
+.ui-nav-bar ~ .ui-content {
+  position: fixed;
+  overflow-y: scroll;
+  top: 44px;
+  bottom: 0px;
+}
+
+.ui-nav-bar ~ .ui-scroll-wrapper {
+  top: 44px;
+}
+
+.ui-ios7 .ui-nav-bar{
+  height: 64px;
+  padding-top: 20px;
+}
+.ui-ios7 .ui-nav-bar ~ .ui-content {
+  top: 64px;
+}
+.ui-ios7 .ui-nav-bar ~ .ui-scroll-wrapper {
+  top: 64px;
+}
+
