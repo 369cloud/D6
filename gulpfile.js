@@ -33,6 +33,7 @@ var gulp = require('gulp'), //基础库
             scripts: 'assets/libs/',
             fonts: 'assets/fonts/'
         },
+        
         examples: {
             root: 'examples/',
             index: 'examples/index.html'
@@ -83,7 +84,7 @@ var gulp = require('gulp'), //基础库
             '/**',
             ' * Released on: <%= date.year %>-<%= date.month %>-<%= date.day %>',
             ' * =====================================================',
-            ' * <%= name %> v1.0.1 (http://docs.369cloud.com/engine/jssdk/JS-SDK)',
+            ' * <%= name %> v1.0.1 (https://github.com/369cloud/D6.git)',
             ' * =====================================================',
             ' */',
             ''
