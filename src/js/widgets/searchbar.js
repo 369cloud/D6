@@ -1,7 +1,8 @@
 /**
  * @file searchbar组件
  */
-;(function() {
+;
+(function() {
     var previousQuery = '',
         diacriticsMap = {};
 
@@ -49,9 +50,8 @@
         // Input
         _sc._input = container.find('input[type="search"]');
         _sc._clearButton = $(clear).insertAfter(_sc._input);
-        $(cancel).text(opts.cancel).appendTo(container)
         _sc._cancelButton = $(cancel).text(opts.cancel).appendTo(container);
-        opts.cancelWidth = _sc._cancelButton.css('display','block').width();
+        opts.cancelWidth = _sc._cancelButton.css('display', 'block').width();
 
         // Search List
         _sc._searchList = _sc.ref.find(SELECTOR_SEARCHBAR_LIST);
@@ -61,12 +61,6 @@
         _sc._found = _sc._searchList;
         _sc._notFound = $(notFound).appendTo(_sc._content);
 
-        // Cancel button
-        _sc._cancelButton.transition(0).show();
-        _sc._cancelButton.css('margin-right', -_sc._cancelButton[0].offsetWidth + 'px');
-        setTimeout(function() {
-            _sc._cancelButton.transition('').hide();
-        }, 0);
     };
 
     //绑定事件
@@ -75,16 +69,15 @@
             opts = _sc.opts,
             container = _sc._container;
 
-        var method = 'on';
-        container[method]('submit', preventSubmit);
-        _sc._cancelButton[method]('tap', $.proxy(_sc.disable, _sc));
-        _sc._overlay[method](_sc.touchOver(), function(evt){
+        container.on('submit', preventSubmit);
+        _sc._cancelButton.on(_sc.touchEve(), $.proxy(_sc.disable, _sc));
+        _sc._overlay.on(_sc.touchOver(), function(evt) {
             _sc.disable();
             _sc.preventDefault(evt);
         });
-        _sc._input[method]('focus', $.proxy(_sc.enable, _sc));
-        _sc._input[method]('change keydown keypress keyup', $.proxy(_sc.handleInput, _sc));
-        _sc._clearButton[method]('tap', $.proxy(_sc.clear, _sc));
+        _sc._input.on('focus', $.proxy(_sc.enable, _sc));
+        _sc._input.on('change keydown keypress keyup', $.proxy(_sc.handleInput, _sc));
+        _sc._clearButton.on(_sc.touchEve(), $.proxy(_sc.clear, _sc));
     };
 
     var preventSubmit = function(e) {
@@ -368,7 +361,7 @@
         //searchbar
         var $searchbar = $ui.define('Searchbar', {
             customSearch: false,
-            cancel:'取消'
+            cancel: '取消'
         });
 
         //初始化
@@ -384,13 +377,19 @@
                 container = _sc._container;
 
             function _enable() {
-                if(_sc.active)return;
+                if (_sc.active) return;
                 if (_sc._searchList.length && !container.hasClass(CLASS_SEARCHBAR_ACTIVE)) _sc._overlay.addClass(CLASS_SEARCHBAR_OVERLAY_ACTIVE);
                 container.addClass(CLASS_SEARCHBAR_ACTIVE);
-                container.css('padding-right',(opts.cancelWidth + 15) + 'px') ;   
-                _sc._cancelButton.transition(0).show();
+
+                container.animate({
+                    'padding-right': (opts.cancelWidth + 15) + 'px'
+                }, 100, function() {
+                    _sc._cancelButton.transition(0).show();
+                    _sc._cancelButton.animate({
+                        'margin-right': '0px'
+                    }, 100);
+                });
                 (!e && !_sc.active) && (_sc.active = true && _sc._input.focus())
-                if (_sc._cancelButton.length > 0) _sc._cancelButton.css('margin-right', '0px');
                 $(document.body).css('overflowY', 'hidden');
                 _sc._content.css('overflowY', 'hidden');
                 _sc.ref.trigger('enableSearch');
@@ -416,12 +415,16 @@
                 _sc.active = false;
                 _sc._input.val('').trigger('change');
                 container.removeClass(CLASS_SEARCHBAR_ACTIVE + ' ' + CLASS_SEARCHBAR_NOT_EMPTY);
-                container.css('padding-right','8px') ;  
-                _sc._cancelButton.transition('').hide();
+                _sc._cancelButton.animate({
+                    'margin-right': (-_sc._cancelButton[0].offsetWidth) + 'px'
+                }, 100, function() {
+                    _sc._cancelButton.transition('').hide();
+                    container.animate({
+                        'padding-right': '8px'
+                    }, 100);
+                });
                 $(document.body).css('overflowY', 'scroll');
                 _sc._content.css('overflowY', 'scroll');
-                if (_sc._cancelButton.length > 0) _sc._cancelButton.css('margin-right', -_sc._cancelButton[0].offsetWidth + 'px');
-
                 if (_sc._searchList.length) _sc._overlay.removeClass(CLASS_SEARCHBAR_OVERLAY_ACTIVE);
             }
             _sc._input.blur();

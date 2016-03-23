@@ -15,3 +15,5 @@
 	执行命令：npm install gulpjs/gulp#4.0 -g安装gulp到全局
 	执行命令：npm install 安装配置环境到本地
 	执行命令：gulp
+
+   运行`gulp`命令后，会监听`src`目录下所有JS、less文件的变更，并且会在3003端口启动服务器，然后再浏览器打开`http://localhost:3003/examples/index.html`

@@ -33,7 +33,7 @@ var gulp = require('gulp'), //基础库
             scripts: 'assets/libs/',
             fonts: 'assets/fonts/'
         },
-        
+
         examples: {
             root: 'examples/',
             index: 'examples/index.html'
@@ -105,7 +105,7 @@ var gulp = require('gulp'), //基础库
 
 // 清空dist样式
 gulp.task('cleanDist', function(cb) {
-    return del([paths.dist.root]);
+    return del([paths.dist.root + '*.*']);
 });
 
 // dist样式处理
@@ -189,7 +189,7 @@ gulp.task('dist-font-ex', function(cb) {
 
 
 // 样式处理
-gulp.task('dist-styles', gulp.series('cleanDist', 'dist-css', 'dist-font', 'dist-button','dist-font-awesome','dist-font-ex'));
+gulp.task('dist-styles', gulp.series('cleanDist', 'dist-css', 'dist-font', 'dist-button', 'dist-font-awesome', 'dist-font-ex'));
 
 // js处理
 gulp.task('dist-d6', function(cb) {
