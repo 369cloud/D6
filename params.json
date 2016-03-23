@@ -1,0 +1,6 @@
+{
+  "name": "D6",
+  "tagline": "一款基于zepto的移动端ui库",
+  "body": "# 环境配置\r\n\r\n\r\n1、安装nodeJs\r\n\thttp://www.cnblogs.com/pigtail/archive/2013/01/08/2850486.html\r\n\r\n2、安装git\r\n\thttp://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html\r\n\r\n3、工程目录右键，选择Git Bash\r\n\r\n\r\n4、安装gulp \r\n\t\r\n\t执行命令：npm install gulpjs/gulp#4.0 -g安装gulp到全局\r\n\t执行命令：npm install 安装配置环境到本地\r\n\t执行命令：gulp\r\n\r\n   运行`gulp`命令后，会监听`src`目录下所有JS、less文件的变更，并且会在3003端口启动服务器，然后再浏览器打开`http://localhost:3003/examples/index.html`",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
