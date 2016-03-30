@@ -99,7 +99,7 @@
 		console.log(str);
 		return this;
 	};
-	
+
 	Base.stopPropagation = function(e) {
 		e.stopPropagation();
 		return this;
@@ -208,5 +208,6 @@
 	}
 
 	global.define = define;
+	
 	global.d6 = d6;
 })(this, $);
