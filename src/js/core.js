@@ -10,7 +10,7 @@
 		REQUIRE_RE = /"(?:\\"|[^"])*"|'(?:\\'|[^'])*'|\/\*[\S\s]*?\*\/|\/(?:\\\/|[^\/\r\n])+\/(?=[^\/])|\/\/.*|\.\s*require|(?:^|[^$])\brequire\s*\(\s*(["'])(.+?)\1\s*\)/g,
 		SLASH_RE = /\\\\/g;
 
-	var getWidget = function(name,ann) {
+	var getWidget = function(name) {
 		return $ui.widgets[name]
 	};
 
