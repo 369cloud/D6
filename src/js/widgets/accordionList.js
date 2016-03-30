@@ -8,6 +8,8 @@
         CLASS_ACCORDION_LIST_ITEM_EXPANDED = 'ui-accordion-list-item-expanded',
         CLASS_ACCORDION_LIST_ITEM_LINK = 'ui-accordion-list-item-link',
         CLASS_ACCORDION_LIST_ITEM_CONTENT = 'ui-accordion-list-item-content',
+        CLASS_ACCORDION_LIST_ITEM_CONTENT_IOS = 'ui-accordion-list-item-content-ios',
+        CLASS_ACCORDION_LIST_ITEM_CONTENT_ANDROID = 'ui-accordion-list-item-content-android',
         CLASS_ACCORDION_LIST_ITEM_INNER = 'ui-accordion-list-item-inner',
         CLASS_ACCORDION_LIST_ITEM_TITLE = 'ui-accordion-list-item-title',
         CLASS_ACCORDION_LIST_ITEM_LINK_EXPANDED = 'ui-accordion-list-item-link-expanded',
@@ -31,6 +33,11 @@
                 el.addClass(CLASS_ACCORDION_LIST_ITEM_EXTEND);
             }
         })
+        if($.os.ios){
+            _acd.ref.find(SELECTOR_ACCORDION_LIST_ITEM_CONTENT).addClass(CLASS_ACCORDION_LIST_ITEM_CONTENT_IOS)
+        }else{
+            _acd.ref.find(SELECTOR_ACCORDION_LIST_ITEM_CONTENT).addClass(CLASS_ACCORDION_LIST_ITEM_CONTENT_ANDROID)
+        }
     };
 
     //绑定事件
