@@ -10,13 +10,22 @@
   overflow: hidden;
   height: 0;
   font-size: 14px;
+}
+
+.ui-accordion-list-item-content-ios {
   -webkit-transition-duration: 300ms;
   transition-duration: 300ms;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+
+.ui-accordion-list-item-content-android {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+
 .ui-accordion-list .ui-accordion-list-item .ui-accordion-list-item-inner:before {
-  	position: absolute;
+    position: absolute;
     top: 50%;
     display: inline-block;
     font-family: FontAwesome;
