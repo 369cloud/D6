@@ -155,8 +155,8 @@
     var updateDots = function(to, from) {
         var _fp = this,
             dots = _fp._dots;
-        typeof from === 'undefined' || _fp.callZ(dots[from % _fp.pagesLength]).removeClass(CLASS_STATE_ACTIVE);
-        _fp.callZ(dots[to % _fp.pagesLength]).addClass(CLASS_STATE_ACTIVE);
+        typeof from === 'undefined' || $(dots[from % _fp.pagesLength]).removeClass(CLASS_STATE_ACTIVE);
+        $(dots[to % _fp.pagesLength]).addClass(CLASS_STATE_ACTIVE);
     };
 
     var fix = function(cur, pagesLength, loop) {

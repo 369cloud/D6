@@ -108,8 +108,8 @@
         var _sl = this,
             dots = _sl._dots;
 
-        typeof from === 'undefined' || _sl.callZ(dots[from % this.length]).removeClass(CLASS_STATE_ACTIVE);
-        _sl.callZ(dots[to % this.length]).addClass(CLASS_STATE_ACTIVE);
+        typeof from === 'undefined' || $(dots[from % this.length]).removeClass(CLASS_STATE_ACTIVE);
+        $(dots[to % this.length]).addClass(CLASS_STATE_ACTIVE);
     };
 
     var initDots = function() {

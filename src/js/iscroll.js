@@ -472,7 +472,6 @@
 					this._execEvent('scroll');
 				}
 				if (Math.abs(360 * Math.atan(diff_y / diff_x) / (2 * Math.PI)) < 60) return;
-				// console.log(co.verticalSwipe);
 				if (!d6.verticalSwipe) return;
 			}
 

@@ -77,7 +77,7 @@
                 }
                 if(Math.abs(angle(touchesStart,touchesEnd)) > 30)return;
                 
-                co.verticalSwipe = false;
+                d6.verticalSwipe = false;
                 delta.x = touche.pageX - touchesStart.x;
                 delta.y = touche.pageY - touchesStart.y;
                 if ( typeof isScrolling === 'undefined' ) {
@@ -114,7 +114,7 @@
             };
 
         var sliderTonEnd = function() {
-                co.verticalSwipe = true;
+                d6.verticalSwipe = true;
                 var _sl = this,
                     opts = _sl.opts;
                 // 解除事件

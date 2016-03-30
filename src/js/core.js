@@ -99,16 +99,7 @@
 		console.log(str);
 		return this;
 	};
-	Base.callZ = (function() {
-		var instance = $();
-		instance.length = 1;
-
-		return function(item) {
-			instance[0] = item;
-			return instance;
-		};
-	})()
-
+	
 	Base.stopPropagation = function(e) {
 		e.stopPropagation();
 		return this;
