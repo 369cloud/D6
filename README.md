@@ -71,8 +71,7 @@ D6组件的开发主要使用两种方式：
 	-	Base：组件对象的基础类，提供组件的基础方法和属性，所有组件对象基于该对象扩展，实例化过程会调用每个组件的`init`方法
 	-	$ui：组件的管理对象，提供组件和插件的定义、获取、注册方法
 	-	define：组件主体部分定义方法，将`$ui`对象传入
-	-	domReady：页面初始化方法，传入`requery`方法获取组件对象
-	-	插件的调用
+	-	domReady：页面初始化方法，传入`require`方法获取组件对象
 
 	组件示例代码：
 
@@ -192,7 +191,7 @@ D6组件的开发主要使用两种方式：
 
 *	$('#className').widget()的方式；
 
-*	通过requery方法获取组件对象手动初始化：
+*	通过require方法获取组件对象手动初始化：
 
 		var widget = require('widgetName')
         var widgetObj = new widget({
