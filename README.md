@@ -65,7 +65,6 @@
 D6组件的开发主要使用两种方式：
 
 *	基于zeptoJs开发组件，可根据个人习惯开发基于`zeptoJs`的插件。
-
 *	基于core.js，其提供一些简单的移动方法便于组件的构建，主要包含以下几个对象和方法：`d6`、`Base`、`$ui`、`define`、`domReady`
 	-	d6：组件库的对外暴露对象，提供全局属性和方法
 	-	Base：组件对象的基础类，提供组件的基础方法和属性，所有组件对象基于该对象扩展，实例化过程会调用每个组件的`init`方法
@@ -82,9 +81,9 @@ D6组件的开发主要使用两种方式：
 		
 		;(function() {
 		
-		// 私有变量  
+			// 私有变量  
 		   
-		// 私有方法  
+			// 私有方法  
 		
 		    // 渲染组件
 		
@@ -102,14 +101,14 @@ D6组件的开发主要使用两种方式：
 		            property: 0
 		        });
 
-		     //实现init方法
+		     	//实现init方法
 		
 		        widget.prototype.init = function() {
 		            // 渲染组件
 		            // 绑定事件
 		        };
 		
-		     // 对象扩展对外接口  
+		     	// 对象扩展对外接口  
 		
 		        /**
 		         * 功能描述
@@ -118,8 +117,8 @@ D6组件的开发主要使用两种方式：
 		         * @return {self} 返回本身。
 		         */
 		        widget.prototype.method = function(index) {
-			    ......
-			    ......
+			    	......
+			    	......
 		            return this;
 		        };
 		
@@ -127,11 +126,11 @@ D6组件的开发主要使用两种方式：
 		         * 销毁组件
 		         * @method destroy
 		         */
-		       widget.prototype.destroy = function() {
+		       	widget.prototype.destroy = function() {
 		
 		        };
 		
-		     // 绑定到zepto对象上  供外部创建对象使用 
+		     	// 绑定到zepto对象上  供外部创建对象使用 
 		
 		        //注册$插件
 		        $.fn.widget = function(opts) {
@@ -154,7 +153,6 @@ D6组件的开发主要使用两种方式：
 		            });
 		            return objs.length > 1 ? objs : objs[0];
 		        };
-		
 		    });
 		})();
 
@@ -173,18 +171,14 @@ D6组件的开发主要使用两种方式：
 		     * 插件定义
 		     */
 		    define(function($ui) {
-		
-			// 插件对象定义  
+				// 插件对象定义  
 		        $ui.plugin('plugin', function(){
 		
-			// 插件内部实现
+					// 插件内部实现
 			
 		        });
 		    });
 		})()
-
-	
-
 
 ## 组件初始化
 组件有两种初始化方式：
