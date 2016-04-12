@@ -12,7 +12,6 @@ body {
   line-height: 1.4;
   width: 100%;
   -webkit-text-size-adjust: 100%;
-  overflow: hidden;
   background-color: #efeff4;
 }
 html,
@@ -518,6 +517,91 @@ input[type='color'] {
   bottom: 0;
   left: 0;
   right: 0;
+}
+/* ---- 窗口（window）布局
+    <body class="d6-container">
+        <header class="d6-header">
+            糗事百科---
+        </header>
+        <section class="content">
+            
+        </section>
+        
+        <footer class="d6-footer">
+            自动撑开到底部，但是不固定
+        </footer>
+    </body>
+ ----- */
+/*
+ * flex 兼容性问题，比较多，旧版需要加上-webkit，且没有发布删除-webkit的版本
+ */
+.d6-container {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+}
+.d6-content {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+/*
+ * 为header添加垂直居中，display：box的后，text-align:center；失效；
+ */
+.d6-header,
+.d6-footer {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  /*垂直居中*/
+  -webkit-box-pack: center;
+  /*水平居中*/
+}
+/* 被d6-content 撑到底部的footer */
+.d6-footer {
+  width: 100%;
+  background-color: #f00;
+  height: 50px;
+}
+/* 被fixed到底部的footer */
+.d6-footer-fixed {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #f00;
+  height: 50px;
+}
+/* 栅格化, 参考bootstrap 栅格化 */
+.grid {
+  display: -webkit-flex;
+  display: flex;
+  margin: 0 -10px;
+}
+.grid-cell {
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 0 10px;
+}
+.col-1,
+.col-2,
+.col-3,
+.col-4 {
+  padding: 0 10px;
+}
+.grid .col-4 {
+  -webkit-flex: 0 0 100%;
+  flex: 0 0 100%;
+}
+.grid .col-3 {
+  -webkit-flex: 0 0 75%;
+  flex: 0 0 75%;
+}
+.grid .col-2 {
+  -webkit-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+.grid .col-1 {
+  -webkit-flex: 0 0 25%;
+  flex: 0 0 25%;
 }
 /* === card === */
 .card {
@@ -2404,6 +2488,7 @@ html.ios-gt-6.pixel-ratio-3 .ui-list-block li:last-child li .ui-list-item-inner:
   overflow-y: scroll;
   width: 100%;
   min-height: 100.1%;
+  background: #EFEFF4;
 }
 .ui-accordion-item {
   margin-top: 5px;
@@ -2420,10 +2505,16 @@ html.ios-gt-6.pixel-ratio-3 .ui-list-block li:last-child li .ui-list-item-inner:
   margin-top: 10px;
   height: 0;
   font-size: 14px;
+}
+.ui-accordion-item-content-ios {
   -webkit-transition-duration: 300ms;
   transition-duration: 300ms;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+.ui-accordion-item-content-android {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
 }
 .ui-accordion .ui-accordion-item .ui-accordion-item-inner:after {
   position: absolute;
@@ -2535,10 +2626,16 @@ html:not(.watch-active-state) .ui-accordion .ui-accordion-item-link:active {
   overflow: hidden;
   height: 0;
   font-size: 14px;
+}
+.ui-accordion-list-item-content-ios {
   -webkit-transition-duration: 300ms;
   transition-duration: 300ms;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+.ui-accordion-list-item-content-android {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
 }
 .ui-accordion-list .ui-accordion-list-item .ui-accordion-list-item-inner:before {
   position: absolute;

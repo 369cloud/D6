@@ -192,3 +192,6 @@ D6组件的开发主要使用两种方式：
             ref:$('.className')
         })
 
+## change log
+1. 增加layout布局。
+2. 增加栅格化
