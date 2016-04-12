@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,initial-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="../dist/css/d6.css"/>
+		<style>
+			/* 页面中的css 都是为了测试效果，给grid必须*/
+			.grid{
+				border:10px solid #f00;
+			}
+			.grid-cell, .col-1, .col-2, .col-3, .col-4{
+				border: 5px solid #ff0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="grid">
+			<div class="grid-cell">
+				grid-cell
+			</div>
+			<div class="grid-cell">
+				grid-cell
+			</div>
+			<div class="grid-cell">
+				grid-cell
+			</div>
+		</div>
+
+		<div class="grid mt">
+			<div class="grid-cell col-4">
+				col-1
+			</div>
+		</div>
+		<div class="grid mt">
+			<div class="col-1">
+				col-1
+			</div>
+			<div class="grid-cell">
+				content
+			</div>
+			<div class="col-2">
+				col-1
+			</div>
+		</div>
+		<div class="grid mt">
+			<div class="col-3">
+				col-1
+			</div> 
+			<div class="col-1">
+				content
+			</div>
+			<div class="col-1">
+				col-1
+			</div>
+			<div class="col-1">
+				col-1
+			</div>
+		</div>
+		<h3>左侧固定，右侧自适应</h3>
+		<div class="grid">
+			<span style="width:100px;height:40px;">span</span>
+			<div class="grid-cell">
+				<p>ppppppppp</p>
+			</div>
+		</div>
+
+		<h3>左侧固定，右侧自适应</h3>
+		<div class="grid">
+			<div class="grid-cell">
+				<p>ppppppppp</p>
+			</div>
+			<span style="width:100px;height:40px;">span</span>
+		</div>
+
+		<h3>左侧固定，右侧自适应</h3>
+
+		<div class="grid">
+			<span style="width:50px;height:40px;">icon</span>
+			<div class="grid-cell">
+				<p>ppppppppp</p>
+			</div>
+			<span style="width:50px;height:40px;">span</span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+/* 栅格化, 参考bootstrap 栅格化 */
+.grid {
+	display:-webkit-flex;
+	display: flex;
+	margin:0 -10px;
+}
+
+.grid-cell {
+	-webkit-flex:1;
+	flex: 1;
+	padding: 0 10px;
+}
+.col-1, .col-2, .col-3, .col-4{
+	padding:0 10px;
+}
+.grid .col-4 {
+	-webkit-flex: 0 0 100%;
+	flex: 0 0 100%;
+}
+.grid .col-3 {
+	-webkit-flex:0 0 75%;
+	flex: 0 0 75%;
+}
+
+.grid .col-2 {
+	-webkit-flex: 0 0 50%;
+	flex: 0 0 50%;
+}
+
+.grid .col-1 {
+	-webkit-flex:0 0 25%;
+	flex: 0 0 25%;
+}
