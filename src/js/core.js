@@ -83,7 +83,7 @@
 	};
 
 	Base.touchMove = function() {
-		return this.isTouchScreen() ? "touchmove" : "mouseup"
+		return this.isTouchScreen() ? "touchmove" : "mousemove"
 	};
 
 	Base.longTap = function() {
