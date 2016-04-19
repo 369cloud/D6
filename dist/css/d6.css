@@ -574,6 +574,8 @@ input[type='color'] {
 .grid {
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-warp: warp;
+  flex-wrap: wrap;
   margin: 0 -10px;
 }
 .grid-cell {
@@ -3320,4 +3322,29 @@ html:not(.watch-active-state) .ui-accordion-list .ui-accordion-list-item-link:ac
   to {
     opacity: 1;
   }
+}
+.sidebar {
+  height: 100%;
+}
+.sidebar .menu {
+  float: left;
+  width: 25%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-width: 1px 1px 0 0;
+  overflow-y: auto;
+}
+.sidebar .menu-item {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-width: 0 0 1px 1px;
+}
+.sidebar .content {
+  margin-left: 25%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-width: 1px 1px 0 0;
+  overflow-y: auto;
 }
