@@ -11,6 +11,7 @@
 3、工程目录右键，选择Git Bash
 
 
+
 4、安装gulp 
 	
 	执行命令：npm install gulpjs/gulp#4.0 -g安装gulp到全局
