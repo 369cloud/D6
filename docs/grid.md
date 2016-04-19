@@ -66,3 +66,16 @@
 		</div>
 		<span style="width:50px;height:40px;">span</span>
 	</div>
+	
+### 九宫格，同一行的格子高度会自适应
+	<div class="grid">
+		<span class="col-2" style="height:150px;">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+		<span class="col-2">1</span>
+	</div>
