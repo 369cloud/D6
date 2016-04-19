@@ -92,6 +92,7 @@
                 break;
             case 'touchend':
             case 'mouseup':
+            case 'mouseout':
                 handleTouchEnd.call(_sl, evt);
                 break;
         }
