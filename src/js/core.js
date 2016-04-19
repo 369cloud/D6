@@ -75,7 +75,7 @@
 	};
 
 	Base.touchEnd = function() {
-		return this.isTouchScreen() ? "touchend" : "mouseup"
+		return this.isTouchScreen() ? "touchend" : "mouseup mouseout"
 	};
 
 	Base.touchCancel = function() {
@@ -83,7 +83,7 @@
 	};
 
 	Base.touchMove = function() {
-		return this.isTouchScreen() ? "touchmove" : "mouseup"
+		return this.isTouchScreen() ? "touchmove" : "mousemove"
 	};
 
 	Base.longTap = function() {

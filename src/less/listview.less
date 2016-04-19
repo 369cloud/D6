@@ -242,6 +242,7 @@ html.ios-gt-6.pixel-ratio-3 .ui-list-block .ui-list-item-inner:after {
   color: #bbb;
   content: '\e583';
   right: 15px;
+  top: 12px;
 }
 html:not(.watch-active-state) .ui-list-block .ui-list-item-link:active,
 .ui-list-block .ui-list-item-link.active-state {
@@ -399,9 +400,9 @@ html:not(.watch-active-state) .ui-list-block .ui-list-item-link:active .ui-list-
   display: block;
   padding-top: 10px;
   padding-bottom: 9px;
-  -ms-flex-item-align: stretch;
-  -webkit-align-self: stretch;
-  align-self: stretch;
+  -ms-flex-item-align: auto;
+  -webkit-align-self: auto;
+  align-self: auto;
 }
 .ui-list-block.ui-media-list .ui-list-item-link .ui-list-item-inner,
 .ui-list-block li.media-item .ui-list-item-link .ui-list-item-inner {
@@ -467,19 +468,7 @@ html.ios-gt-6.pixel-ratio-3 .ui-list-block li:last-child li .ui-list-item-inner:
   -webkit-transform: scaleY(0.33);
   transform: scaleY(0.33);
 }
-.ui-list-block .ui-swipeout-actions-left span.bg-blue,
-.ui-list-block .ui-swipeout-actions-right span.bg-blue {
-  background-color: #007aff;
-}
-.ui-list-block .ui-swipeout-actions-left span.bg-green,
-.ui-list-block .ui-swipeout-actions-right span.bg-green {
-  background-color: #4cd964;
-}
-.ui-list-block .ui-swipeout-actions-left span.bg-orange,
-.ui-list-block .ui-swipeout-actions-right span.bg-orange {
-  background-color: #ff9500;
-}
-.ui-list-block .ui-media-inset {
+.ui-list-block .ui-item-media .ui-media-inset {
   max-width: 42px;
   height: 42px;
   line-height: 42px;

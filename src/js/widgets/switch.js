@@ -33,10 +33,10 @@
         var _tog = this,
             opts = this.opts,
             element = _tog.ref;
-        element.on('touchstart', $.proxy(handleEvent, _tog));
+        element.on(_tog.touchStart(), $.proxy(handleEvent, _tog));
         element.on('drag', $.proxy(handleEvent, _tog));
         element.on('swiperight', $.proxy(handleEvent, _tog));
-        element.on('touchend', $.proxy(handleEvent, _tog));
+        element.on(_tog.touchEnd(), $.proxy(handleEvent, _tog));
         element.on('touchcancel', $.proxy(handleEvent, _tog));
     };
 
@@ -50,6 +50,7 @@
         }
         switch (evt.type) {
             case 'touchstart':
+            case 'mousedown':
                 start.call(_tog, evt);
                 break;
             case 'drag':
@@ -60,6 +61,7 @@
                 break;
             case 'touchend':
             case 'touchcancel':
+            case 'mouseup':
                 end.call(_tog, evt);
                 break;
         }

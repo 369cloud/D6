@@ -75,7 +75,7 @@
 	};
 
 	Base.touchEnd = function() {
-		return this.isTouchScreen() ? "touchend" : "mouseup"
+		return this.isTouchScreen() ? "touchend" : "mouseup mouseout"
 	};
 
 	Base.touchCancel = function() {
@@ -83,7 +83,7 @@
 	};
 
 	Base.touchMove = function() {
-		return this.isTouchScreen() ? "touchmove" : "mouseup"
+		return this.isTouchScreen() ? "touchmove" : "mousemove"
 	};
 
 	Base.longTap = function() {
@@ -6737,23 +6737,23 @@
     //绑定事件
     var bind = function() {
         var _sl = this;
-        $(document).on('touchstart', function(e) {
+        $(document).on(_sl.touchStart(), function(e) {
             if (_sl.swipeoutOpenedEl) {
                 var target = $(e.target);
                 if (!(
-                        _sl.swipeoutOpenedEl.is(target[0]) ||
-                        target.parents(SELECTOR_SWIPEOUT).is(_sl.swipeoutOpenedEl)
+                        _sl.swipeoutOpenedEl.is(target[0]) || target.parent().is(SELECTOR_SWIPEOUT_ACTIONS_RIGHT) ||
+                        target.parent().is(SELECTOR_SWIPEOUT_ACTIONS_LEFT) || target.parents(SELECTOR_SWIPEOUT).is(_sl.swipeoutOpenedEl)
                     )) {
                     _sl.close();
                 }
             }
         });
 
-        _sl.ref.on('touchstart', $.proxy(handleEvent, _sl));
-        _sl.ref.on('touchmove', $.proxy(handleEvent, _sl));
-        _sl.ref.on('touchend', $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchStart(), $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchMove(), $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchEnd(), $.proxy(handleEvent, _sl));
 
-        _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on('tap', function(evt) {
+        _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve(), function(evt) {
             _sl.deleteBefore();
         });
     };
@@ -6762,12 +6762,16 @@
         var _sl = this;
         switch (evt.type) {
             case 'touchstart':
+            case 'mousedown':
                 handleTouchStart.call(_sl, evt);
                 break;
             case 'touchmove':
+            case 'mousemove':
                 handleTouchMove.call(_sl, evt);
                 break;
             case 'touchend':
+            case 'mouseup':
+            case 'mouseout':
                 handleTouchEnd.call(_sl, evt);
                 break;
         }
@@ -7201,10 +7205,10 @@
         var _tog = this,
             opts = this.opts,
             element = _tog.ref;
-        element.on('touchstart', $.proxy(handleEvent, _tog));
+        element.on(_tog.touchStart(), $.proxy(handleEvent, _tog));
         element.on('drag', $.proxy(handleEvent, _tog));
         element.on('swiperight', $.proxy(handleEvent, _tog));
-        element.on('touchend', $.proxy(handleEvent, _tog));
+        element.on(_tog.touchEnd(), $.proxy(handleEvent, _tog));
         element.on('touchcancel', $.proxy(handleEvent, _tog));
     };
 
@@ -7218,6 +7222,7 @@
         }
         switch (evt.type) {
             case 'touchstart':
+            case 'mousedown':
                 start.call(_tog, evt);
                 break;
             case 'drag':
@@ -7228,6 +7233,7 @@
                 break;
             case 'touchend':
             case 'touchcancel':
+            case 'mouseup':
                 end.call(_tog, evt);
                 break;
         }
