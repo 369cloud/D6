@@ -129,15 +129,6 @@ input[type='tel'],
 input[type='color'] {
   -webkit-user-select: text;
 }
-.ui-bg-blue {
-  background-color: #007aff;
-}
-.ui-bg-green {
-  background-color: #4cd964;
-}
-.ui-bg-orange {
-  background-color: #ff9500;
-}
 /* === badge === */
 .ui-badge {
   display: inline-block;
@@ -2256,6 +2247,18 @@ html.ios-gt-6.pixel-ratio-3 .ui-list-block li:last-child li .ui-list-item-inner:
   max-width: 42px;
   height: 42px;
   line-height: 42px;
+}
+.ui-list-block .ui-swipeout-actions-left span.ui-bg-blue,
+.ui-list-block .ui-swipeout-actions-right span.ui-bg-blue {
+  background-color: #007aff;
+}
+.ui-list-block .ui-swipeout-actions-left span.ui-bg-green,
+.ui-list-block .ui-swipeout-actions-right span.ui-bg-green {
+  background-color: #4cd964;
+}
+.ui-list-block .ui-swipeout-actions-left span.ui-bg-orange,
+.ui-list-block .ui-swipeout-actions-right span.ui-bg-orange {
+  background-color: #ff9500;
 }
 /* === navigator === */
 .ui-navigator {

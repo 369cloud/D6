@@ -75,7 +75,13 @@
         _sl.ref.on(_sl.touchEnd(), $.proxy(handleEvent, _sl));
 
         _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve(), function(evt) {
-            _sl.deleteBefore();
+            var el = _sl.ref;
+            if (el.length === 0) return;
+            if (el.length > 1) el = $(el[0]);
+            _sl.swipeoutOpenedEl = undefined;
+            var del = el.triggerHandler('delete', _sl);
+            if ($.type(del) != "undefined" && !del) return;
+            _sl.delete();
         });
     };
 
@@ -342,53 +348,7 @@
             render.call(this);
             bind.call(this);
         };
-
-        $swipelist.prototype.swipeOpen = function(el, dir, callback) {
-            var _sl = this;
-            el = $(el);
-            if (arguments.length === 2) {
-                if (typeof arguments[1] === 'function') {
-                    callback = dir;
-                }
-            }
-
-            if (el.length === 0) return;
-            if (el.length > 1) el = $(el[0]);
-            if (!el.hasClass(CLASS_SWIPEOUT) || el.hasClass(CLASS_SWIPEOUT_OPENED)) return;
-            if (!dir) {
-                if (el.find(SELECTOR_SWIPEOUT_ACTIONS_RIGHT).length > 0) dir = 'right';
-                else dir = 'left';
-            }
-            var swipeOutActions = el.find('.ui-swipeout-actions-' + dir);
-            if (swipeOutActions.length === 0) return;
-            var noFold = swipeOutActions.hasClass(CLASS_SWIPEOUT_ACTIONS_NO_FOLD) || false;
-            el.trigger('open', _sl).addClass(CLASS_SWIPEOUT_OPENED).removeClass(CLASS_SWIPEOUT_TRANSITIONING);
-            swipeOutActions.addClass(CLASS_SWIPEOUT_ACTIONS_OPENED);
-            var buttons = swipeOutActions.children('span');
-            var swipeOutActionsWidth = swipeOutActions.outerWidth();
-            var translate = dir === 'right' ? -swipeOutActionsWidth : swipeOutActionsWidth;
-            var i;
-            if (buttons.length > 1) {
-                for (i = 0; i < buttons.length; i++) {
-                    if (dir === 'right') {
-                        $(buttons[i]).transform('translate3d(' + (-buttons[i].offsetLeft) + 'px,0,0)');
-                    } else {
-                        $(buttons[i]).css('z-index', buttons.length - i).transform('translate3d(' + (swipeOutActionsWidth - buttons[i].offsetWidth - buttons[i].offsetLeft) + 'px,0,0)');
-                    }
-                }
-                var clientLeft = buttons[1].clientLeft;
-            }
-            el.addClass(CLASS_SWIPEOUT_TRANSITIONING);
-            for (i = 0; i < buttons.length; i++) {
-                $(buttons[i]).transform('translate3d(' + (translate) + 'px,0,0)');
-            }
-            el.find(SELECTOR_SWIPEOUT_CONTENT).transform('translate3d(' + translate + 'px,0,0)').transitionEnd(function() {
-                el.trigger('opened', _sl);
-                if (callback) callback.call(el[0]);
-            });
-            _sl.swipeoutOpenedEl = el;
-        };
-
+        
         $swipelist.prototype.close = function(callback) {
             var _sl = this;
             var el = _sl.ref;
@@ -427,17 +387,6 @@
                 });
             }
             if (_sl.swipeoutOpenedEl && _sl.swipeoutOpenedEl[0] === el[0]) _sl.swipeoutOpenedEl = undefined;
-        };
-
-        $swipelist.prototype.deleteBefore = function(callback) {
-            var _sl = this;
-            var el = _sl.ref;
-            if (el.length === 0) return;
-            if (el.length > 1) el = $(el[0]);
-            _sl.swipeoutOpenedEl = undefined;
-            var del = el.triggerHandler('delete', _sl);
-            if ($.type(del) != "undefined" && !del) return;
-            _sl.delete();
         };
 
         $swipelist.prototype.delete = function(callback) {
