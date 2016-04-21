@@ -348,7 +348,7 @@
             render.call(this);
             bind.call(this);
         };
-        
+
         $swipelist.prototype.close = function(callback) {
             var _sl = this;
             var el = _sl.ref;
