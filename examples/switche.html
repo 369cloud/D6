@@ -124,10 +124,9 @@
     <script src="../dist/js/d6.js"></script>
     <script>
     domReady(function(require) {
-        $('.ui-switch').switch();
         $('.ui-switch').on('toggle', function(e,active) {
             console.log(active);
-        })
+        }).switch();
     });
     </script>
 </body>

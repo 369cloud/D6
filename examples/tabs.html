@@ -42,10 +42,10 @@
     </body>
     <script>
     domReady(function(require) {
-        var tab = $('.ui-tab-bar').tab()
-        tab.ref.on('activate', function(e, to, from) {
+        $('.ui-tab-bar').on('activate', function(e, to, from) {
             console.log(to)
-        });
+            console.log(from)
+        }).tab()
     });
     </script>
 </html>

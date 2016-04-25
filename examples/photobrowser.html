@@ -9,7 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../dist/css/d6.css">
-        <link rel="stylesheet" href="../dist/css/button-ex.css">
+        <link rel="stylesheet" href="../dist/css/button.css">
     <style type="text/css">
 
 
@@ -52,6 +52,8 @@
   domReady(function(require){
         $('.button').button(function(){
             $('.ui-photo-browser').photobrowser({
+                gestur:true,
+                space:50,
                 captions: ['描述1','描述2','描述3','描述4']
             }).open()
         })

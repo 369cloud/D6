@@ -4,6 +4,7 @@
     <title>Hello UI Fullpage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/font-awesome.css">
     <link rel="stylesheet" href="../dist/css/d6.css">
     <style type="text/css">
 
@@ -30,11 +31,25 @@
 <script>
 
     domReady(function(require){
-        $('.ui-fullpage').fullpage({
+        var fp = $('.ui-fullpage').fullpage({
             loop:true,
             dots:true,
             arrow:true
         });
+        $('.ui-fullpage').on('beforeChange',function(e,cur,next){
+            console.log(cur);
+            console.log(next);
+        }).on('change',function(e,cur,next){
+            console.log(cur);
+            console.log(next);
+        }).on('afterChange',function(e,cur){
+            console.log(cur);
+        })
+
+
+        setInterval(function(){
+            fp.next();
+        },1000)
     });
 </script>
 </html>

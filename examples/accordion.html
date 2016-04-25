@@ -153,7 +153,19 @@
 </body>
 <script>
 domReady(function(require) {
-    $('.ui-accordion').accordion({});
+    $('.ui-accordion').accordion({
+        toggleClose:true
+    });
+
+    $('.ui-accordion').on('open',function(e,el){
+        console.log('open')
+    }).on('opened',function(e,el){
+        console.log('opened')
+    }).on('close',function(e,el){
+        console.log('close')
+    }).on('closed',function(e,el){
+        console.log('closed')
+    })
 })
 </script>
 

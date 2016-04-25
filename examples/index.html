@@ -13,9 +13,7 @@
     <body>
         <header class="ui-nav-bar">
             <div class="ui-nav-bar-inner">
-                <a class="ui-nav-bar-link"></a>
                 <h1 class="ui-nav-bar-title">D6  Widgets</h1>
-                <a class="ui-nav-bar-link"><i class="ui-nav-bar-icon ui-nav-bar-right ui-icon-info-filled" style="color: #999;"></i></a>
             </div>
         </header>
         <div class="ui-accordion-list ui-content">
@@ -140,27 +138,6 @@
                         </div>
                     </a>
                 </li>
-                <li class="ui-accordion-list-item" data-target="grid.html">
-                    <a class="ui-accordion-list-item-link">
-                        <div class="ui-accordion-list-item-inner">
-                            grid 栅格化
-                        </div>
-                    </a>
-                </li>
-                <li class="ui-accordion-list-item" data-target="layout.html">
-                    <a class="ui-accordion-list-item-link">
-                        <div class="ui-accordion-list-item-inner">
-                            窗口布局
-                        </div>
-                    </a>
-                </li>
-                <li class="ui-accordion-list-item" data-target="leftTab.html">
-                    <a class="ui-accordion-list-item-link">
-                        <div class="ui-accordion-list-item-inner">
-                            侧边栏
-                        </div>
-                    </a>
-                </li>
             </ul>
         </div>
         <script src="../dist/js/zepto.js"></script>
@@ -168,11 +145,14 @@
     </body>
     <script>
     domReady(function(require) {
-        $('.ui-accordion-list').accordionList({});
+        var acc = require('AccordionList')
+        var accList = new acc({
+            ref:$('.ui-accordion-list')
+        })
+        // $('.ui-accordion-list').accordionList({});
         $('.ui-accordion-list').on('tapped', function(e, el) {
             window.location.href = $(el).data('target')
         })
-        $('.ui-nav-bar-left').button(function() {})
     })
     </script>
 </html>

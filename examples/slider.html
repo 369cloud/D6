@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../dist/css/d6.css">
 </head>
 <body >
-            <div id="slider" class="ui-slider">
+            <div class="ui-slider">
                 <div class="ui-slider-group">
                     <div class="ui-slider-item">
                         <img class="ui-slider-img" src="img/1.png">
@@ -29,17 +29,21 @@
 <script>
 
     domReady(function(require){
-        $('#slider').slider( { 
-            loop:true,
+        $('.ui-slider').on('slide',function(e,to,from){
+           console.log(to);
+           console.log(from);
+        }).on('moveend',function(e,index,dir){
+           console.log(index);
+           console.log(dir);
+        }).on('slideend',function(e,index){
+           console.log(index);
+        }).slider({ 
+            // autoPlay:true,
             dots:true,
             gestur:true,
             guide:true,
             mulViewNum:1,
             fullPage:true
-        }).ref.on('slide',function(e,index){
-           console.log(index);
-        }).on('moveend',function(){
-           console.log('moveend');
         });
     });
 </script>

@@ -13,15 +13,6 @@
     </head>
 
     <body>
-        <header class="ui-nav-bar">
-        <div class="ui-nav-bar-inner">
-            <a class="ui-action-back ui-nav-bar-link">
-                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
-            </a>
-            <h1 class="ui-nav-bar-title">Navigator</h1>
-            <a class="ui-nav-bar-link"></a>
-        </div>
-    </header>
     <div class="ui-navigator">
            <ul class="ui-navigator-list">
                 <li><a>首页</a></li>
@@ -40,19 +31,15 @@
                 <li><a>房产</a></li>
                 <li><a>汽车</a></li>
             </ul>
-            <div class="ui-navigator-more">
-                <div class="ui-shadow"></div>
-                <div class="ui-icon ui-more ui-icon-more"></div>
-            </div>
     </div>
     <script src="../dist/js/zepto.js"></script>
     <script src="../dist/js/d6.js"></script>
 </body>
      <script>
         domReady(function(require){
-            $('.ui-navigator').navigator().ref.on('beforeselect',function(e,to){
-            }).on('select',function(e,to,li){
-            });
+            $('.ui-navigator').on('switch',function(e,to,li){
+                console.log(to)
+            }).navigator();
         })
     </script>
 

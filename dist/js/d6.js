@@ -3411,7 +3411,7 @@
              * @property {Number} [speed=400] 动画执行速度
              * @namespace options
              */
-            speed: 100,
+            speed: 500,
 
             /**
              * @property {Number} [index=0] 初始位置
@@ -3444,7 +3444,7 @@
              * @namespace options
              */
             gestur: false,
-            touch:true,
+            touch: true,
             /**
              * @property {Number} [mulViewNum=2] 当slider为multiview模式时，用来指定一页显示多少个图片。
              * @namespace options
@@ -3493,7 +3493,7 @@
             }
 
             //加載觸摸按鈕
-            if (opts.touch) {
+            if (opts.touch && ($.os.ios || $.os.android)) {
                 _sl.register('sTouch', function(st) {
                     st.call(_sl);
                 });
@@ -3504,7 +3504,7 @@
                     sg.call(_sl);
                 });
             }
-            if (opts.gestur) {
+            if (opts.gestur && ($.os.ios || $.os.android)) {
                 _sl.register('sGestures', function(gt) {
                     gt.call(_sl);
                 });
@@ -3543,7 +3543,8 @@
         $slider.prototype.play = function() {
             var _sl = this,
                 opts = _sl.opts;
-            if (opts.autoPlay && !_sl._timer) {
+            opts.autoPlay = true;
+            if (!_sl._timer) {
                 _sl._timer = setTimeout(function() {
                     _sl.slideTo(_sl.index + 1);
                     _sl._timer = null;
@@ -3561,7 +3562,9 @@
          * @uses Slider.autoplay
          */
         $slider.prototype.stop = function() {
-            var _sl = this;
+            var _sl = this,
+                opts = _sl.opts;
+            opts.autoPlay = false;
             if (_sl._timer) {
                 clearTimeout(_sl._timer);
                 _sl._timer = null;
@@ -4396,7 +4399,6 @@
             var expandedItem = list.length > 0 && item.parent().children(SELECTOR_ACCORDION_ITEM_EXPANDED);
             if (expandedItem.length > 0) {
                 opts.toggleClose && _acd.accordionClose(expandedItem);
-                _acd.ref.trigger('toggle', [item, item.hasClass(CLASS_ACCORDION_ITEM_EXPANDED)]);
             }
             content.css('height', content[0].scrollHeight + 'px').transitionEnd(function() {
                 content.transition(0);
@@ -4680,12 +4682,9 @@
             if (_fp.movingFlag) {
                 return 0;
             }
-            console.log(e.changedTouches[0].pageY - _fp.startY);
             var sub = (e.changedTouches[0].pageY - _fp.startY) / _fp.height;
-            console.log(sub);
             var der = ((sub > 0 && sub > opts.der) || (sub < 0 && sub < -opts.der)) ? sub > 0 ? -1 : 1 : 0;
             _fp.dir = -der // -1 向上 1 向下
-            console.log(_fp.dir);
             moveTo.call(_fp, _fp.curIndex + der, true);
 
         });
@@ -4807,7 +4806,6 @@
         } else {
             speedNext = 0;
         }
-        console.log(_fp.dir);
         if (_fp.pagesLength == 1) {
             _fp._pages[car].style.cssText += cssPrefix + 'transition-duration:' + speed +
                 'ms;' + cssPrefix + 'transform: translate(0,' +
@@ -4971,7 +4969,8 @@
 /**
  * @file Input组件
  */
-;(function(window, document) {
+;
+(function(window, document) {
     var CLASS_ICON = 'ui-icon',
         CLASS_ACTIVE = 'ui-active',
         CLASS_ICON_CLEAR = 'ui-icon-clear',
@@ -5174,7 +5173,9 @@
 
             });
         };
-        $(SELECTOR_ACTION).input();
+        $(function() {
+            $(SELECTOR_ACTION).input();
+        })
     });
 })(window, document);
 /**
@@ -5190,7 +5191,7 @@
     var render = function() {
         var _lli = this,
             opts = _lli.opts;
-        _lli.pageContent = _lli.ref.find('.' + opts.lazyContent);
+        _lli.pageContent = _lli.ref.find(opts.lazyContent);
         if (_lli.pageContent.length === 0) return;
         _lli._lazyLoadImages = _lli.ref.find(SELECTOR_LAZY);
         if (_lli._lazyLoadImages.length === 0) return;
@@ -5267,7 +5268,7 @@
         //lazyLoadImage
         var $lazyLoadImage = $ui.define('LazyLoadImage', {
             placeholderSrc: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXCwsK592mkAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==',
-            lazyContent: 'ui-lazy-loader-content'
+            lazyContent: '.ui-lazy-loader-content'
         });
 
         //初始化
@@ -5327,15 +5328,15 @@
             _nav.ref = _nav.ref.parent();
         }
 
-        if (opts.index === undefined) {
+        if (opts.active === undefined) {
 
             // 如果opts中没有指定index, 则尝试从dom中查看是否有比较为ui-state-active的
-            opts.index = _nav.$list.find('.ui-state-active').index();
+            opts.active = _nav.$list.find('.ui-state-active').index();
 
             // 没找到还是赋值为0
-            ~opts.index || (opts.index = 0);
+            ~opts.active || (opts.active = 0);
         }
-        _nav.index = -1;
+        _nav.active = -1;
     };
 
     var bind = function() {
@@ -5347,10 +5348,10 @@
             function(e) {
                 _switchTo.call(_nav, $(this).parent().index());
             });
-        _nav.ref.on('select', function(e, index, li) {
+        _nav.ref.on('switch', function(e, index, li) {
             _nav.$bar.css({
                 left: li.offsetLeft - left,
-                width: li.childNodes[0].offsetWidth
+                width: $(li).find('a').width()
             });
         });
     };
@@ -5366,21 +5367,19 @@
     var _switchTo = function(to, e) {
         var _nav = this,
             opts = _nav.opts;
-        if (to === _nav.index) {
+        if (to === _nav.active) {
             return;
         }
 
         var list = _nav.$list.children(),
             cur;
 
-        _nav.ref.trigger('beforeselect', [to, list.get(to)]);
-
         cur = list.removeClass('ui-state-active')
             .eq(to)
             .addClass('ui-state-active');
 
-        _nav.index = to;
-        _nav.ref.trigger('select', [to, cur[0]]);
+        _nav.active = to;
+        _nav.ref.trigger('switch', [to, cur[0]]);
         return _nav;
     };
 
@@ -5388,7 +5387,13 @@
      * 导航组件
      */
     define(function($ui) {
-        var $nav = $ui.define('Navigator', {});
+        var $nav = $ui.define('Navigator', {
+            /**
+             * @property {Number} [active=0] 初始时哪个为选中状态
+             * @namespace options
+             */
+            active: 0
+        });
 
         //初始化
         $nav.prototype.init = function() {
@@ -5398,12 +5403,12 @@
             new IScroll(_nav.ref[0], {
                 scrollX: true,
                 scrollY: false,
-                disableMouse: true,
+                disableMouse: false,
                 disablePointer: true
             })
             render.call(_nav);
             bind.call(_nav);
-            _nav.switchTo(opts.index);
+            _nav.switchTo(opts.active);
         };
 
         /**
@@ -5557,9 +5562,9 @@
             _pb._current.html(to + 1);
             opts.index = to;
             if (to == 0) {
-                _pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
             } else if (to == (_pb.length - 1)) {
-                _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
             } else {
                 _pb._toolbar.find(SELECTOR_TOOLBAR_LINK).removeClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
             }
@@ -5568,7 +5573,7 @@
         _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CLOSE).on(_pb.touchEve(), function(evt) {
             _pb.close();
         });
-        _pb._slider.find(SELECTOR_SLIDER_IMG).on('singleTap', function(evt) {
+        _pb._slider.find(SELECTOR_SLIDER_IMG).on(_pb.touchEve(), function(evt) {
             if (!canTap) return;
             canTap = false;
             _pb._slider.find(SELECTOR_SLIDER_ITEM).css('transition-duration', '400ms');
@@ -5616,7 +5621,6 @@
              * @namespace options
              */
             index: 0,
-            gestur: true,
             captions: [],
             light: false,
             space: 10
@@ -5720,7 +5724,7 @@
             opts = _re.opts;
         _re.wrapper = _re.ref;
         _re.scrollEl = _re.wrapper.children().first();
-        if (opts.down && opts.down.hasOwnProperty('callback')) {
+        if (opts.down) {
             _re.topPocket = _re.scrollEl.find('.' + CLASS_PULL_TOP_POCKET);
             if (!_re.topPocket[0]) {
                 _re.topPocket = createPocket(CLASS_PULL_TOP_POCKET, opts.down.contentrefresh, CLASS_LOADING_DOWN);
@@ -5729,7 +5733,7 @@
             _re.topLoading = _re.topPocket.find('.' + CLASS_PULL_LOADING);
             _re.topCaption = _re.topPocket.find('.' + CLASS_PULL_CAPTION);
         }
-        if (opts.up && opts.up.hasOwnProperty('callback')) {
+        if (opts.up) {
             _re.bottomPocket = _re.scrollEl.find('.' + CLASS_PULL_BOTTOM_POCKET);
             if (!_re.bottomPocket[0]) {
                 _re.bottomPocket = createPocket(CLASS_PULL_BOTTOM_POCKET, opts.up.contentdown, CLASS_LOADING);
@@ -5748,6 +5752,14 @@
         //返回角度,不是弧度
         return 360 * Math.atan(diff_y / diff_x) / (2 * Math.PI);
     }
+
+    var disableScroll = function() {
+        d6.verticalSwipe = false
+    };
+
+    var enableScroll = function() {
+        d6.verticalSwipe = true
+    };
 
     var bind = function() {
         var _re = this,
@@ -5769,18 +5781,18 @@
                 y: this.pointY
             }
             if (!(opts.enablePullup || opts.enablePulldown)) {
-                _re.disableScroll();
+                disableScroll();
             } else if (!opts.enablePullup) {
                 if (this.distY < 0) {
-                    _re.disableScroll();
+                    disableScroll();
                 } else {
-                    _re.enableScroll();
+                    enableScroll();
                 }
             } else if (!opts.enablePulldown) {
                 if (this.distY > 0) {
-                    _re.disableScroll();
+                    disableScroll();
                 } else {
-                    _re.enableScroll();
+                    enableScroll();
                 }
             }
             // console.log(angle(touchesEnd,touchesStart));
@@ -5818,10 +5830,8 @@
             if (_re.autoUpHidden) {
                 _re.autoUpHidden = false;
                 _re.scroller.scrollTo(0, 0, _re.scroller.options.bounceTime, _re.scroller.options.bounceEasing);
-                _re.ref.trigger('cancelRefresh');
             } else if (_re.pulldown && _re.autoDownHidden) {
                 _re.autoDownHidden = false;
-                _re.ref.trigger('cancelRefresh');
             }
 
         });
@@ -5853,7 +5863,6 @@
         if (!opts.enablePulldown) {
             return;
         }
-        _re.ref.trigger('beforeRefresh');
         _re.pulldown = true;
         _re.pullup = false;
         _re.pullPocket = _re.topPocket;
@@ -5868,13 +5877,11 @@
         if (!opts.enablePullup) {
             return;
         }
-        _re.ref.trigger('beforeRefresh');
         _re.pulldown = false;
         _re.pullup = true;
         _re.pullPocket = _re.bottomPocket;
         _re.pullCaption = _re.bottomCaption;
         _re.pullLoading = _re.bottomLoading;
-        // _re.scroller.refresh();
     };
 
     var resetPosition = function(scroller) {
@@ -5961,7 +5968,7 @@
             },
             up: {
                 height: 40,
-                display: true,
+                display: true, //下拉加载字段是否始终存在
                 contentdown: '上拉显示更多',
                 contentover: '释放立即刷新',
                 contentrefresh: '正在加载...',
@@ -5985,7 +5992,7 @@
                 bounceTime: 300,
                 bounceEasing: 'quadratic',
                 probeType: 2, //每滚动一像素触发
-                disableMouse: true,
+                disableMouse: false,
                 disablePointer: true
             })
             render.call(_re);
@@ -6007,11 +6014,10 @@
             initPulldownRefresh.call(_re);
             setCaption.call(_re, opts.down.contentrefresh);
             _re.loading = true;
-            var callback = opts.down.callback;
-            callback && callback.call(_re);
+            _re.ref.trigger('pulldown', _re);
         };
 
-        $refresh.prototype.pullupLoading = function(callback) {
+        $refresh.prototype.pullupLoading = function() {
             var _re = this,
                 opts = _re.opts;
             if (!opts.enablePullup) {
@@ -6025,8 +6031,7 @@
             initPullupRefresh.call(_re);
             setCaption.call(_re, opts.up.contentrefresh);
             _re.loading = true;
-            callback = callback || opts.up.callback;
-            callback && callback.call(this);
+            _re.ref.trigger('pullup', _re);
         };
 
 
@@ -6041,7 +6046,6 @@
                 setTimeout(function() {
                     _re.scroller.refresh();
                     _re.loading || _re.topPocket.css('visibility', 'hidden');
-                    _re.ref.trigger('afterRefresh');
                 }, 150);
             }
         };
@@ -6056,12 +6060,10 @@
                     _re.finished = true;
                     setCaption.call(_re, opts.up.contentnomore);
                     _re.scroller.refresh();
-                    _re.ref.trigger('finished');
                 } else {
                     setCaption.call(_re, opts.up.contentdown);
                     setTimeout(function() {
                         _re.scroller.refresh();
-                        _re.ref.trigger('afterRefresh');
                     }, 150);
                 }
             }
@@ -6091,15 +6093,6 @@
             opts.enablePullup = true;
         };
 
-        $refresh.prototype.disableScroll = function() {
-            var _re = this;
-            co.verticalSwipe = false
-        };
-
-        $refresh.prototype.enableScroll = function() {
-            var _re = this;
-            co.verticalSwipe = true
-        };
 
         /**
          * 销毁组件
@@ -6754,7 +6747,13 @@
         _sl.ref.on(_sl.touchEnd(), $.proxy(handleEvent, _sl));
 
         _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve(), function(evt) {
-            _sl.deleteBefore();
+            var el = _sl.ref;
+            if (el.length === 0) return;
+            if (el.length > 1) el = $(el[0]);
+            _sl.swipeoutOpenedEl = undefined;
+            var del = el.triggerHandler('delete', _sl);
+            if ($.type(del) != "undefined" && !del) return;
+            _sl.delete();
         });
     };
 
@@ -7022,52 +7021,6 @@
             bind.call(this);
         };
 
-        $swipelist.prototype.swipeOpen = function(el, dir, callback) {
-            var _sl = this;
-            el = $(el);
-            if (arguments.length === 2) {
-                if (typeof arguments[1] === 'function') {
-                    callback = dir;
-                }
-            }
-
-            if (el.length === 0) return;
-            if (el.length > 1) el = $(el[0]);
-            if (!el.hasClass(CLASS_SWIPEOUT) || el.hasClass(CLASS_SWIPEOUT_OPENED)) return;
-            if (!dir) {
-                if (el.find(SELECTOR_SWIPEOUT_ACTIONS_RIGHT).length > 0) dir = 'right';
-                else dir = 'left';
-            }
-            var swipeOutActions = el.find('.ui-swipeout-actions-' + dir);
-            if (swipeOutActions.length === 0) return;
-            var noFold = swipeOutActions.hasClass(CLASS_SWIPEOUT_ACTIONS_NO_FOLD) || false;
-            el.trigger('open', _sl).addClass(CLASS_SWIPEOUT_OPENED).removeClass(CLASS_SWIPEOUT_TRANSITIONING);
-            swipeOutActions.addClass(CLASS_SWIPEOUT_ACTIONS_OPENED);
-            var buttons = swipeOutActions.children('span');
-            var swipeOutActionsWidth = swipeOutActions.outerWidth();
-            var translate = dir === 'right' ? -swipeOutActionsWidth : swipeOutActionsWidth;
-            var i;
-            if (buttons.length > 1) {
-                for (i = 0; i < buttons.length; i++) {
-                    if (dir === 'right') {
-                        $(buttons[i]).transform('translate3d(' + (-buttons[i].offsetLeft) + 'px,0,0)');
-                    } else {
-                        $(buttons[i]).css('z-index', buttons.length - i).transform('translate3d(' + (swipeOutActionsWidth - buttons[i].offsetWidth - buttons[i].offsetLeft) + 'px,0,0)');
-                    }
-                }
-                var clientLeft = buttons[1].clientLeft;
-            }
-            el.addClass(CLASS_SWIPEOUT_TRANSITIONING);
-            for (i = 0; i < buttons.length; i++) {
-                $(buttons[i]).transform('translate3d(' + (translate) + 'px,0,0)');
-            }
-            el.find(SELECTOR_SWIPEOUT_CONTENT).transform('translate3d(' + translate + 'px,0,0)').transitionEnd(function() {
-                el.trigger('opened', _sl);
-                if (callback) callback.call(el[0]);
-            });
-            _sl.swipeoutOpenedEl = el;
-        };
-
         $swipelist.prototype.close = function(callback) {
             var _sl = this;
             var el = _sl.ref;
@@ -7106,17 +7059,6 @@
                 });
             }
             if (_sl.swipeoutOpenedEl && _sl.swipeoutOpenedEl[0] === el[0]) _sl.swipeoutOpenedEl = undefined;
-        };
-
-        $swipelist.prototype.deleteBefore = function(callback) {
-            var _sl = this;
-            var el = _sl.ref;
-            if (el.length === 0) return;
-            if (el.length > 1) el = $(el[0]);
-            _sl.swipeoutOpenedEl = undefined;
-            var del = el.triggerHandler('delete', _sl);
-            if ($.type(del) != "undefined" && !del) return;
-            _sl.delete();
         };
 
         $swipelist.prototype.delete = function(callback) {
@@ -7451,7 +7393,6 @@
             if (opts.active != (index = Math.max(0, Math.min(items.length - 1, index)))) {
                 to = index;
                 from = opts.active;
-                _tb.ref.trigger('beforeActivate', [to, from]);
 
                 items.removeClass(CLASS_ACTIVE).eq(to).addClass(CLASS_ACTIVE);
                 opts.active = index;
@@ -7462,7 +7403,6 @@
                     items[opts.active].actived = true;
                     _tb.ref.trigger('activate', [to, from]);
                 }
-                _tb.ref.trigger('afteractivate', [to, from]);
             }
             return _tb;
         };
