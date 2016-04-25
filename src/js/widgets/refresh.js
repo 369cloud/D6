@@ -32,7 +32,7 @@
             opts = _re.opts;
         _re.wrapper = _re.ref;
         _re.scrollEl = _re.wrapper.children().first();
-        if (opts.down && opts.down.hasOwnProperty('callback')) {
+        if (opts.down) {
             _re.topPocket = _re.scrollEl.find('.' + CLASS_PULL_TOP_POCKET);
             if (!_re.topPocket[0]) {
                 _re.topPocket = createPocket(CLASS_PULL_TOP_POCKET, opts.down.contentrefresh, CLASS_LOADING_DOWN);
@@ -41,7 +41,7 @@
             _re.topLoading = _re.topPocket.find('.' + CLASS_PULL_LOADING);
             _re.topCaption = _re.topPocket.find('.' + CLASS_PULL_CAPTION);
         }
-        if (opts.up && opts.up.hasOwnProperty('callback')) {
+        if (opts.up) {
             _re.bottomPocket = _re.scrollEl.find('.' + CLASS_PULL_BOTTOM_POCKET);
             if (!_re.bottomPocket[0]) {
                 _re.bottomPocket = createPocket(CLASS_PULL_BOTTOM_POCKET, opts.up.contentdown, CLASS_LOADING);
@@ -60,6 +60,14 @@
         //返回角度,不是弧度
         return 360 * Math.atan(diff_y / diff_x) / (2 * Math.PI);
     }
+
+    var disableScroll = function() {
+        d6.verticalSwipe = false
+    };
+
+    var enableScroll = function() {
+        d6.verticalSwipe = true
+    };
 
     var bind = function() {
         var _re = this,
@@ -81,18 +89,18 @@
                 y: this.pointY
             }
             if (!(opts.enablePullup || opts.enablePulldown)) {
-                _re.disableScroll();
+                disableScroll();
             } else if (!opts.enablePullup) {
                 if (this.distY < 0) {
-                    _re.disableScroll();
+                    disableScroll();
                 } else {
-                    _re.enableScroll();
+                    enableScroll();
                 }
             } else if (!opts.enablePulldown) {
                 if (this.distY > 0) {
-                    _re.disableScroll();
+                    disableScroll();
                 } else {
-                    _re.enableScroll();
+                    enableScroll();
                 }
             }
             // console.log(angle(touchesEnd,touchesStart));
@@ -130,10 +138,8 @@
             if (_re.autoUpHidden) {
                 _re.autoUpHidden = false;
                 _re.scroller.scrollTo(0, 0, _re.scroller.options.bounceTime, _re.scroller.options.bounceEasing);
-                _re.ref.trigger('cancelRefresh');
             } else if (_re.pulldown && _re.autoDownHidden) {
                 _re.autoDownHidden = false;
-                _re.ref.trigger('cancelRefresh');
             }
 
         });
@@ -165,7 +171,6 @@
         if (!opts.enablePulldown) {
             return;
         }
-        _re.ref.trigger('beforeRefresh');
         _re.pulldown = true;
         _re.pullup = false;
         _re.pullPocket = _re.topPocket;
@@ -180,13 +185,11 @@
         if (!opts.enablePullup) {
             return;
         }
-        _re.ref.trigger('beforeRefresh');
         _re.pulldown = false;
         _re.pullup = true;
         _re.pullPocket = _re.bottomPocket;
         _re.pullCaption = _re.bottomCaption;
         _re.pullLoading = _re.bottomLoading;
-        // _re.scroller.refresh();
     };
 
     var resetPosition = function(scroller) {
@@ -273,7 +276,7 @@
             },
             up: {
                 height: 40,
-                display: true,
+                display: true, //下拉加载字段是否始终存在
                 contentdown: '上拉显示更多',
                 contentover: '释放立即刷新',
                 contentrefresh: '正在加载...',
@@ -297,7 +300,7 @@
                 bounceTime: 300,
                 bounceEasing: 'quadratic',
                 probeType: 2, //每滚动一像素触发
-                disableMouse: true,
+                disableMouse: false,
                 disablePointer: true
             })
             render.call(_re);
@@ -319,11 +322,10 @@
             initPulldownRefresh.call(_re);
             setCaption.call(_re, opts.down.contentrefresh);
             _re.loading = true;
-            var callback = opts.down.callback;
-            callback && callback.call(_re);
+            _re.ref.trigger('pulldown', _re);
         };
 
-        $refresh.prototype.pullupLoading = function(callback) {
+        $refresh.prototype.pullupLoading = function() {
             var _re = this,
                 opts = _re.opts;
             if (!opts.enablePullup) {
@@ -337,8 +339,7 @@
             initPullupRefresh.call(_re);
             setCaption.call(_re, opts.up.contentrefresh);
             _re.loading = true;
-            callback = callback || opts.up.callback;
-            callback && callback.call(this);
+            _re.ref.trigger('pullup', _re);
         };
 
 
@@ -353,7 +354,6 @@
                 setTimeout(function() {
                     _re.scroller.refresh();
                     _re.loading || _re.topPocket.css('visibility', 'hidden');
-                    _re.ref.trigger('afterRefresh');
                 }, 150);
             }
         };
@@ -368,12 +368,10 @@
                     _re.finished = true;
                     setCaption.call(_re, opts.up.contentnomore);
                     _re.scroller.refresh();
-                    _re.ref.trigger('finished');
                 } else {
                     setCaption.call(_re, opts.up.contentdown);
                     setTimeout(function() {
                         _re.scroller.refresh();
-                        _re.ref.trigger('afterRefresh');
                     }, 150);
                 }
             }
@@ -403,15 +401,6 @@
             opts.enablePullup = true;
         };
 
-        $refresh.prototype.disableScroll = function() {
-            var _re = this;
-            co.verticalSwipe = false
-        };
-
-        $refresh.prototype.enableScroll = function() {
-            var _re = this;
-            co.verticalSwipe = true
-        };
 
         /**
          * 销毁组件

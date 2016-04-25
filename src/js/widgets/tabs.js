@@ -84,7 +84,6 @@
             if (opts.active != (index = Math.max(0, Math.min(items.length - 1, index)))) {
                 to = index;
                 from = opts.active;
-                _tb.ref.trigger('beforeActivate', [to, from]);
 
                 items.removeClass(CLASS_ACTIVE).eq(to).addClass(CLASS_ACTIVE);
                 opts.active = index;
@@ -95,7 +94,6 @@
                     items[opts.active].actived = true;
                     _tb.ref.trigger('activate', [to, from]);
                 }
-                _tb.ref.trigger('afteractivate', [to, from]);
             }
             return _tb;
         };

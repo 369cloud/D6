@@ -191,7 +191,7 @@
              * @property {Number} [speed=400] 动画执行速度
              * @namespace options
              */
-            speed: 100,
+            speed: 500,
 
             /**
              * @property {Number} [index=0] 初始位置
@@ -224,7 +224,7 @@
              * @namespace options
              */
             gestur: false,
-            touch:true,
+            touch: true,
             /**
              * @property {Number} [mulViewNum=2] 当slider为multiview模式时，用来指定一页显示多少个图片。
              * @namespace options
@@ -273,7 +273,7 @@
             }
 
             //加載觸摸按鈕
-            if (opts.touch) {
+            if (opts.touch && ($.os.ios || $.os.android)) {
                 _sl.register('sTouch', function(st) {
                     st.call(_sl);
                 });
@@ -284,7 +284,7 @@
                     sg.call(_sl);
                 });
             }
-            if (opts.gestur) {
+            if (opts.gestur && ($.os.ios || $.os.android)) {
                 _sl.register('sGestures', function(gt) {
                     gt.call(_sl);
                 });
@@ -323,7 +323,8 @@
         $slider.prototype.play = function() {
             var _sl = this,
                 opts = _sl.opts;
-            if (opts.autoPlay && !_sl._timer) {
+            opts.autoPlay = true;
+            if (!_sl._timer) {
                 _sl._timer = setTimeout(function() {
                     _sl.slideTo(_sl.index + 1);
                     _sl._timer = null;
@@ -341,7 +342,9 @@
          * @uses Slider.autoplay
          */
         $slider.prototype.stop = function() {
-            var _sl = this;
+            var _sl = this,
+                opts = _sl.opts;
+            opts.autoPlay = false;
             if (_sl._timer) {
                 clearTimeout(_sl._timer);
                 _sl._timer = null;

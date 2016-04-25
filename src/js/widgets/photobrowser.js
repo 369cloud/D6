@@ -110,9 +110,9 @@
             _pb._current.html(to + 1);
             opts.index = to;
             if (to == 0) {
-                _pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
             } else if (to == (_pb.length - 1)) {
-                _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
             } else {
                 _pb._toolbar.find(SELECTOR_TOOLBAR_LINK).removeClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
             }
@@ -121,7 +121,7 @@
         _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CLOSE).on(_pb.touchEve(), function(evt) {
             _pb.close();
         });
-        _pb._slider.find(SELECTOR_SLIDER_IMG).on('singleTap', function(evt) {
+        _pb._slider.find(SELECTOR_SLIDER_IMG).on(_pb.touchEve(), function(evt) {
             if (!canTap) return;
             canTap = false;
             _pb._slider.find(SELECTOR_SLIDER_ITEM).css('transition-duration', '400ms');
@@ -169,7 +169,6 @@
              * @namespace options
              */
             index: 0,
-            gestur: true,
             captions: [],
             light: false,
             space: 10

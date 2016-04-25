@@ -65,12 +65,9 @@
             if (_fp.movingFlag) {
                 return 0;
             }
-            console.log(e.changedTouches[0].pageY - _fp.startY);
             var sub = (e.changedTouches[0].pageY - _fp.startY) / _fp.height;
-            console.log(sub);
             var der = ((sub > 0 && sub > opts.der) || (sub < 0 && sub < -opts.der)) ? sub > 0 ? -1 : 1 : 0;
             _fp.dir = -der // -1 向上 1 向下
-            console.log(_fp.dir);
             moveTo.call(_fp, _fp.curIndex + der, true);
 
         });
@@ -192,7 +189,6 @@
         } else {
             speedNext = 0;
         }
-        console.log(_fp.dir);
         if (_fp.pagesLength == 1) {
             _fp._pages[car].style.cssText += cssPrefix + 'transition-duration:' + speed +
                 'ms;' + cssPrefix + 'transform: translate(0,' +

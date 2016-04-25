@@ -19,15 +19,15 @@
             _nav.ref = _nav.ref.parent();
         }
 
-        if (opts.index === undefined) {
+        if (opts.active === undefined) {
 
             // 如果opts中没有指定index, 则尝试从dom中查看是否有比较为ui-state-active的
-            opts.index = _nav.$list.find('.ui-state-active').index();
+            opts.active = _nav.$list.find('.ui-state-active').index();
 
             // 没找到还是赋值为0
-            ~opts.index || (opts.index = 0);
+            ~opts.active || (opts.active = 0);
         }
-        _nav.index = -1;
+        _nav.active = -1;
     };
 
     var bind = function() {
@@ -39,10 +39,10 @@
             function(e) {
                 _switchTo.call(_nav, $(this).parent().index());
             });
-        _nav.ref.on('select', function(e, index, li) {
+        _nav.ref.on('switch', function(e, index, li) {
             _nav.$bar.css({
                 left: li.offsetLeft - left,
-                width: li.childNodes[0].offsetWidth
+                width: $(li).find('a').width()
             });
         });
     };
@@ -58,21 +58,19 @@
     var _switchTo = function(to, e) {
         var _nav = this,
             opts = _nav.opts;
-        if (to === _nav.index) {
+        if (to === _nav.active) {
             return;
         }
 
         var list = _nav.$list.children(),
             cur;
 
-        _nav.ref.trigger('beforeselect', [to, list.get(to)]);
-
         cur = list.removeClass('ui-state-active')
             .eq(to)
             .addClass('ui-state-active');
 
-        _nav.index = to;
-        _nav.ref.trigger('select', [to, cur[0]]);
+        _nav.active = to;
+        _nav.ref.trigger('switch', [to, cur[0]]);
         return _nav;
     };
 
@@ -80,7 +78,13 @@
      * 导航组件
      */
     define(function($ui) {
-        var $nav = $ui.define('Navigator', {});
+        var $nav = $ui.define('Navigator', {
+            /**
+             * @property {Number} [active=0] 初始时哪个为选中状态
+             * @namespace options
+             */
+            active: 0
+        });
 
         //初始化
         $nav.prototype.init = function() {
@@ -90,12 +94,12 @@
             new IScroll(_nav.ref[0], {
                 scrollX: true,
                 scrollY: false,
-                disableMouse: true,
+                disableMouse: false,
                 disablePointer: true
             })
             render.call(_nav);
             bind.call(_nav);
-            _nav.switchTo(opts.index);
+            _nav.switchTo(opts.active);
         };
 
         /**

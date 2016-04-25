@@ -11,7 +11,7 @@
     var render = function() {
         var _lli = this,
             opts = _lli.opts;
-        _lli.pageContent = _lli.ref.find('.' + opts.lazyContent);
+        _lli.pageContent = _lli.ref.find(opts.lazyContent);
         if (_lli.pageContent.length === 0) return;
         _lli._lazyLoadImages = _lli.ref.find(SELECTOR_LAZY);
         if (_lli._lazyLoadImages.length === 0) return;
@@ -88,7 +88,7 @@
         //lazyLoadImage
         var $lazyLoadImage = $ui.define('LazyLoadImage', {
             placeholderSrc: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXCwsK592mkAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==',
-            lazyContent: 'ui-lazy-loader-content'
+            lazyContent: '.ui-lazy-loader-content'
         });
 
         //初始化

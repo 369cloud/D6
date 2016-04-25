@@ -80,7 +80,6 @@
             var expandedItem = list.length > 0 && item.parent().children(SELECTOR_ACCORDION_ITEM_EXPANDED);
             if (expandedItem.length > 0) {
                 opts.toggleClose && _acd.accordionClose(expandedItem);
-                _acd.ref.trigger('toggle', [item, item.hasClass(CLASS_ACCORDION_ITEM_EXPANDED)]);
             }
             content.css('height', content[0].scrollHeight + 'px').transitionEnd(function() {
                 content.transition(0);

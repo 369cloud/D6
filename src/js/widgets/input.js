@@ -1,7 +1,8 @@
 /**
  * @file Input组件
  */
-;(function(window, document) {
+;
+(function(window, document) {
     var CLASS_ICON = 'ui-icon',
         CLASS_ACTIVE = 'ui-active',
         CLASS_ICON_CLEAR = 'ui-icon-clear',
@@ -204,6 +205,8 @@
 
             });
         };
-        $(SELECTOR_ACTION).input();
+        $(function() {
+            $(SELECTOR_ACTION).input();
+        })
     });
 })(window, document);
