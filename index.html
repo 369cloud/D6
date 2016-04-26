@@ -1,73 +1,127 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>D6 by 369cloud</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">D6</h1>
-      <h2 class="project-tagline">一款基于zepto的移动端ui库</h2>
-      <a href="https://github.com/369cloud/D6" class="btn">View on GitHub</a>
-      <a href="https://github.com/369cloud/D6/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/369cloud/D6/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html>
 
-    <section class="main-content">
-      <h2>
-<a id="环境配置" class="anchor" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>环境配置</h2>
+  <!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<head>
 
-<p>1、安装nodeJs
-    <a href="http://www.cnblogs.com/pigtail/archive/2013/01/08/2850486.html">http://www.cnblogs.com/pigtail/archive/2013/01/08/2850486.html</a></p>
+    <title>D6</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-layers.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/docs.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="/css/skel.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style-xlarge.css" />
+    </noscript>
+</head>
 
-<p>2、安装git
-    <a href="http://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html">http://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html</a></p>
 
-<p>3、工程目录右键，选择Git Bash</p>
+	<body id="top">
 
-<p>4、安装gulp </p>
+        <!-- Header -->
+<header id="header" class="skel-layers-fixed">
+    <h1><a href="/" class="site-title" >D6</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/components">组件文档</a></li>
+            <li><a href="/examples/index.html">示例</a></li>
+            <!-- <li><a href="#" class="button special">Sign Up</a></li> -->
+        </ul>
+    </nav>
+</header>
 
-<pre><code>执行命令：npm install gulpjs/gulp#4.0 -g安装gulp到全局
+        <!-- Banner -->
+        <section id="banner">
+            <div class="inner">
+                <h2>This is D6</h2>
+                <p>一款基于zepto的移动端ui组件库</p>
+                <ul class="actions">
+                    <li><a href="https://codeload.github.com/369cloud/D6/zip/master" class="button big special">Download .zip</a></li>
+                    <li><a href="http://369cloud.github.io/D6/" target="_blank" ta class="button big alt">View on GitHub</a></li>
+                </ul>
+            </div>
+        </section>
+        <div style="margin: 3em 20em;">
+  <h2>环境配置</h2>
+  <p>
+    1、安装nodeJs
+  
+  </p>
+  <p>
+    <a href="http://www.cnblogs.com/pigtail/archive/2013/01/08/2850486.html/">http://www.cnblogs.com/pigtail/archive/2013/01/08/2850486.html</a>
+  </p>
+  <p>
+    2、安装git
+  
+  </p>
+  <p>
+    <a href="http://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html/">http://jingyan.baidu.com/article/90895e0fb3495f64ed6b0b50.html</a>
+  </p>
+  <p>
+    3、下载工程
+  
+  </p>
+  <p>
+    <a href="https://github.com/369cloud/D6.git/">https://github.com/369cloud/D6.git</a>
+  </p>
+  <p>4、工程目录右键，选择Git Bash</p>
+  <p>5、安装gulp</p>
+  <pre><code>执行命令：npm install gulpjs/gulp#4.0 -g安装gulp到全局
 执行命令：npm install 安装配置环境到本地
 执行命令：gulp
 </code></pre>
 
-<p>运行<code>gulp</code>命令后，会监听<code>src</code>目录下所有<code>JS</code>、<code>less</code>文件的变更，并且会在<code>3003</code>端口启动服务器，然后再浏览器打开<code>http://localhost:3003/examples/index.html</code></p>
-
-<h2>
-<a id="项目主页" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E4%B8%BB%E9%A1%B5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>项目主页</h2>
-
-<p><a href="http://369cloud.github.io/D6/">http://369cloud.github.io/D6</a></p>
-
-<h2>
-<a id="开发工具" class="anchor" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>开发工具</h2>
-
-<p><a href="http://www.369cloud.com">369Cloud</a> 致力于打造移动互联网云平台研发生态系统，将移动应用开发与移动应用云服务（BaaS、IaaS服务）完美集成，为开发者提供集成开发环境、移动应用开发引擎、基础服务、后端服务等一站式的移动应用开发解决方案；由<a href="http://www.369cloud.com">369Cloud</a> 自主研发的一体化开发流程，实现从应用创建、自定义认证、组件选择、模板配置、到混合平台编译等一系列可视化、可配置化操作，最大程度的为开发者及创业团队节约时间成本、人力成本、资金成本。</p>
-
-<h2>
-<a id="反馈bug" class="anchor" href="#%E5%8F%8D%E9%A6%88bug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>反馈bug</h2>
-
-<p>如果您有任何关于 <code>D6</code> 或移动前端开发中的问题，可以在QQ群中讨论，也可以通过git issue给我们反馈bug，我们会尽快解决。 当然，我们更欢迎您的fork，为 <code>D6</code> 添砖加瓦。</p>
-
-<h3>
-<a id="联系我们" class="anchor" href="#%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>联系我们</h3>
-
-<ul>
-<li>(QQ群）491311335 </li>
-</ul>
-
-<h1>
-<a id="开发规范" class="anchor" href="#%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>开发规范</h1>
-
-<h2>
-<a id="文件组织" class="anchor" href="#%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文件组织</h2>
-
-<pre><code> .
+  <p>
+    运行
+    <code>gulp</code>
+    命令后，会监听
+    <code>src</code>
+    目录下所有
+    <code>JS</code>
+    、
+    <code>less</code>
+    文件的变更，并且会在
+    <code>3003</code>
+    端口启动服务器，然后再浏览器打开
+    <code>http://localhost:3003/examples/index.html</code>
+  </p>
+  <h2>项目主页</h2>
+  <p>
+    <a href="http://369cloud.github.io/D6/">http://369cloud.github.io/D6</a>
+  </p>
+  <h2>开发工具</h2>
+  <p>
+    <a href="http://www.369cloud.com">369Cloud</a>
+    致力于打造移动互联网云平台研发生态系统，将移动应用开发与移动应用云服务（BaaS、IaaS服务）完美集成，为开发者提供集成开发环境、移动应用开发引擎、基础服务、后端服务等一站式的移动应用开发解决方案；由
+    <a href="http://www.369cloud.com">369Cloud</a>
+    自主研发的一体化开发流程，实现从应用创建、自定义认证、组件选择、模板配置、到混合平台编译等一系列可视化、可配置化操作，最大程度的为开发者及创业团队节约时间成本、人力成本、资金成本。
+  </p>
+  <h2>反馈bug</h2>
+  <p>
+    如果您有任何关于
+    <code>D6</code>
+    或移动前端开发中的问题，可以在QQ群中讨论，也可以通过git issue给我们反馈bug，我们会尽快解决。 当然，我们更欢迎您的fork，为
+    <code>D6</code>
+    添砖加瓦。
+  </p>
+  <h3>联系我们</h3>
+  <ul>
+    <li>(QQ群）491311335</li>
+  </ul>
+  <h1>开发规范</h1>
+  <h2>文件组织</h2>
+  <pre><code> .
     ├── src
         └── js 字体库
             ├── widgets 组件文件存放位置
@@ -79,38 +133,77 @@
         └── fonts 字体库存放位置
 </code></pre>
 
-<ul>
-<li><p>iscroll.js 组件库依赖的iscroll文件（经过修改，请勿替换）</p></li>
-<li><p>组件JS需放在 <code>js/widgets</code> 目录下，若组件自身含有功能插件，应在 <code>widgets</code> 文件夹下建立一个单独文件夹来存放相关组件和插件</p></li>
-<li><p>组件相关less文件放在 <code>less目录下</code> ，并且在d6.less文件中添加</p></li>
-</ul>
-
-<h2>
-<a id="样式" class="anchor" href="#%E6%A0%B7%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>样式</h2>
-
-<p>组件的classname使用 <code>ui-组件名称</code> 作为命名空间，其后根据功能添加不同标识。如：ui-tab-active</p>
-
-<h2>
-<a id="组件开发" class="anchor" href="#%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>组件开发</h2>
-
-<p>D6组件的开发主要使用两种方式：</p>
-
-<ul>
-<li><p>基于zeptoJs开发组件，可根据个人习惯开发基于<code>zeptoJs</code>的插件。</p></li>
-<li>
-<p>基于core.js，其提供一些简单的移动方法便于组件的构建，主要包含以下几个对象和方法：<code>d6</code>、<code>Base</code>、<code>$ui</code>、<code>define</code>、<code>domReady</code></p>
-
-<ul>
-<li>  d6：组件库的对外暴露对象，提供全局属性和方法</li>
-<li>  Base：组件对象的基础类，提供组件的基础方法和属性，所有组件对象基于该对象扩展，实例化过程会调用每个组件的<code>init</code>方法</li>
-<li>  $ui：组件的管理对象，提供组件和插件的定义、获取、注册方法</li>
-<li>  define：组件主体部分定义方法，将<code>$ui</code>对象传入</li>
-<li>  domReady：页面初始化方法，传入<code>require</code>方法获取组件对象</li>
-</ul>
-
-<p>组件示例代码：</p>
-
-<pre><code>/**
+  <ul>
+    <li>
+      <p>iscroll.js 组件库依赖的iscroll文件（经过修改，请勿替换）</p>
+    </li>
+    <li>
+      <p>
+        组件JS需放在
+        <code>js/widgets</code>
+        目录下，若组件自身含有功能插件，应在
+        <code>widgets</code>
+        文件夹下建立一个单独文件夹来存放相关组件和插件
+      </p>
+    </li>
+    <li>
+      <p>
+        组件相关less文件放在
+        <code>less目录下</code>
+        ，并且在d6.less文件中添加
+      </p>
+    </li>
+  </ul>
+  <h2>样式</h2>
+  <p>
+    组件的classname使用
+    <code>ui-组件名称</code>
+    作为命名空间，其后根据功能添加不同标识。如：ui-tab-active
+  </p>
+  <h2>组件开发</h2>
+  <p>D6组件的开发主要使用两种方式：</p>
+  <ul>
+    <li>
+      <p>
+        基于zeptoJs开发组件，可根据个人习惯开发基于
+        <code>zeptoJs</code>
+        的插件。
+      </p>
+    </li>
+    <li>
+      <p>
+        基于core.js，其提供一些简单的移动方法便于组件的构建，主要包含以下几个对象和方法：
+        <code>d6</code>
+        、
+        <code>Base</code>
+        、
+        <code>$ui</code>
+        、
+        <code>define</code>
+        、
+        <code>domReady</code>
+      </p>
+      <ul>
+        <li>d6：组件库的对外暴露对象，提供全局属性和方法</li>
+        <li>
+          Base：组件对象的基础类，提供组件的基础方法和属性，所有组件对象基于该对象扩展，实例化过程会调用每个组件的
+          <code>init</code>
+          方法
+        </li>
+        <li>$ui：组件的管理对象，提供组件和插件的定义、获取、注册方法</li>
+        <li>
+          define：组件主体部分定义方法，将
+          <code>$ui</code>
+          对象传入
+        </li>
+        <li>
+          domReady：页面初始化方法，传入
+          <code>require</code>
+          方法获取组件对象
+        </li>
+      </ul>
+      <p>组件示例代码：</p>
+      <pre><code>/**
  * @file 组件
  */
 
@@ -193,9 +286,8 @@
 })();
 </code></pre>
 
-<p>插件示例代码：</p>
-
-<pre><code>/**
+      <p>插件示例代码：</p>
+      <pre><code>/**
  * @file 插件
  */
 ;(function() {
@@ -217,35 +309,32 @@
     });
 })()
 </code></pre>
-</li>
-</ul>
 
-<h2>
-<a id="组件初始化" class="anchor" href="#%E7%BB%84%E4%BB%B6%E5%88%9D%E5%A7%8B%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>组件初始化</h2>
-
-<p>组件有两种初始化方式：</p>
-
-<ul>
-<li><p>$('#className').widget()的方式；</p></li>
-<li>
-<p>通过require方法获取组件对象手动初始化：</p>
-
-<pre><code>var widget = require('widgetName')
+    </li>
+  </ul>
+  <h2>组件初始化</h2>
+  <p>组件有两种初始化方式：</p>
+  <ul>
+    <li>
+      <p>$('#className').widget()的方式；</p>
+    </li>
+    <li>
+      <p>通过require方法获取组件对象手动初始化：</p>
+      <pre><code>var widget = require('widgetName')
 var widgetObj = new widget({
     ref:$('.className')
 })
 </code></pre>
-</li>
-</ul>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/369cloud/D6">D6</a> is maintained by <a href="https://github.com/369cloud">369cloud</a>.</span>
+    </li>
+  </ul>
+  <h2>页面初始化</h2>
+  <pre><code>domReady(function() {
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+})
+</code></pre>
+</div>
+    </body>
 
-    </section>
-
-  
-  </body>
 </html>
+

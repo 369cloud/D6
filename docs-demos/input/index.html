@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>D6 Demo</title>
+    <meta name="description" content=": 369Cloud 致力于打造移动互联网云平台研发生态系统，将移动应用开发与移动应用云服务（BaaS、IaaS服务）完美集成，为开发者提供集成开发环境、移动应用开发引擎、基础服务、后端服务等一站式的移动应用开发解决方案；由369Cloud 自主研发的一体化开发流程，实现从应用创建、自定义认证、组件选择、模板配置、到混合平台编译等一系列可视化、可配置化操作，最大程度的为开发者及创业团队节约时间成本、人力成本、资金成本。
+">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="/dist/css/font-awesome.css">
+    <link rel="stylesheet" href="/dist/css/d6.css">
+    <script src="/dist/js/zepto.js"></script>
+    <script src="/dist/js/d6.js"></script>
+  </head>
+  <body>
+    <header class="ui-nav-bar">
+  <div class="ui-nav-bar-inner">
+    <h1 class="ui-nav-bar-title">input</h1>
+  </div>
+</header>
+<div class="ui-content">
+  普通输入框：
+  <div class="ui-input-group">
+    <div class="ui-input-row">
+      <label>text</label>
+      <input type="text" required="required" placeholder="text"></div>
+  </div>
+  带清除按钮的输入框：
+  <div class="ui-input-group">
+    <div class="ui-input-row">
+      <label>清除按钮</label>
+      <input type="text" class="ui-input-clear" placeholder="带清除按钮的输入框"></div>
+  </div>
+  语音输入输入框：
+  <div class="ui-input-group">
+    <div class="ui-input-row">
+      <label>语音输入</label>
+      <input type="text" class="ui-input-speech ui-input-clear" placeholder="语音输入">
+      <span class="ui-icon ui-icon-speech"></span>
+    </div>
+  </div>
+  搜索框：
+  <div class="ui-input-row ui-search">
+    <input type="search" class="ui-input-clear" placeholder=""></div>
+  语音输入搜索框：
+  <div class="ui-input-row ui-search">
+    <input type="search" class="ui-input-speech ui-input-clear" placeholder="带语音输入的搜索框">
+    <span class="ui-icon ui-icon-speech"></span>
+  </div>
+  下拉：
+  <div class="ui-input-group">
+    <div class="ui-input-row">
+      <label>请选择</label>
+      <select>
+        <option value=0>选项一</option>
+        <option value=1>选项二</option>
+        <option value=2>选项三</option>
+        <option value=3>选项四</option>
+      </select>
+    </div>
+  </div>
+  多选框：
+  <div class="ui-input-group">
+    <div class="ui-input-row ui-checkbox ui-left">
+      <label>left checkbox</label>
+      <input name="checkbox" type="checkbox" value="0"></div>
+    <div class="ui-input-row ui-checkbox">
+      <label>right checkbox</label>
+      <input name="checkbox1" type="checkbox" checked></div>
+    <div id="discheck" class="ui-input-row ui-checkbox ui-left">
+      <label>disabled checkbox</label>
+      <input name="checkbox" type="checkbox" value="2" disabled="disabled"></div>
+  </div>
+  单选框：
+  <div class="ui-input-group">
+    <div class="ui-input-row ui-radio ui-left" >
+      <label>radio</label>
+      <input name="radio1" type="radio" value="0"></div>
+    <div class="ui-input-row ui-radio">
+      <label>radio</label>
+      <input  name="radio1" type="radio" value="1" checked></div>
+    <div class="ui-input-row ui-radio ui-left" >
+      <label>disabled radio</label>
+      <input name="radio1" type="radio" value="2" disabled="disabled"></div>
+  </div>
+  card-input
+  <div class="ui-card">
+    <div class="ui-input-group">
+      <div class="ui-input-row">
+        <label>普通</label>
+        <input type="email" required="required" placeholder="email"></div>
+    </div>
+  </div>
+  账户、密码
+  <div class="ui-group-card">
+    <div class="ui-input-row">
+      <input type="text" class="ui-input-clear ui-input" placeholder="账号"></div>
+    <div class="ui-input-row">
+      <input type="password" class="ui-input-clear ui-input" placeholder="密码"></div>
+  </div>
+  文本域
+  <div class="ui-input-row ui-input-textarea">
+    <textarea rows="5" placeholder="多行文本框"></textarea>
+  </div>
+</div>
+<script>
+
+  domReady(function(require){
+    $('.ui-btn-danger').button(function(el,evt){
+      console.log($(el).html())
+    })
+    $('.ui-input-group').radio(function(el,evt){
+      console.log($(el).val());
+    });
+    $('.ui-input-group').checkbox(function(el,evt){
+      if(el.checked)  console.log($(el).val());
+    });
+    $('.ui-input-group').select(function(el,eve){
+      console.log($(el).val());
+    });
+    $('.ui-input-group')[0].onSubmit = function(){
+      console.log('submit')
+    }
+  })
+</script>
+    
+    <script>
+      $(function(){
+        document.body.style.cursor = '-webkit-grab'
+      })
+    </script>
+  </body>
+</html>

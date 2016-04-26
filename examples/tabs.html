@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=0">
+        <meta charset="utf-8">
+        <title>Hello UI Tab</title>
+        <link rel="stylesheet" href="../dist/css/d6.css">
+        <style type="text/css">
+        
+        </style>
+    </head>
+    <body>
+        <header class="ui-nav-bar">
+            <div class="ui-nav-bar-inner">
+                <a class="ui-action-back ui-nav-bar-link">
+                    <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+                </a>
+                <h1 class="ui-nav-bar-title">Tab</h1>
+                <a class="ui-nav-bar-link"></a>
+            </div>
+        </header>
+        <div class="ui-tab-bar">
+            <a class="ui-tab-item">
+                <span class="ui-icon ui-icon-phone"></span>
+                <span class="ui-tab-label">phone</span>
+            </a>
+            <a class="ui-tab-item">
+                <span class="ui-icon ui-icon-email"></span>
+                <span class="ui-tab-label">email</span>
+            </a>
+            <a class="ui-tab-item">
+                <span class="ui-icon ui-icon-chatbubble"></span>
+                <span class="ui-tab-label">message</span>
+            </a>
+            <a class="ui-tab-item">
+                <span class="ui-icon ui-icon-gear"></span>
+                <span class="ui-tab-label">install</span>
+            </a>
+        </div>
+        <script src="../dist/js/zepto.js"></script>
+        <script src="../dist/js/d6.js"></script>
+    </body>
+    <script>
+    domReady(function(require) {
+        $('.ui-tab-bar').on('activate', function(e, to, from) {
+            console.log(to)
+            console.log(from)
+        }).tab()
+    });
+    </script>
+</html>
