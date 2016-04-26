@@ -208,7 +208,7 @@ $(function() {
                 }
                 if (!contentSectionItem.hasClass('informational')) {
                     if (contentSectionItem.data("url")) {
-                        var url = "/docs-demos/" + contentSectionItem.data("url");
+                        var url = "/D6/docs-demos/" + contentSectionItem.data("url");
                         var $window = $("#iwindow");
                         var iframe = $window.find("iframe")[0];
                         if (iframe && iframe.src.indexOf(url) !== -1) {
