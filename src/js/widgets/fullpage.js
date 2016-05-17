@@ -94,6 +94,11 @@
                     'transform': 'translate3d(' + 0 + 'px , ' + dist + 'px , 0px);'
                 });
             });
+            e.preventDefault();
+        }else{
+        	_fp._inner.on('touchmove', function(e) {
+        		e.preventDefault();
+        	})
         }
 
         // 翻转屏幕提示
