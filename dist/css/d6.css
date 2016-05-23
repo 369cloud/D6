@@ -519,12 +519,16 @@ input[type='color'] {
   right: 0;
 }
 /* 栅格化, 参考bootstrap 栅格化 */
+.container {
+  padding: 10px;
+}
 .grid {
   display: -webkit-flex;
+  -webkit-flex-wrap: wrap;
   display: flex;
-  -webkit-flex-warp: warp;
   flex-wrap: wrap;
-  margin: 0 -10px;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .grid-cell {
   -webkit-flex: 1;
