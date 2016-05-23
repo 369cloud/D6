@@ -14,7 +14,7 @@
 
 4、安装gulp 
 	
-	执行命令：npm install gulpjs/gulp#4.0 -g安装gulp到全局
+	执行命令：npm install gulpjs/gulp#4.0 -g  安装gulp到全局
 	执行命令：npm install 安装配置环境到本地
 	执行命令：gulp
 

@@ -1,19 +1,26 @@
 /* 栅格化, 参考bootstrap 栅格化 */
+@grid-gutter-width:10px;
+.container{
+	padding:@grid-gutter-width;
+}
 .grid {
 	display:-webkit-flex;
+	-webkit-flex-wrap:wrap;
+
 	display: flex;
-	-webkit-flex-warp:warp;
 	flex-wrap: wrap;
-	margin:0 -10px;
+
+	margin-left:-@grid-gutter-width;
+	margin-right:-@grid-gutter-width;
 }
 
 .grid-cell {
 	-webkit-flex:1;
 	flex: 1;
-	padding: 0 10px;
+	padding: 0 @grid-gutter-width;
 }
 .col-1, .col-2, .col-3, .col-4{
-	padding:0 10px;
+	padding:0 @grid-gutter-width;
 }
 .grid .col-4 {
 	-webkit-flex: 0 0 100%;
