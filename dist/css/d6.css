@@ -520,26 +520,37 @@ input[type='color'] {
 }
 /* 栅格化, 参考bootstrap 栅格化 */
 .container {
-  padding: 10px;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .grid {
   display: -webkit-flex;
   -webkit-flex-wrap: wrap;
   display: flex;
   flex-wrap: wrap;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: -5px;
+  margin-right: -5px;
 }
-.grid-cell {
+/* 垂直方向排列 */
+.grid-column {
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.grid-cell,
+.grid-column-cell {
   -webkit-flex: 1;
   flex: 1;
-  padding: 0 10px;
 }
 .col-1,
 .col-2,
 .col-3,
-.col-4 {
-  padding: 0 10px;
+.col-4,
+.grid-cell {
+  padding: 0 5px;
 }
 .grid .col-4 {
   -webkit-flex: 0 0 100%;

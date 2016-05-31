@@ -25,41 +25,92 @@
 			    line-height: 40px;
 			    text-align: center;
 			}
-			/*.box {
-			    margin: 20px 0;
-			    border-radius: 8px;
-			    border: solid 1px #d1d1d1;
-			    box-shadow: 0 1px 3px #e1e1e1;
-			   	margin-left: -10px;
-			   	margin-right: -10px; 
-			}*/
 			h3{
 				line-height: 1.5em;
 				font-size: 14px;
 			}
-			
+			.title, .footer{
+				height: 30px;
+				line-height: 30px;
+				background: #fdfdfd;
+				border-bottom: 1px solid #ddd;
+				text-align: center;
+				font-size: 16px;
+			}
+			.footer{
+				border-top: 1px solid #ddd;
+				border-bottom: none;
+			}
+			img{
+				width:100%;
+			}
+			.img-box{
+				border:1px solid #ccc;
+			}
 		</style>
 	</head>
-	<body class="container">
-		<div class="grid demo">
-			<div class="grid-cell">
-				grid-cell
+	<body>
+		
+		<div class="grid-column">
+			<header class="ui-nav-bar">
+		        <div class="ui-nav-bar-inner">
+		            <a class="ui-action-back ui-nav-bar-link">
+		                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+		            </a>
+		            <h1 class="ui-nav-bar-title">Header</h1>
+		            <a class="ui-nav-bar-link"></a>
+		        </div>
+		    </header>
+			<div class="grid-column-cell container">
+				<ul class="grid demo">
+					<li class="col-2" style="height:50px;">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+					<li class="col-2">col-2</li>
+				</ul>
 			</div>
-			<div class="grid-cell">
-				grid-cell
-			</div>
-			<div class="grid-cell">
-				grid-cell
-			</div>
-		</div>
-		<h3>左侧固定，右侧自适应</h3>
-		<div class="grid demo">
-			<span class="col-1">左侧固定</span>
-			<div class="grid-cell">
-				<p>grid-cell</p>
-			</div>
+			<div class="footer">自动撑到底部</div>
 		</div>
 
+
+		<div class="container">
+			<div class="grid demo">
+				<div class="grid-cell">
+					<div class="img-box">
+						<img src="http://www.liulangnan.com/ad/apicloud_20151105.png" alt="">
+						<p>hellow</p>
+					</div>
+				</div>
+				<div class="grid-cell">
+					<div class="img-box">
+						<img src="http://www.liulangnan.com/ad/apicloud_20151105.png" alt="">
+						<p>hellow</p>
+					</div>
+				</div>
+				<div class="grid-cell">
+					<div class="img-box">
+						<img src="http://www.liulangnan.com/ad/apicloud_20151105.png" alt="">
+						<p>hellow</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<h3>左侧固定，右侧自适应</h3>
+			<div class="grid demo">
+				<span class="col-1">左侧固定</span>
+				<div class="grid-cell">
+					<p>grid-cell</p>
+				</div>
+			</div>
+		</div>
+<!--
 		<h3>左侧固定，右侧自适应</h3>
 		<div class="grid demo">
 			<div class="grid-cell">
@@ -120,5 +171,14 @@
 				<span class="col-2">col-2</span>
 			</div>
 		</div>
+		 -->
+		<!-- <h3>纵向排列布局</h3>
+		<div class="grid-column">
+			<div class="title">title</div>
+			<div class="grid-cell">grid-cell这个高度自动撑开容器剩余空间</div>
+			<div class="footer">自动撑到底部</div>
+		</div> -->
+	<script src="../dist/js/zepto.js"></script>
+    <script src="../dist/js/d6.js"></script>		
 	</body>
 </html>

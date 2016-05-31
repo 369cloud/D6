@@ -1,7 +1,9 @@
 /* 栅格化, 参考bootstrap 栅格化 */
 @grid-gutter-width:10px;
 .container{
-	padding:@grid-gutter-width;
+	height: 100%;
+	padding-left:@grid-gutter-width;
+	padding-right:@grid-gutter-width;
 }
 .grid {
 	display:-webkit-flex;
@@ -10,17 +12,24 @@
 	display: flex;
 	flex-wrap: wrap;
 
-	margin-left:-@grid-gutter-width;
-	margin-right:-@grid-gutter-width;
+	margin-left:-@grid-gutter-width / 2;
+	margin-right:-@grid-gutter-width / 2;
+}
+/* 垂直方向排列 */
+.grid-column{
+	height: 100%;
+	display:-webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
 }
 
-.grid-cell {
+.grid-cell, .grid-column-cell {
 	-webkit-flex:1;
 	flex: 1;
-	padding: 0 @grid-gutter-width;
 }
-.col-1, .col-2, .col-3, .col-4{
-	padding:0 @grid-gutter-width;
+.col-1, .col-2, .col-3, .col-4, .grid-cell{
+	padding:0 @grid-gutter-width / 2;
 }
 .grid .col-4 {
 	-webkit-flex: 0 0 100%;

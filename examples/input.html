@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../dist/css/d6.css">
         <style type="text/css"\>
         body {
-        background-color: #EFEFF4;
+            background-color: #EFEFF4;
         }
         </style>
         <script src="../dist/js/zepto.js"></script>
@@ -124,21 +124,21 @@
     </body>
     <script>
     domReady(function(require){
-    $('.ui-btn-danger').button(function(el,evt){
-    alert($(el).html())
-    })
-    $('.ui-input-group').radio(function(el,evt){
-    alert($(el).val());
-    });
-    $('.ui-input-group').checkbox(function(el,evt){
-    if(el.checked)  alert($(el).val());
-    });
-    $('.ui-input-group').select(function(el,eve){
-    alert($(el).val());
-    });
-    $('.ui-input-group')[0].onSubmit = function(){
-    alert(11)
-    }
+        $('.ui-btn-danger').button(function(el,evt){
+            alert($(el).html())
+        })
+        $('.ui-input-group').radio(function(el,evt){
+            alert($(el).val());
+        });
+        $('.ui-input-group').checkbox(function(el,evt){
+            if(el.checked)  alert($(el).val());
+        });
+        $('.ui-input-group').select(function(el,eve){
+            alert($(el).val());
+        });
+        $('.ui-input-group')[0].onSubmit = function(){
+            alert(11)
+        }
     })
     </script>
 </html>
