@@ -41,7 +41,7 @@
             _re.topLoading = _re.topPocket.find('.' + CLASS_PULL_LOADING);
             _re.topCaption = _re.topPocket.find('.' + CLASS_PULL_CAPTION);
         }
-        if (opts.up) {
+        if (opts.up && opts.enablePullup) {
             _re.bottomPocket = _re.scrollEl.find('.' + CLASS_PULL_BOTTOM_POCKET);
             if (!_re.bottomPocket[0]) {
                 _re.bottomPocket = createPocket(CLASS_PULL_BOTTOM_POCKET, opts.up.contentdown, CLASS_LOADING);
