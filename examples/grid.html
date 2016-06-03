@@ -21,7 +21,6 @@
 			}
 			.demo [class*=grid-cell], .demo [class*=col-] {
 			    background-color: rgba(72, 174, 255, 0.27);
-			    box-shadow: inset 1px 1px rgba(78, 78, 78, 0.1), inset -1px -1px rgba(78, 78, 78, 0.1);
 			    line-height: 40px;
 			    text-align: center;
 			}
@@ -47,6 +46,10 @@
 			.img-box{
 				border:1px solid #ccc;
 			}
+
+			.nine-grid-demo{
+				height: 300px;
+			}
 		</style>
 	</head>
 	<body>
@@ -62,16 +65,44 @@
 		        </div>
 		    </header>
 			<div class="grid-column-cell container">
-				<ul class="grid demo">
-					<li class="col-2" style="height:50px;">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
-					<li class="col-2">col-2</li>
+				<ul class="row demo">
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+					<li class="col-xs-2">col-xs-2</li>
+				</ul>
+			</div>
+			<div class="footer">自动撑到底部</div>
+		</div>
+		<div class="grid-column">
+			<header class="ui-nav-bar">
+		        <div class="ui-nav-bar-inner">
+		            <a class="ui-action-back ui-nav-bar-link">
+		                <i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+		            </a>
+		            <h1 class="ui-nav-bar-title">自适应九宫格或者16宫格布局例子</h1>
+		            <a class="ui-nav-bar-link"></a>
+		        </div>
+		    </header>
+			<div class="grid-column-cell container">
+				<ul class="row demo equal-grid">
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
+					<li class="col-xs-4">col-xs-4</li>
 				</ul>
 			</div>
 			<div class="footer">自动撑到底部</div>
@@ -79,7 +110,7 @@
 
 
 		<div class="container">
-			<div class="grid demo">
+			<div class="row demo">
 				<div class="grid-cell">
 					<div class="img-box">
 						<img src="http://www.liulangnan.com/ad/apicloud_20151105.png" alt="">
@@ -150,7 +181,7 @@
 
 			<div class="box">
 				<h3>左三列，右一列</h3>
-				<div class="grid demo">
+				<div class="row demo">
 					<div class="col-3">
 						col-3
 					</div> 
@@ -159,7 +190,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid demo">
+			<div class="row demo">
 				<span class="col-2" style="height:50px;">col-2</span>
 				<span class="col-2">col-2</span>
 				<span class="col-2">col-2</span>
