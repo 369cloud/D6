@@ -1,9 +1,24 @@
-@import url('colors-vars.less');
-@import url('comm.less');
-@import url('badge.less');
-@import url('icon.less');
-@import url('layout.less');
+/*!
+ * D6 v1.0.2 ()
+ * Copyright 2016- 369cloud
+ * Licensed under MIT
+ */
+
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset and dependencies
+@import 'normalize.less';
+@import 'icon.less';
+
+// Core css
 @import url('grid.less');
+
+
+// Components
+@import url('badge.less');
+@import url('layout.less');
 @import url('card.less');
 @import url('loading.less');
 @import url('iscroll.less');
@@ -23,3 +38,7 @@
 @import url('photoBrowser.less');
 @import url('lazyLoadImage.less');
 @import url('sidebar.less');
+
+// Component w/ JavaScript
+
+// Utility classes

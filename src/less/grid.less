@@ -1,7 +1,3 @@
-/* 栅格化, 参考bootstrap 栅格化 */
-@grid-gutter-width:10px;
-@grid-columns :12;
-
 
 /* 垂直方向排列 */
 .grid-column{
@@ -22,51 +18,8 @@
 }
 .container{
 	height: 100%;
-	padding-left:@grid-gutter-width / 2;
-	padding-right:@grid-gutter-width / 2;
-}
-.make-grid-columns() {
-  	// Common styles for all sizes of grid columns, widths 1-12
-  	.col(@index) { // initial
-    	@item: ~".col-xs-@{index}";
-    	.col((@index + 1), @item);
-  	}
-  	.col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-    	@item: ~".col-xs-@{index}";
-    	.col((@index + 1), ~"@{list}, @{item}");
-  	}
-  	.col(@index, @list) when (@index > @grid-columns) { // terminal
-    	@{list} {
-			position: relative;
-			// Prevent columns from collapsing when empty
-			min-height: 1px;
-			// Inner gutter via padding
-			padding-left:  ceil((@grid-gutter-width / 2));
-			padding-right: floor((@grid-gutter-width / 2));
-	    }
-  	}
-  	.col(1); // kickstart it
-}
-.calc-grid-column(@index, @class, @type) when (@type = width ) and (@index > 0 ){
-	.col-@{class}-@{index}{
-		-webkit-flex:0 0 percentage(@index / @grid-columns);
-		flex: 0 0 percentage(@index / @grid-columns);
-	}
-}
-.loop-grid-columns(@index, @class, @type) when (@index > 0){
-	.calc-grid-column(@index, @class, @type);
-	.loop-grid-columns(@index - 1, @class, @type);
-}
-
-.make-row(@gutter: @grid-gutter-width){
-	display:-webkit-flex;
-	-webkit-flex-wrap:wrap;
-
-	display: flex;
-	flex-wrap: wrap;
-
-	margin-left:  ceil((@gutter / -2));
-  	margin-right: floor((@gutter / -2));
+	padding-left: @grid-gutter-width / 2;
+	padding-right: @grid-gutter-width / 2;
 }
 
 .row{
@@ -74,4 +27,3 @@
 }
 .make-grid-columns();
 .loop-grid-columns(@grid-columns, xs, width);
-
