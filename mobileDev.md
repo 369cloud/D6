@@ -3,8 +3,6 @@
 ## 框架基础
 1. zepto，打包(event、ajax、fx、fx_methods、data、detect、touch); 方便开源框架使用
 2. d6基于zeptojs开发的前端组件库。
-3. debug.js为引擎api的js模拟，用来调试。
-3. native为引擎api的封装-d6。
 
 ## ui组件库
 ### 基本样式
@@ -132,10 +130,25 @@
 		.grid-column
 
 ### css组件
+1. 表单 form input、form checkbox、form radio 。。。
+2. 按钮 button，依赖第三方组件库，button.css，button.css 依赖font-awesome，这两个库不与d6合并，用户自行使用
+3. tab组件
+4. 宫格
+
 
 
 ### js插件
-		
+1. 手风琴
+2. 折叠列表
+3. 导航
+4. 滚屏
+5. 搜索框
+6. 图片浏览器
+7. 图片懒加载
+8. 列表刷新
+9. 文本框
+10. 轮播图
+11. 开关		
 
 > 参考资料：
 

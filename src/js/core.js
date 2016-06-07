@@ -186,11 +186,14 @@
 	}, 100);
 
 	$.fn.ready = function(callback) {
-		if (readyRE.test(document.readyState) && document.body) global.domReady(callback);
-		else document.addEventListener('DOMContentLoaded', function() {
-			global.domReady(callback)
-		}, false)
-		return this
+		if (readyRE.test(document.readyState) && document.body){
+			global.domReady(callback);	
+		} else {
+		 	document.addEventListener('DOMContentLoaded', function() {
+				global.domReady(callback)
+			}, false)
+		}
+		return this;
 	};
 	if (global.domReady) {
 		var domReady = global.domReady;

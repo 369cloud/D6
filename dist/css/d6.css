@@ -4,183 +4,107 @@
  * Licensed under MIT
  */
 /* 栅格化, 参考bootstrap 栅格化 */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: #efeff4;
 }
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
 article,
 aside,
+canvas,
 details,
 figcaption,
 figure,
 footer,
 header,
 hgroup,
-main,
 menu,
 nav,
 section,
-summary {
-  display: block;
-}
+summary,
+time,
+mark,
 audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-[hidden],
-template {
-  display: none;
-}
-a {
-  background-color: transparent;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-b,
-strong {
-  font-weight: bold;
-}
-dfn {
-  font-style: italic;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-img {
-  border: 0;
-}
-svg:not(:root) {
-  overflow: hidden;
-}
-figure {
-  margin: 1em 40px;
-}
-hr {
-  box-sizing: content-box;
-  height: 0;
-}
-pre {
-  overflow: auto;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-button {
-  overflow: visible;
-}
-button,
-select {
-  text-transform: none;
-}
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
+video,
 input {
-  line-height: normal;
-}
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
+  margin: 0;
   padding: 0;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-input[type="search"] {
-  -webkit-appearance: textfield;
-  box-sizing: content-box;
-}
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-legend {
-  border: 0;
-  padding: 0;
-}
-textarea {
-  overflow: auto;
-}
-optgroup {
-  font-weight: bold;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-td,
-th {
-  padding: 0;
+  border: none;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 /* === icon === */
 @font-face {
@@ -458,6 +382,60 @@ th {
 .ui-icon-pulldown:before {
   content: "\e588";
 }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+* {
+  /*
+			当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。
+			-webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），
+			它没有出现在 CSS 规范草案中。
+			在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有
+			关的系统默认菜单。这个属性可以让你禁用系统默认菜单。
+			-webkit-touch-callout：behavior
+			默认值： default
+			适用于：链接元素比如新窗口打开，img元素比如保存图像等等
+			http://www.css88.com/book/css/webkit/behavior/touch-callout.htm
+		*/
+  -webkit-touch-callout: none;
+  /*
+			这个开启了硬件加速，非常耗性能
+			http://blog.csdn.net/hursing/article/details/9186199
+		*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+select,
+textarea,
+input[type='text'],
+input[type='search'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='tel'],
+input[type='color'] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
 /* 垂直方向排列 */
 .grid-column {
   height: 100%;
@@ -542,6 +520,43 @@ th {
   -webkit-flex: 0 0 8.33333333%;
   flex: 0 0 8.33333333%;
 }
+/* === layout === */
+.ui-card {
+  margin: 0 15px;
+  overflow: hidden;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.ui-group-card {
+  border: solid 1px #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  overflow: hidden;
+  background-color: #ddd;
+}
+.ui-group-card input {
+  border: none;
+  margin: 0px;
+  font-size: 18px;
+  padding: 15px !important;
+  border-radius: 0px;
+  height: auto;
+}
+.ui-group-card input:first-child {
+  margin-bottom: 1px;
+}
+.ui-card .ui-input-group:before,
+.ui-card .ui-input-group:after {
+  height: 0;
+}
+.ui-content {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 /* === badge === */
 .ui-badge {
   display: inline-block;
@@ -617,43 +632,6 @@ th {
   line-height: 1.4;
   color: white;
   background: red;
-}
-/* === layout === */
-.ui-card {
-  margin: 0 15px;
-  overflow: hidden;
-  background-color: white;
-  background-clip: padding-box;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-.ui-group-card {
-  border: solid 1px #ddd;
-  border-radius: 5px;
-  margin: 10px;
-  overflow: hidden;
-  background-color: #ddd;
-}
-.ui-group-card input {
-  border: none;
-  margin: 0px;
-  font-size: 18px;
-  padding: 15px !important;
-  border-radius: 0px;
-  height: auto;
-}
-.ui-group-card input:first-child {
-  margin-bottom: 1px;
-}
-.ui-card .ui-input-group:before,
-.ui-card .ui-input-group:after {
-  height: 0;
-}
-.ui-content {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 /* === card === */
 .card {
@@ -844,26 +822,6 @@ th {
   100% {
     transform: rotate(360deg);
   }
-}
-/* === scroll === */
-.ui-scroll-wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  overflow: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.ui-scroll {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  min-height: 100.1%;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
 }
 /* === input === */
 .ui-input-row {
@@ -1455,6 +1413,26 @@ input[type="submit"].ui-active:enabled,
   height: 24px;
   font-size: 24px;
   line-height: 24px;
+}
+/* === scroll === */
+.ui-scroll-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.ui-scroll {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  min-height: 100.1%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
 }
 /* === bar === */
 .ui-nav-bar {

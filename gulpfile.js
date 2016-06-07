@@ -63,7 +63,6 @@ var gulp = require('gulp'), //基础库
             'src/js/widgets/swipelist.js',
             'src/js/widgets/switch.js',
             'src/js/widgets/tabs.js'
-
         ]
     },
     zepto = {
