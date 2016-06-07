@@ -1,0 +1,58 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+// Reset the box-sizing
+//
+// Heads up! This reset may cause conflicts with some third-party widgets.
+// For recommendations on resolving such conflicts, see
+// http://getbootstrap.com/getting-started/#third-box-sizing
+* {
+	.box-sizing(border-box);
+}
+*:before,
+*:after {
+	.box-sizing(border-box);
+}
+* {
+		/*
+			当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。
+			-webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），
+			它没有出现在 CSS 规范草案中。
+			在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有
+			关的系统默认菜单。这个属性可以让你禁用系统默认菜单。
+			-webkit-touch-callout：behavior
+			默认值： default
+			适用于：链接元素比如新窗口打开，img元素比如保存图像等等
+			http://www.css88.com/book/css/webkit/behavior/touch-callout.htm
+		*/
+		-webkit-touch-callout:none;
+
+
+		/*
+			这个开启了硬件加速，非常耗性能
+			http://blog.csdn.net/hursing/article/details/9186199
+		*/
+		// -webkit-overflow-scrolling: touch;
+		.user-select(none);
+}
+
+select,
+textarea,
+input[type='text'],
+input[type='search'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='tel'],
+input[type='color']{
+	.user-select(text);
+}

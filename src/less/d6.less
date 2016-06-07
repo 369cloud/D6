@@ -9,21 +9,23 @@
 @import "mixins.less";
 
 // Reset and dependencies
-@import 'normalize.less';
+@import 'reset.less';
 @import 'icon.less';
 
 // Core css
-@import url('grid.less');
-
+@import "scaffolding.less";
+@import "grid.less";
+@import url('layout.less');
 
 // Components
 @import url('badge.less');
-@import url('layout.less');
 @import url('card.less');
 @import url('loading.less');
-@import url('iscroll.less');
 @import url('input.less');
 @import url('button.less');
+
+// Component w/ JavaScript
+@import url('iscroll.less');
 @import url('bar.less');
 @import url('tabbar.less');
 @import url('switch.less');
@@ -38,7 +40,5 @@
 @import url('photoBrowser.less');
 @import url('lazyLoadImage.less');
 @import url('sidebar.less');
-
-// Component w/ JavaScript
 
 // Utility classes
