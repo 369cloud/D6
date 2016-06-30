@@ -59,7 +59,7 @@
         if (row) {
             if (opts.searchActionClass) {
                 _ip._searchAction = createAction.apply(_ip, [row, opts.searchActionClass, opts.searchActionSelector]);
-                _ip._searchAction.addEventListener(_ip.touchEve(), function(evt) {
+                _ip._searchAction.addEventListener(_ip.touchEve, function(evt) {
                     _ip.focus(element);
                     evt.stopPropagation();
                 });
@@ -67,13 +67,13 @@
             if (opts.speechActionClass) {
                 _ip._speechAction = createAction.apply(_ip, [row, opts.speechActionClass, opts.speechActionSelector]);
                 _ip._speechAction.addEventListener('click', _ip.stopPropagation);
-                // _ip._speechAction.addEventListener(_ip.touchEve(), function(evt) {
+                // _ip._speechAction.addEventListener(_ip.touchEve, function(evt) {
                 //     speechActionClick.call(_ip,evt);
                 // });
             }
             if (opts.clearActionClass) {
                 _ip._clearAction = createAction.apply(_ip, [row, opts.clearActionClass, opts.clearActionSelector]);
-                _ip._clearAction.addEventListener(_ip.touchEve(), function(evt) {
+                _ip._clearAction.addEventListener(_ip.touchEve, function(evt) {
                     clearActionClick.call(_ip, evt);
                 });
 

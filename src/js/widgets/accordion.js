@@ -41,7 +41,7 @@
     var bind = function() {
         var _acd = this,
             opts = _acd.opts;
-        _acd.ref.on(_acd.touchEve(), function(evt) {
+        _acd.ref.on(_acd.touchEve, function(evt) {
             if ($(evt.target).is(SELECTOR_ACCORDION_ITEM_INNER) || $(evt.target).is(SELECTOR_ACCORDION_ITEM_TITLE) || $(evt.target).is(SELECTOR_ACCORDION_ITEM_LINK)) {
                 var accordionItem = $(evt.target).closest(SELECTOR_ACCORDION_ITEM);
                 _acd.accordionToggle(accordionItem);

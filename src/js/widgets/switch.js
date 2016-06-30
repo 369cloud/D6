@@ -33,10 +33,10 @@
         var _tog = this,
             opts = this.opts,
             element = _tog.ref;
-        element.on(_tog.touchStart(), $.proxy(handleEvent, _tog));
+        element.on(_tog.touchStart, $.proxy(handleEvent, _tog));
         element.on('drag', $.proxy(handleEvent, _tog));
         element.on('swiperight', $.proxy(handleEvent, _tog));
-        element.on(_tog.touchEnd(), $.proxy(handleEvent, _tog));
+        element.on(_tog.touchEnd, $.proxy(handleEvent, _tog));
         element.on('touchcancel', $.proxy(handleEvent, _tog));
     };
 

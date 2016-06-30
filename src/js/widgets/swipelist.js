@@ -58,7 +58,7 @@
     //绑定事件
     var bind = function() {
         var _sl = this;
-        $(document).on(_sl.touchStart(), function(e) {
+        $(document).on(_sl.touchStart, function(e) {
             if (_sl.swipeoutOpenedEl) {
                 var target = $(e.target);
                 if (!(
@@ -70,11 +70,11 @@
             }
         });
 
-        _sl.ref.on(_sl.touchStart(), $.proxy(handleEvent, _sl));
-        _sl.ref.on(_sl.touchMove(), $.proxy(handleEvent, _sl));
-        _sl.ref.on(_sl.touchEnd(), $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchStart, $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchMove, $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchEnd, $.proxy(handleEvent, _sl));
 
-        _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve(), function(evt) {
+        _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve, function(evt) {
             var el = _sl.ref;
             if (el.length === 0) return;
             if (el.length > 1) el = $(el[0]);

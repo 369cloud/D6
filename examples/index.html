@@ -144,11 +144,9 @@
         <script src="../dist/js/d6.js"></script>
     </body>
     <script>
-    domReady(function(require) {
-        var acc = require('AccordionList')
-        var accList = new acc({
-            ref:$('.ui-accordion-list')
-        })
+    $(function(require) {
+        
+        $('.ui-accordion-list').accordionList({});
         // $('.ui-accordion-list').accordionList({});
         $('.ui-accordion-list').on('tapped', function(e, el) {
             window.location.href = $(el).data('target')

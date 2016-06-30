@@ -41,7 +41,7 @@
                 });
 
                 arr.forEach(function( name ) {
-                    _sl[ '_' + name ].on( _sl.touchEve(), function() {
+                    _sl[ '_' + name ].on( _sl.touchEve, function() {
                         _sl[ name ].call( _sl );
                     } );
                 });

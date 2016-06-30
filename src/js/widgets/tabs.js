@@ -33,7 +33,7 @@
         var _tb = this,
             opts = _tb.opts;
 
-        _tb.ref.on(_tb.touchEve(), function(e) {
+        _tb.ref.on(_tb.touchEve, function(e) {
             if ((match = $(e.target).closest('a', _tb.ref)) && match.length) {
                 e.preventDefault();
                 _tb.switchTo(match.index());

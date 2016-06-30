@@ -10,16 +10,14 @@
 		REQUIRE_RE = /"(?:\\"|[^"])*"|'(?:\\'|[^'])*'|\/\*[\S\s]*?\*\/|\/(?:\\\/|[^\/\r\n])+\/(?=[^\/])|\/\/.*|\.\s*require|(?:^|[^$])\brequire\s*\(\s*(["'])(.+?)\1\s*\)/g,
 		SLASH_RE = /\\\\/g;
 
-	var getWidget = function(name) {
-		return $ui.widgets[name]
-	};
-
 	Base.eachObj = function(obj, iterator) {
 		obj && Object.keys(obj).forEach(function(key) {
 			iterator(key, obj[key]);
 		});
 	};
-	Base.getWidget = getWidget;
+	Base.getWidget = function(name) {
+		return $ui.widgets[name]
+	};
 	Base.register = function(name, callback) {
 		if ($.isFunction(callback)) {
 			callback.call(global, $ui.plugins[name])
@@ -62,53 +60,53 @@
 	/*
 	      判断是否Touch屏幕
 	  */
-	Base.isTouchScreen = function() {
+	var isTouchScreen = Base.isTouchScreen = (function() {
 		return (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
-	};
+	})();
 
-	Base.touchEve = function() {
-		return this.isTouchScreen() ? "tap" : "click"
-	};
+	Base.touchEve = (function() {
+		return isTouchScreen ? "tap" : "click"
+	})();
 
-	Base.touchStart = function() {
-		return this.isTouchScreen() ? "touchstart" : "mousedown"
-	};
+	Base.touchStart = (function() {
+		return isTouchScreen ? "touchstart" : "mousedown"
+	})();
 
-	Base.touchEnd = function() {
-		return this.isTouchScreen() ? "touchend" : "mouseup mouseout"
-	};
+	Base.touchEnd = (function() {
+		return isTouchScreen ? "touchend" : "mouseup mouseout"
+	})();
 
-	Base.touchCancel = function() {
-		return this.isTouchScreen() ? "touchcancel" : "mouseup"
-	};
+	Base.touchCancel = (function() {
+		return isTouchScreen ? "touchcancel" : "mouseup"
+	})();
 
-	Base.touchMove = function() {
-		return this.isTouchScreen() ? "touchmove" : "mousemove"
-	};
+	Base.touchMove = (function() {
+		return isTouchScreen ? "touchmove" : "mousemove"
+	})();
 
-	Base.longTap = function() {
-		return this.isTouchScreen() ? "longTap" : "mouseup"
-	};
+	Base.longTap = (function() {
+		return isTouchScreen ? "longTap" : "mouseup"
+	})();
 
-	Base.touchOver = function() {
-		return this.isTouchScreen() ? "touchend touchmove" : "mouseup"
-	};
+	Base.touchOver = (function() {
+		return isTouchScreen ? "touchend touchmove" : "mouseup"
+	})();
 
 
-	Base.log = function(str) {
-		console.log(str);
-		return this;
-	};
+	// Base.log = function(str) {
+	// 	console.log(str);
+	// 	return this;
+	// };
 
-	Base.stopPropagation = function(e) {
-		e.stopPropagation();
-		return this;
-	};
+	// Base.stopPropagation = function(e) {
+	// 	e.stopPropagation();
+	// 	return this;
+	// };
 
-	Base.preventDefault = function(e) {
-		e.preventDefault();
-		return this;
-	};
+	// Base.preventDefault = function(e) {
+	// 	e.preventDefault();
+	// 	return this;
+	// };
 
 
 	Base.focus = function(element) {
@@ -127,6 +125,36 @@
 	$ui.widgets = {};
 	$ui.plugins = {};
 	$ui.module = {};
+	// $ui.define = function(name, options) {
+	// 	if ($ui.widgets[name]) return $ui.widgets[name];
+	// 	var defOpts = {
+	// 		/**
+	// 		 * 参照对象
+	// 		 * @property {String} [ref=null]
+	// 		 */
+	// 		ref: null, //参照目标 
+
+	// 		/**
+	// 		 * 点击回调函数
+	// 		 * @type {function}
+	// 		 */
+	// 		callback: null
+	// 	}
+	// 	var klass = function(opts) {
+	// 		var baseOpts = $.extend(true, {}, this.options);
+	// 		this.opts = $.extend(true, baseOpts, opts);
+	// 		this.ref = $(this.opts.ref);
+	// 		this.callback = this.opts.callback;
+	// 		this.$family = {
+	// 			name: name
+	// 		}
+	// 		this.init();
+	// 	}
+	// 	$ui.widgets[name] = Base.extend.call(klass, Base);
+	// 	$ui.widgets[name].prototype.options = $.extend(defOpts, options);
+	// 	return $ui.widgets[name];
+	// };
+
 	$ui.define = function(name, options) {
 		if ($ui.widgets[name]) return $ui.widgets[name];
 		var defOpts = {
@@ -152,9 +180,12 @@
 			}
 			this.init();
 		}
-		$ui.widgets[name] = Base.extend.call(klass, Base);
-		$ui.widgets[name].prototype.options = $.extend(defOpts, options);
-		return $ui.widgets[name];
+		$.extend(klass.prototype, Base);
+		//$ui.widgets[name] = Base.extend.call(klass, Base);
+		//$.extend(klass.prototype.options || {}, defOpts, options);
+		klass.prototype.options = $.extend(defOpts, options);
+
+		return $ui.widgets[name] = klass;
 	};
 
 	$ui.plugin = function(name, factory) {
@@ -168,47 +199,47 @@
 	};
 
 	var require = function(widget) {
-		var widget = getWidget(widget);
+		var widget = Base.getWidget(widget);
 		return widget;
 	}
 
 
-	setTimeout(function() {
-		$(document).find('.ui-action-back').button(function(evt) {
-			if (window.app) {
-				window.app.currentView().back();
-			} else if (window.rd) {
-				window.rd.window.closeSelf();
-			} else {
-				window.history.back()
-			}
-		})
-	}, 100);
+	// setTimeout(function() {
+	// 	$(document).find('.ui-action-back').button(function(evt) {
+	// 		if (window.app) {
+	// 			window.app.currentView().back();
+	// 		} else if (window.rd) {
+	// 			window.rd.window.closeSelf();
+	// 		} else {
+	// 			window.history.back()
+	// 		}
+	// 	})
+	// }, 100);
 
-	$.fn.ready = function(callback) {
-		if (readyRE.test(document.readyState) && document.body){
-			global.domReady(callback);	
-		} else {
-		 	document.addEventListener('DOMContentLoaded', function() {
-				global.domReady(callback)
-			}, false)
-		}
-		return this;
-	};
-	if (global.domReady) {
-		var domReady = global.domReady;
-		global.domReady = function(factory) {
-			if ($.isFunction(factory)) {
-				domReady.call(global, factory, require);
-			}
-		};
-	} else {
-		global.domReady = function(factory) {
-			if ($.isFunction(factory)) {
-				factory.call(global, require);
-			}
-		};
-	}
+	// $.fn.ready = function(callback) {
+	// 	if (readyRE.test(document.readyState) && document.body){
+	// 		global.domReady(callback);	
+	// 	} else {
+	// 	 	document.addEventListener('DOMContentLoaded', function() {
+	// 			global.domReady(callback)
+	// 		}, false)
+	// 	}
+	// 	return this;
+	// };
+	// if (global.domReady) {
+	// 	var domReady = global.domReady;
+	// 	global.domReady = function(factory) {
+	// 		if ($.isFunction(factory)) {
+	// 			domReady.call(global, factory, require);
+	// 		}
+	// 	};
+	// } else {
+	// 	global.domReady = function(factory) {
+	// 		if ($.isFunction(factory)) {
+	// 			factory.call(global, require);
+	// 		}
+	// 	};
+	// }
 
 	global.define = define;
 	
@@ -3501,7 +3532,9 @@
                     st.call(_sl);
                 });
             }
-
+            debugger;
+            opts.guide = true;
+            debugger;
             if (opts.guide) {
                 _sl.register('sGuide', function(sg) {
                     sg.call(_sl);
@@ -4023,7 +4056,7 @@
                 });
 
                 arr.forEach(function( name ) {
-                    _sl[ '_' + name ].on( _sl.touchEve(), function() {
+                    _sl[ '_' + name ].on( _sl.touchEve, function() {
                         _sl[ name ].call( _sl );
                     } );
                 });
@@ -4363,7 +4396,7 @@
     var bind = function() {
         var _acd = this,
             opts = _acd.opts;
-        _acd.ref.on(_acd.touchEve(), function(evt) {
+        _acd.ref.on(_acd.touchEve, function(evt) {
             if ($(evt.target).is(SELECTOR_ACCORDION_ITEM_INNER) || $(evt.target).is(SELECTOR_ACCORDION_ITEM_TITLE) || $(evt.target).is(SELECTOR_ACCORDION_ITEM_LINK)) {
                 var accordionItem = $(evt.target).closest(SELECTOR_ACCORDION_ITEM);
                 _acd.accordionToggle(accordionItem);
@@ -4511,7 +4544,7 @@
     var bind = function() {
         var _acd = this,
             opts = _acd.opts;
-        _acd.ref.on(_acd.touchEve(), function(evt) {
+        _acd.ref.on(_acd.touchEve, function(evt) {
             if ($(evt.target).parents(SELECTOR_ACCORDION_LIST_ITEM_LINK).length > 0 || $(evt.target).is(SELECTOR_ACCORDION_LIST_ITEM_LINK)) {
                 var accordionItem = $(evt.target).closest(SELECTOR_ACCORDION_LIST_ITEM);
                 _acd.accordionToggle(accordionItem);
@@ -5035,7 +5068,7 @@
         if (row) {
             if (opts.searchActionClass) {
                 _ip._searchAction = createAction.apply(_ip, [row, opts.searchActionClass, opts.searchActionSelector]);
-                _ip._searchAction.addEventListener(_ip.touchEve(), function(evt) {
+                _ip._searchAction.addEventListener(_ip.touchEve, function(evt) {
                     _ip.focus(element);
                     evt.stopPropagation();
                 });
@@ -5043,13 +5076,13 @@
             if (opts.speechActionClass) {
                 _ip._speechAction = createAction.apply(_ip, [row, opts.speechActionClass, opts.speechActionSelector]);
                 _ip._speechAction.addEventListener('click', _ip.stopPropagation);
-                // _ip._speechAction.addEventListener(_ip.touchEve(), function(evt) {
+                // _ip._speechAction.addEventListener(_ip.touchEve, function(evt) {
                 //     speechActionClick.call(_ip,evt);
                 // });
             }
             if (opts.clearActionClass) {
                 _ip._clearAction = createAction.apply(_ip, [row, opts.clearActionClass, opts.clearActionSelector]);
-                _ip._clearAction.addEventListener(_ip.touchEve(), function(evt) {
+                _ip._clearAction.addEventListener(_ip.touchEve, function(evt) {
                     clearActionClick.call(_ip, evt);
                 });
 
@@ -5351,7 +5384,7 @@
         var _nav = this,
             opts = _nav.opts;
         var left = _nav.$list.offset().left;
-        _nav.$list.on(_nav.touchEve(),
+        _nav.$list.on(_nav.touchEve,
             'li:not(.ui-state-disable)>a',
             function(e) {
                 _switchTo.call(_nav, $(this).parent().index());
@@ -5526,70 +5559,10 @@
     var caption = '<div class="' + CLASS_PHOTO_BROWSER_CAPTION + '" ><%=cont%></div>';
 
     var sliderWapll = '<div class="' + CLASS_SLIDER + '"><div class="' + CLASS_SLIDER_GROUP + '"></div></div>'
-        //渲染组件
-    var render = function() {
-        var _pb = this,
-            opts = _pb.opts,
-            items;
-        opts.light && _pb.ref.addClass(CLASS_PHOTO_BROWSER_LIGHT);
-        _pb._navbar = $(navbar).appendTo(_pb.ref);
-        _pb._toolbar = $(toolbar).appendTo(_pb.ref);
-        _pb._container = _pb.ref.find(SELECTOR_PHOTO_BROWSER_CONTAINER);
-        _pb.length = (items = _pb._container.children()).length;
-        _pb._current = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CURRENT);
-        _pb._current.html(opts.index + 1);
-        _pb._total = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_TOTAL);
-        _pb._total.html(_pb.length);
 
-        _pb._slider = $(sliderWapll).appendTo(_pb._container);
-        items.appendTo(_pb._slider.find(SELECTOR_SLIDER_GROUP));
-        _pb.ref.on(animationEnd, function() {
-            _pb._container.css('display', 'block');
-            _pb.slider = _pb._slider.slider(opts);
-            _pb._current.html(opts.index + 1);
-            if (opts.index == 0) {
-                _pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            } else if (opts.index == (_pb.length - 1)) {
-                _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            }
-        });
-        initCaptions.call(_pb);
-    };
-    //绑定事件
-    var bind = function() {
-        var _pb = this,
-            opts = _pb.opts,
-            canTap = true;
-        _pb._toolbar.find(SELECTOR_ICON_PREV).parent().on(_pb.touchEve(), function(evt) {
-            _pb.slider.prev();
-        });
-        _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().on(_pb.touchEve(), function(evt) {
-            _pb.slider.next();
-        });
-        _pb._slider.on('slide', function(evt, to, from) {
-            _pb._current.html(to + 1);
-            opts.index = to;
-            if (to == 0) {
-                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            } else if (to == (_pb.length - 1)) {
-                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            } else {
-                _pb._toolbar.find(SELECTOR_TOOLBAR_LINK).removeClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            }
-            _pb._captions[to] && (_pb._captions.removeClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE) && $(_pb._captions[to]).addClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE));
-        });
-        _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CLOSE).on(_pb.touchEve(), function(evt) {
-            _pb.close();
-        });
-        _pb._slider.find(SELECTOR_SLIDER_IMG).on(_pb.touchEve(), function(evt) {
-            if (!canTap) return;
-            canTap = false;
-            _pb._slider.find(SELECTOR_SLIDER_ITEM).css('transition-duration', '400ms');
-            _pb.ref.toggleClass(CLASS_PHOTO_BROWSER_EXPOSED);
-            canTap = true;
-        })
-    };
-
+    /*
+        字幕， 初始化字幕，给图片添加描述
+    */
     var initCaptions = function() {
         var _pb = this,
             opts = _pb.opts;
@@ -5608,6 +5581,74 @@
         }
     }
 
+    //渲染组件， 构建dom结构
+    var render = function() {
+        var _pb = this,
+            opts = _pb.opts,
+            items;
+            debugger;
+        opts.light && _pb.ref.addClass(CLASS_PHOTO_BROWSER_LIGHT);
+        _pb._navbar = $(navbar).appendTo(_pb.ref);
+        _pb._toolbar = $(toolbar).appendTo(_pb.ref);
+        _pb._container = _pb.ref.find(SELECTOR_PHOTO_BROWSER_CONTAINER);
+        _pb.length = (items = _pb._container.children()).length;
+        _pb._current = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CURRENT);
+        _pb._current.html(opts.index + 1);
+        _pb._total = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_TOTAL);
+        _pb._total.html(_pb.length);
+
+        _pb._slider = $(sliderWapll).appendTo(_pb._container);
+        items.appendTo(_pb._slider.find(SELECTOR_SLIDER_GROUP));
+        console.log(animationEnd, "animationEnd")
+        _pb.ref.on(animationEnd, function() {
+            _pb._container.css('display', 'block');
+            _pb.slider = _pb._slider.slider(opts);
+            _pb._current.html(opts.index + 1);
+            if (opts.index == 0) {
+                _pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            } else if (opts.index == (_pb.length - 1)) {
+                _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            }
+        });
+        initCaptions.call(_pb);
+    };
+    //绑定事件
+    var bind = function() {
+        var _pb = this,
+            opts = _pb.opts,
+            canTap = true;
+        console.log(_pb.touchEve, "-----")
+        _pb._toolbar.find(SELECTOR_ICON_PREV).parent().on(_pb.touchEve, function(evt) {
+            debugger;
+            _pb.slider.prev();
+        });
+        _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().on(_pb.touchEve, function(evt) {
+            debugger;
+            _pb.slider.next();
+        });
+        _pb._slider.on('slide', function(evt, to, from) {
+            _pb._current.html(to + 1);
+            opts.index = to;
+            if (to == 0) {
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            } else if (to == (_pb.length - 1)) {
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            } else {
+                _pb._toolbar.find(SELECTOR_TOOLBAR_LINK).removeClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            }
+            _pb._captions[to] && (_pb._captions.removeClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE) && $(_pb._captions[to]).addClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE));
+        });
+        _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CLOSE).on(_pb.touchEve, function(evt) {
+            _pb.close();
+        });
+        _pb._slider.find(SELECTOR_SLIDER_IMG).on(_pb.touchEve, function(evt) {
+            if (!canTap) return;
+            canTap = false;
+            _pb._slider.find(SELECTOR_SLIDER_ITEM).css('transition-duration', '400ms');
+            _pb.ref.toggleClass(CLASS_PHOTO_BROWSER_EXPOSED);
+            canTap = true;
+        })
+    };
 
     define(function($ui) {
         //photoBrowser
@@ -5635,13 +5676,15 @@
 
         });
 
-        //初始化
-        $photoBrowser.prototype.init = function() {
-            render.call(this);
-            bind.call(this);
-        };
-
+        
         $.extend($photoBrowser.prototype, {
+
+            //初始化,默认被工程类调用
+            init: function(){
+                render.call(this);
+                bind.call(this);
+            },    
+
             open: function(index) {
                 this.ref.removeClass(CLASS_PHOTO_BROWSER_OUT).addClass(CLASS_PHOTO_BROWSER_IN);
                 this.moveTo(index);
@@ -5676,6 +5719,7 @@
 
         //注册$插件
         $.fn.photobrowser = function(opts) {
+            debugger;
             var photoBrowserObjs = [];
             opts || (opts = {});
             this.each(function() {
@@ -6205,14 +6249,14 @@
             container = _sc._container;
 
         container.on('submit', preventSubmit);
-        _sc._cancelButton.on(_sc.touchEve(), $.proxy(_sc.disable, _sc));
-        _sc._overlay.on(_sc.touchOver(), function(evt) {
+        _sc._cancelButton.on(_sc.touchEve, $.proxy(_sc.disable, _sc));
+        _sc._overlay.on(_sc.touchOver, function(evt) {
             _sc.disable();
             _sc.preventDefault(evt);
         });
         _sc._input.on('focus', $.proxy(_sc.enable, _sc));
         _sc._input.on('change keydown keypress keyup', $.proxy(_sc.handleInput, _sc));
-        _sc._clearButton.on(_sc.touchEve(), $.proxy(_sc.clear, _sc));
+        _sc._clearButton.on(_sc.touchEve, $.proxy(_sc.clear, _sc));
     };
 
     var preventSubmit = function(e) {
@@ -6738,7 +6782,7 @@
     //绑定事件
     var bind = function() {
         var _sl = this;
-        $(document).on(_sl.touchStart(), function(e) {
+        $(document).on(_sl.touchStart, function(e) {
             if (_sl.swipeoutOpenedEl) {
                 var target = $(e.target);
                 if (!(
@@ -6750,11 +6794,11 @@
             }
         });
 
-        _sl.ref.on(_sl.touchStart(), $.proxy(handleEvent, _sl));
-        _sl.ref.on(_sl.touchMove(), $.proxy(handleEvent, _sl));
-        _sl.ref.on(_sl.touchEnd(), $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchStart, $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchMove, $.proxy(handleEvent, _sl));
+        _sl.ref.on(_sl.touchEnd, $.proxy(handleEvent, _sl));
 
-        _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve(), function(evt) {
+        _sl.ref.find(SELECTOR_SWIPEOUT_DELETE).on(_sl.touchEve, function(evt) {
             var el = _sl.ref;
             if (el.length === 0) return;
             if (el.length > 1) el = $(el[0]);
@@ -7155,10 +7199,10 @@
         var _tog = this,
             opts = this.opts,
             element = _tog.ref;
-        element.on(_tog.touchStart(), $.proxy(handleEvent, _tog));
+        element.on(_tog.touchStart, $.proxy(handleEvent, _tog));
         element.on('drag', $.proxy(handleEvent, _tog));
         element.on('swiperight', $.proxy(handleEvent, _tog));
-        element.on(_tog.touchEnd(), $.proxy(handleEvent, _tog));
+        element.on(_tog.touchEnd, $.proxy(handleEvent, _tog));
         element.on('touchcancel', $.proxy(handleEvent, _tog));
     };
 
@@ -7350,7 +7394,7 @@
         var _tb = this,
             opts = _tb.opts;
 
-        _tb.ref.on(_tb.touchEve(), function(e) {
+        _tb.ref.on(_tb.touchEve, function(e) {
             if ((match = $(e.target).closest('a', _tb.ref)) && match.length) {
                 e.preventDefault();
                 _tb.switchTo(match.index());

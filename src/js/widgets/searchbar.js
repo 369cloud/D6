@@ -70,14 +70,14 @@
             container = _sc._container;
 
         container.on('submit', preventSubmit);
-        _sc._cancelButton.on(_sc.touchEve(), $.proxy(_sc.disable, _sc));
-        _sc._overlay.on(_sc.touchOver(), function(evt) {
+        _sc._cancelButton.on(_sc.touchEve, $.proxy(_sc.disable, _sc));
+        _sc._overlay.on(_sc.touchOver, function(evt) {
             _sc.disable();
             _sc.preventDefault(evt);
         });
         _sc._input.on('focus', $.proxy(_sc.enable, _sc));
         _sc._input.on('change keydown keypress keyup', $.proxy(_sc.handleInput, _sc));
-        _sc._clearButton.on(_sc.touchEve(), $.proxy(_sc.clear, _sc));
+        _sc._clearButton.on(_sc.touchEve, $.proxy(_sc.clear, _sc));
     };
 
     var preventSubmit = function(e) {

@@ -66,70 +66,10 @@
     var caption = '<div class="' + CLASS_PHOTO_BROWSER_CAPTION + '" ><%=cont%></div>';
 
     var sliderWapll = '<div class="' + CLASS_SLIDER + '"><div class="' + CLASS_SLIDER_GROUP + '"></div></div>'
-        //渲染组件
-    var render = function() {
-        var _pb = this,
-            opts = _pb.opts,
-            items;
-        opts.light && _pb.ref.addClass(CLASS_PHOTO_BROWSER_LIGHT);
-        _pb._navbar = $(navbar).appendTo(_pb.ref);
-        _pb._toolbar = $(toolbar).appendTo(_pb.ref);
-        _pb._container = _pb.ref.find(SELECTOR_PHOTO_BROWSER_CONTAINER);
-        _pb.length = (items = _pb._container.children()).length;
-        _pb._current = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CURRENT);
-        _pb._current.html(opts.index + 1);
-        _pb._total = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_TOTAL);
-        _pb._total.html(_pb.length);
 
-        _pb._slider = $(sliderWapll).appendTo(_pb._container);
-        items.appendTo(_pb._slider.find(SELECTOR_SLIDER_GROUP));
-        _pb.ref.on(animationEnd, function() {
-            _pb._container.css('display', 'block');
-            _pb.slider = _pb._slider.slider(opts);
-            _pb._current.html(opts.index + 1);
-            if (opts.index == 0) {
-                _pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            } else if (opts.index == (_pb.length - 1)) {
-                _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            }
-        });
-        initCaptions.call(_pb);
-    };
-    //绑定事件
-    var bind = function() {
-        var _pb = this,
-            opts = _pb.opts,
-            canTap = true;
-        _pb._toolbar.find(SELECTOR_ICON_PREV).parent().on(_pb.touchEve(), function(evt) {
-            _pb.slider.prev();
-        });
-        _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().on(_pb.touchEve(), function(evt) {
-            _pb.slider.next();
-        });
-        _pb._slider.on('slide', function(evt, to, from) {
-            _pb._current.html(to + 1);
-            opts.index = to;
-            if (to == 0) {
-                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            } else if (to == (_pb.length - 1)) {
-                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            } else {
-                _pb._toolbar.find(SELECTOR_TOOLBAR_LINK).removeClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
-            }
-            _pb._captions[to] && (_pb._captions.removeClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE) && $(_pb._captions[to]).addClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE));
-        });
-        _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CLOSE).on(_pb.touchEve(), function(evt) {
-            _pb.close();
-        });
-        _pb._slider.find(SELECTOR_SLIDER_IMG).on(_pb.touchEve(), function(evt) {
-            if (!canTap) return;
-            canTap = false;
-            _pb._slider.find(SELECTOR_SLIDER_ITEM).css('transition-duration', '400ms');
-            _pb.ref.toggleClass(CLASS_PHOTO_BROWSER_EXPOSED);
-            canTap = true;
-        })
-    };
-
+    /*
+        字幕， 初始化字幕，给图片添加描述
+    */
     var initCaptions = function() {
         var _pb = this,
             opts = _pb.opts;
@@ -148,6 +88,74 @@
         }
     }
 
+    //渲染组件， 构建dom结构
+    var render = function() {
+        var _pb = this,
+            opts = _pb.opts,
+            items;
+            debugger;
+        opts.light && _pb.ref.addClass(CLASS_PHOTO_BROWSER_LIGHT);
+        _pb._navbar = $(navbar).appendTo(_pb.ref);
+        _pb._toolbar = $(toolbar).appendTo(_pb.ref);
+        _pb._container = _pb.ref.find(SELECTOR_PHOTO_BROWSER_CONTAINER);
+        _pb.length = (items = _pb._container.children()).length;
+        _pb._current = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CURRENT);
+        _pb._current.html(opts.index + 1);
+        _pb._total = _pb._navbar.find(SELECTOR_PHOTO_BROWSER_TOTAL);
+        _pb._total.html(_pb.length);
+
+        _pb._slider = $(sliderWapll).appendTo(_pb._container);
+        items.appendTo(_pb._slider.find(SELECTOR_SLIDER_GROUP));
+        console.log(animationEnd, "animationEnd")
+        _pb.ref.on(animationEnd, function() {
+            _pb._container.css('display', 'block');
+            _pb.slider = _pb._slider.slider(opts);
+            _pb._current.html(opts.index + 1);
+            if (opts.index == 0) {
+                _pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            } else if (opts.index == (_pb.length - 1)) {
+                _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            }
+        });
+        initCaptions.call(_pb);
+    };
+    //绑定事件
+    var bind = function() {
+        var _pb = this,
+            opts = _pb.opts,
+            canTap = true;
+        console.log(_pb.touchEve, "-----")
+        _pb._toolbar.find(SELECTOR_ICON_PREV).parent().on(_pb.touchEve, function(evt) {
+            debugger;
+            _pb.slider.prev();
+        });
+        _pb._toolbar.find(SELECTOR_ICON_NEXT).parent().on(_pb.touchEve, function(evt) {
+            debugger;
+            _pb.slider.next();
+        });
+        _pb._slider.on('slide', function(evt, to, from) {
+            _pb._current.html(to + 1);
+            opts.index = to;
+            if (to == 0) {
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_PREV).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            } else if (to == (_pb.length - 1)) {
+                if(!opts.loop)_pb._toolbar.find(SELECTOR_ICON_NEXT).parent().addClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            } else {
+                _pb._toolbar.find(SELECTOR_TOOLBAR_LINK).removeClass(CLASS_PHOTO_BROWSER_LINK_INACTIVE);
+            }
+            _pb._captions[to] && (_pb._captions.removeClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE) && $(_pb._captions[to]).addClass(CLASS_PHOTO_BROWSER_CAPTION_ACTIVE));
+        });
+        _pb._navbar.find(SELECTOR_PHOTO_BROWSER_CLOSE).on(_pb.touchEve, function(evt) {
+            _pb.close();
+        });
+        _pb._slider.find(SELECTOR_SLIDER_IMG).on(_pb.touchEve, function(evt) {
+            if (!canTap) return;
+            canTap = false;
+            _pb._slider.find(SELECTOR_SLIDER_ITEM).css('transition-duration', '400ms');
+            _pb.ref.toggleClass(CLASS_PHOTO_BROWSER_EXPOSED);
+            canTap = true;
+        })
+    };
 
     define(function($ui) {
         //photoBrowser
@@ -175,13 +183,15 @@
 
         });
 
-        //初始化
-        $photoBrowser.prototype.init = function() {
-            render.call(this);
-            bind.call(this);
-        };
-
+        
         $.extend($photoBrowser.prototype, {
+
+            //初始化,默认被工程类调用
+            init: function(){
+                render.call(this);
+                bind.call(this);
+            },    
+
             open: function(index) {
                 this.ref.removeClass(CLASS_PHOTO_BROWSER_OUT).addClass(CLASS_PHOTO_BROWSER_IN);
                 this.moveTo(index);
@@ -216,6 +226,7 @@
 
         //注册$插件
         $.fn.photobrowser = function(opts) {
+            debugger;
             var photoBrowserObjs = [];
             opts || (opts = {});
             this.each(function() {

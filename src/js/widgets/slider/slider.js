@@ -278,7 +278,9 @@
                     st.call(_sl);
                 });
             }
-
+            debugger;
+            opts.guide = true;
+            debugger;
             if (opts.guide) {
                 _sl.register('sGuide', function(sg) {
                     sg.call(_sl);

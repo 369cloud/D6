@@ -34,7 +34,7 @@
         var _nav = this,
             opts = _nav.opts;
         var left = _nav.$list.offset().left;
-        _nav.$list.on(_nav.touchEve(),
+        _nav.$list.on(_nav.touchEve,
             'li:not(.ui-state-disable)>a',
             function(e) {
                 _switchTo.call(_nav, $(this).parent().index());
