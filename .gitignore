@@ -5,4 +5,8 @@ aaa/*/*
 aaa/*
 aaa/
 
+dist/*/*
+dist/*
+dist/
+
 !.gitignore
