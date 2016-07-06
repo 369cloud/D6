@@ -24,7 +24,6 @@ html,
 body,
 div,
 span,
-applet,
 object,
 iframe,
 h1,
@@ -38,31 +37,12 @@ blockquote,
 pre,
 a,
 abbr,
-acronym,
 address,
-big,
-cite,
 code,
-del,
-dfn,
 em,
 img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
 b,
-u,
 i,
-center,
 dl,
 dt,
 dd,
@@ -105,6 +85,13 @@ input {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
+}
+ul,
+ol,
+dl,
+dd,
+li {
+  list-style: none;
 }
 /* === icon === */
 @font-face {
@@ -444,17 +431,9 @@ input[type='color'] {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.grid-cell,
-.grid-column-cell {
+.grid-cell {
   -webkit-flex: 1;
   flex: 1;
-}
-.grid-cell {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.container {
-  height: 100%;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -519,6 +498,19 @@ input[type='color'] {
 .col-xs-1 {
   -webkit-flex: 0 0 8.33333333%;
   flex: 0 0 8.33333333%;
+}
+.container {
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.content {
+  -webkit-flex: 1;
+  flex: 1;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 /* === layout === */
 .ui-card {
