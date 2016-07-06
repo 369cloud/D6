@@ -1,4 +1,3 @@
-
 /* 垂直方向排列 */
 .grid-column{
 	height: 100%;
@@ -6,7 +5,7 @@
 	display: flex;
 	-webkit-flex-direction: column;
 	flex-direction: column;
-}
+} 
 
 .grid-cell, .grid-column-cell {
 	-webkit-flex:1;
@@ -16,14 +15,27 @@
 	padding-left:  ceil((@grid-gutter-width / 2));
 	padding-right: floor((@grid-gutter-width / 2));
 }
+
 .container{
 	height: 100%;
 	padding-left: @grid-gutter-width / 2;
 	padding-right: @grid-gutter-width / 2;
 }
-
+.ui-container{
+	padding-left: @grid-gutter-width / 2;
+	padding-right: @grid-gutter-width / 2; 
+}  
 .row{
 	.make-row();
-}
-.make-grid-columns();
+}  
+//遍历所有类名
+ .make-grid-columns();
 .loop-grid-columns(@grid-columns, xs, width);
+
+//方盒模型
+.ui-quadrate{ 
+	//.loop-grid-columns(@grid-columns, xs, height); 
+
+}
+
+ 
