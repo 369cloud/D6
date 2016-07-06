@@ -1,7 +1,7 @@
 
 .make-grid-columns() {
   	// Common styles for all sizes of grid columns, widths 1-12
-  	.col(@index) { // initial
+  	.col(@index) { // initial  col-xs-1
     	@item: ~".col-xs-@{index}";
     	.col((@index + 1), @item);
   	}
@@ -21,24 +21,32 @@
   	}
   	.col(1); // kickstart it
 }
+
 .calc-grid-column(@index, @class, @type) when (@type = width ) and (@index > 0 ){
 	.col-@{class}-@{index}{
 		-webkit-flex:0 0 percentage(@index / @grid-columns);
 		flex: 0 0 percentage(@index / @grid-columns);
 	}
 }
+
+.calc-grid-column(@index, @class, @type) when (@type = height ) and (@index > 0 ){
+	.col-@{class}-@{index}{  
+		height:percentage(@index / @grid-columns);
+		border:1px solid red;
+		list-style-type:none;
+	}
+}
+
 .loop-grid-columns(@index, @class, @type) when (@index > 0){
 	.calc-grid-column(@index, @class, @type);
 	.loop-grid-columns(@index - 1, @class, @type);
-}
+} 
 
 .make-row(@gutter: @grid-gutter-width){
 	display:-webkit-flex;
-	-webkit-flex-wrap:wrap;
-
+	-webkit-flex-wrap:wrap; 
 	display: flex;
-	flex-wrap: wrap;
-
+	flex-wrap: wrap; 
 	margin-left:  ceil((@gutter / -2));
   	margin-right: floor((@gutter / -2));
 }

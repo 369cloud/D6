@@ -437,6 +437,10 @@ input[type='color'] {
   padding-left: 5px;
   padding-right: 5px;
 }
+.ui-container {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .row {
   display: -webkit-flex;
   -webkit-flex-wrap: wrap;
@@ -3369,4 +3373,34 @@ html:not(.watch-active-state) .ui-accordion-list .ui-accordion-list-item-link:ac
   border: 1px solid #ccc;
   border-width: 1px 1px 0 0;
   overflow-y: auto;
+}
+.ui-box {
+  width: auto;
+  height: auto;
+  min-height: 200px;
+  background: #f2f2f2;
+  border: 0px solid #eee;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 20px #E0DCDC;
+  box-shadow: 0px 0px 20px #E0DCDC;
+  /*> *{
+		.mx-ui-circle(@border:1px solid red);
+	}*/
+}
+.ui-box > .ui-box-circle {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background: #f2f2f2;
+  border: 0px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+.ui-box > .ui-box-circle:active {
+  background: #ededed;
+}
+.ui-box > .ui-box-circle.ui-box-active {
+  background: #ededed;
 }
