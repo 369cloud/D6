@@ -1,8 +1,9 @@
 node_modules/
-dist/css/button.min.css
-dist/css/d6.min.css
-dist/css/font-awesome.min.css
-dist/js/d6.min.js
-dist/js/zepto.min.js
+dist/css
+dist/js
+
+aaa/*/*
+aaa/*
+aaa/
 
 !.gitignore

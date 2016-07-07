@@ -3,7 +3,26 @@
  * Copyright 2016- 369cloud
  * Licensed under MIT
  */
+/*---------- buttons ---[Ly]-------*/
+/*---------- 圆角 ------[Ly]-----*/
+/*---------- font-size ------[Ly]-----*/
+/*---------- padding ------[Ly]-----*/
+/*---------- margin ------[Ly]-----*/
 /* 栅格化, 参考bootstrap 栅格化 */
+/* 按钮对象 btn-object [LY]
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @border                  边框
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-radius           圆角弧度
+ * @param  @is-light                是否发光
+ * @param  @is-fill                 是否填充父容器
+ * @param  @is-3D                   是否3D
+ * 
+ * */
 html,
 body {
   width: 100%;
@@ -24,7 +43,6 @@ html,
 body,
 div,
 span,
-applet,
 object,
 iframe,
 h1,
@@ -38,31 +56,12 @@ blockquote,
 pre,
 a,
 abbr,
-acronym,
 address,
-big,
-cite,
 code,
-del,
-dfn,
 em,
 img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
 b,
-u,
 i,
-center,
 dl,
 dt,
 dd,
@@ -105,6 +104,67 @@ input {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
+}
+ul,
+ol,
+dl,
+dd,
+li {
+  list-style: none;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+* {
+  /*
+			当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。
+			-webkit-touch-callout 是一个不规范的属性（unsupported WebKit property），
+			它没有出现在 CSS 规范草案中。
+			在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有
+			关的系统默认菜单。这个属性可以让你禁用系统默认菜单。
+			-webkit-touch-callout：behavior
+			默认值： default
+			适用于：链接元素比如新窗口打开，img元素比如保存图像等等
+			http://www.css88.com/book/css/webkit/behavior/touch-callout.htm
+		*/
+  -webkit-touch-callout: none;
+  /*
+			这个开启了硬件加速，非常耗性能
+			http://blog.csdn.net/hursing/article/details/9186199
+		*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+select,
+textarea,
+input[type='text'],
+input[type='search'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='tel'],
+input[type='color'] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 /* === icon === */
 @font-face {
@@ -382,60 +442,6 @@ input {
 .ui-icon-pulldown:before {
   content: "\e588";
 }
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-* {
-  /*
-			当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。
-			-webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），
-			它没有出现在 CSS 规范草案中。
-			在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有
-			关的系统默认菜单。这个属性可以让你禁用系统默认菜单。
-			-webkit-touch-callout：behavior
-			默认值： default
-			适用于：链接元素比如新窗口打开，img元素比如保存图像等等
-			http://www.css88.com/book/css/webkit/behavior/touch-callout.htm
-		*/
-  -webkit-touch-callout: none;
-  /*
-			这个开启了硬件加速，非常耗性能
-			http://blog.csdn.net/hursing/article/details/9186199
-		*/
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-select,
-textarea,
-input[type='text'],
-input[type='search'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='time'],
-input[type='week'],
-input[type='number'],
-input[type='email'],
-input[type='url'],
-input[type='tel'],
-input[type='color'] {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
 /* 垂直方向排列 */
 .grid-column {
   height: 100%;
@@ -444,21 +450,9 @@ input[type='color'] {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.grid-cell,
-.grid-column-cell {
+.grid-cell {
   -webkit-flex: 1;
   flex: 1;
-}
-.grid-cell {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.container {
-  height: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.ui-container {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -523,6 +517,19 @@ input[type='color'] {
 .col-xs-1 {
   -webkit-flex: 0 0 8.33333333%;
   flex: 0 0 8.33333333%;
+}
+.container {
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.content {
+  -webkit-flex: 1;
+  flex: 1;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 /* === layout === */
 .ui-card {
@@ -1163,260 +1170,59 @@ input[type='color'] {
 .ui-input-row.ui-input-textarea {
   margin: 10px 5px;
 }
-/* === button === */
-.ui-button-row {
-  position: relative;
-  padding-top: 5px;
-  text-align: center;
-}
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button,
-.ui-btn {
-  position: relative;
+/*---------- Buttons --[Ly]---------*/
+/*---------- Base styles-----------*/
+.btn {
   display: inline-block;
-  padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42;
-  color: #333;
+  font-weight: none;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: top;
+  vertical-align: middle;
+  touch-action: manipulation;
   cursor: pointer;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  -webkit-transition: all;
-  transition: all;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
-  -webkit-transition-duration: .2s;
-  transition-duration: .2s;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: #0096ff;
+  padding: 0.4em 0.8em;
+  font-size: 1em;
+  line-height: 1.5em;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
 }
-input[type="button"]:enabled:active,
-input[type="button"].ui-active:enabled,
-input[type="submit"]:enabled:active,
-input[type="submit"].ui-active:enabled,
-input[type="reset"]:enabled:active,
-input[type="reset"].ui-active:enabled,
-button:enabled:active,
-button.ui-active:enabled,
-.ui-btn:enabled:active,
-.ui-btn.ui-active:enabled {
-  color: #fff;
-  background-color: #929292;
+.btn:focus,
+.btn.focus,
+.btn:visited,
+.btn.visited {
+  color: #ffffff;
+  background-color: #0096ff;
+  border-color: transparent;
 }
-input[type="button"]:disabled,
-input[type="button"].ui-disabled,
-input[type="submit"]:disabled,
-input[type="submit"].ui-disabled,
-input[type="reset"]:disabled,
-input[type="reset"].ui-disabled,
-button:disabled,
-button.ui-disabled,
-.ui-btn:disabled,
-.ui-btn.ui-disabled {
-  opacity: .6;
+.btn:active,
+.btn.active {
+  color: #ffffff;
+  background-color: #0084e0;
+  border-color: rgba(0, 0, 0, 0);
+  background-image: none;
 }
-input[type="submit"],
-.ui-btn-primary,
-.ui-btn-blue {
-  color: #fff;
-  background-color: #007aff;
-  border: 1px solid #007aff;
+.btn:active:focus,
+.btn.active:focus,
+.btn:active.focus,
+.btn.active.focus {
+  color: #ffffff;
+  background-color: #0084e0;
+  border-color: rgba(0, 0, 0, 0);
 }
-input[type="submit"]:enabled:active,
-input[type="submit"].ui-active:enabled,
-.ui-btn-primary:enabled:active,
-.ui-btn-primary.ui-active:enabled,
-.ui-btn-blue:enabled:active,
-.ui-btn-blue.ui-active:enabled {
-  color: #fff;
-  background-color: #0062cc;
-  border: 1px solid #0062cc;
-}
-.ui-btn-positive,
-.ui-btn-success,
-.ui-btn-green {
-  color: #fff;
-  background-color: #4cd964;
-  border: 1px solid #4cd964;
-}
-.ui-btn-positive:enabled:active,
-.ui-btn-positive.ui-active:enabled,
-.ui-btn-success:enabled:active,
-.ui-btn-success.ui-active:enabled,
-.ui-btn-green:enabled:active,
-.ui-btn-green.ui-active:enabled {
-  color: #fff;
-  background-color: #2ac845;
-  border: 1px solid #2ac845;
-}
-.ui-btn-warning,
-.ui-btn-yellow {
-  color: #fff;
-  background-color: #f0ad4e;
-  border: 1px solid #f0ad4e;
-}
-.ui-btn-warning:enabled:active,
-.ui-btn-warning.ui-active:enabled,
-.ui-btn-yellow:enabled:active,
-.ui-btn-yellow.ui-active:enabled {
-  color: #fff;
-  background-color: #ec971f;
-  border: 1px solid #ec971f;
-}
-.ui-btn-negative,
-.ui-btn-danger,
-.ui-btn-red {
-  color: #fff;
-  background-color: #dd524d;
-  border: 1px solid #dd524d;
-}
-.ui-btn-negative:enabled:active,
-.ui-btn-negative.ui-active:enabled,
-.ui-btn-danger:enabled:active,
-.ui-btn-danger.ui-active:enabled,
-.ui-btn-red:enabled:active,
-.ui-btn-red.ui-active:enabled {
-  color: #fff;
-  background-color: #cf2d28;
-  border: 1px solid #cf2d28;
-}
-.ui-btn-royal,
-.ui-btn-purple {
-  color: #fff;
-  background-color: #8a6de9;
-  border: 1px solid #8a6de9;
-}
-.ui-btn-royal:enabled:active,
-.ui-btn-royal.ui-active:enabled,
-.ui-btn-purple:enabled:active,
-.ui-btn-purple.ui-active:enabled {
-  color: #fff;
-  background-color: #6641e2;
-  border: 1px solid #6641e2;
-}
-.ui-btn-grey {
-  color: #fff;
-  background-color: #c7c7cc;
-  border: 1px solid #c7c7cc;
-}
-.ui-btn-grey:enabled:active,
-.ui-btn-grey.ui-active:enabled {
-  color: #fff;
-  background-color: #acacb4;
-  border: 1px solid #acacb4;
-}
-.ui-btn-outlined {
-  background-color: transparent;
-}
-.ui-btn-outlined.ui-btn-primary,
-.ui-btn-outlined.ui-btn-blue {
-  color: #007aff;
-}
-.ui-btn-outlined.ui-btn-positive,
-.ui-btn-outlined.ui-btn-success,
-.ui-btn-outlined.ui-btn-green {
-  color: #4cd964;
-}
-.ui-btn-outlined.ui-btn-warning,
-.ui-btn-outlined.ui-btn-yellow {
-  color: #f0ad4e;
-}
-.ui-btn-outlined.ui-btn-negative,
-.ui-btn-outlined.ui-btn-danger,
-.ui-btn-outlined.ui-btn-red {
-  color: #dd524d;
-}
-.ui-btn-outlined.ui-btn-royal,
-.ui-btn-outlined.ui-btn-purple {
-  color: #8a6de9;
-}
-.ui-btn-outlined.ui-btn-primary:enabled:active,
-.ui-btn-outlined.ui-btn-blue:enabled:active,
-.ui-btn-outlined.ui-btn-positive:enabled:active,
-.ui-btn-outlined.ui-btn-success:enabled:active,
-.ui-btn-outlined.ui-btn-green:enabled:active,
-.ui-btn-outlined.ui-btn-warning:enabled:active,
-.ui-btn-outlined.ui-btn-yellow:enabled:active,
-.ui-btn-outlined.ui-btn-negative:enabled:active,
-.ui-btn-outlined.ui-btn-danger:enabled:active,
-.ui-btn-outlined.ui-btn-red:enabled:active,
-.ui-btn-outlined.ui-btn-royal:enabled:active,
-.ui-btn-outlined.ui-btn-purple:enabled:active {
-  color: #fff;
-}
-.ui-btn-link {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  color: #007aff;
-  background-color: transparent;
-  border: 0;
-}
-.ui-btn-link:enabled:active,
-.ui-btn-link.ui-active:enabled {
-  color: #0062cc;
-  background-color: transparent;
-}
-.ui-btn-block {
-  display: block;
-  width: 100%;
-  padding: 15px 0;
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-.ui-btn .ui-badge {
-  margin: -2px -4px -2px 4px;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.ui-btn .ui-badge-inverted,
-.ui-btn:enabled:active .ui-badge-inverted {
-  background-color: transparent;
-}
-.ui-btn-primary:enabled:active .ui-badge-inverted,
-.ui-btn-positive:enabled:active .ui-badge-inverted,
-.ui-btn-negative:enabled:active .ui-badge-inverted {
-  color: #fff;
-}
-.ui-btn-block .ui-badge {
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-}
-.ui-btn .ui-icon {
-  font-size: inherit;
-}
-.ui-btn.ui-icon {
-  font-size: 14px;
-  line-height: 1.42;
-}
-.ui-btn.ui-fab {
-  width: 56px;
-  height: 56px;
-  padding: 16px;
-  border-radius: 50%;
-  outline: none;
-}
-.ui-btn.ui-fab.ui-btn-mini {
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-}
-.ui-btn.ui-fab .ui-icon {
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
-  line-height: 24px;
+.btn.disabled:focus,
+.btn[disabled]:focus,
+fieldset[disabled] .btn:focus,
+.btn.disabled.focus,
+.btn[disabled].focus,
+fieldset[disabled] .btn.focus {
+  background-color: #0096ff;
+  border-color: transparent;
 }
 /* === scroll === */
 .ui-scroll-wrapper {

@@ -7,35 +7,35 @@
 	flex-direction: column;
 } 
 
-.grid-cell, .grid-column-cell {
+.grid-cell {
 	-webkit-flex:1;
 	flex: 1;
-}
-.grid-cell{
 	padding-left:  ceil((@grid-gutter-width / 2));
 	padding-right: floor((@grid-gutter-width / 2));
 }
 
+.row{
+	.make-row();
+}
+.make-grid-columns();
+.loop-grid-columns(@grid-columns, xs, width);
+
 .container{
 	height: 100%;
+	display:-webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+.content{
+	-webkit-flex:1;
+	flex: 1;
 	padding-left: @grid-gutter-width / 2;
 	padding-right: @grid-gutter-width / 2;
 }
-.ui-container{
-	padding-left: @grid-gutter-width / 2;
-	padding-right: @grid-gutter-width / 2; 
-}  
-.row{
-	.make-row();
-}  
-//遍历所有类名
- .make-grid-columns();
-.loop-grid-columns(@grid-columns, xs, width);
-
-//方盒模型
-.ui-quadrate{ 
-	//.loop-grid-columns(@grid-columns, xs, height); 
-
+.header{
+	
 }
-
- 
+.footer{
+	
+}

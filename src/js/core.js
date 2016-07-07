@@ -216,6 +216,12 @@
 	// 	})
 	// }, 100);
 
+	$(function(){
+		$('.ui-action-back').on('click', function(){
+			history.back();
+		})
+	})
+
 	// $.fn.ready = function(callback) {
 	// 	if (readyRE.test(document.readyState) && document.body){
 	// 		global.domReady(callback);	
