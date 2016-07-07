@@ -1,0 +1,36 @@
+/*container-object  容器对象
+ * @param   @background  
+ * @param   @width   
+ * @param   @height   
+ * @param   @is-box           //是否伸缩[true,false]
+ * @param   @box-proportion  //伸缩比例[1,2,3,4....]
+ * @param   @box-orient      //排列方式[horizontal,vertical,inline-axis,block-axis]
+ * @param   @box-align       //垂直方向排列方式[start,center,end]
+ * @param   @box-pack        //水平方向排列方式[start,center,end]  
+ */
+.container-object(@background;@width;@height;@is-box;@box-proportion;@box-orient;@box-align;@box-pack){
+    width: @width;
+    height: @height;
+    background: @background;
+    & when (@is-box){
+        .box-object(@box-proportion;@box-orient;@box-align;@box-pack);
+    }
+    & when (@box-align=start){
+        vertical-align: top;
+    }
+    & when (@box-align=center){
+        vertical-align: center;
+    }
+    & when (@box-align=end){
+        vertical-align: text-bottom;
+    }
+    & when (@box-align=start){
+        text-align: left;
+    }
+    & when (@box-align=center){
+        text-align: center;
+    }
+    & when (@box-align=end){
+        text-align: right;
+    }
+}
