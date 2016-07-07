@@ -23,6 +23,21 @@
  * @param  @is-3D                   是否3D
  * 
  * */
+/* 图标按钮对象 btn-icon-object [LY]
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @border                  边框
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-radius           圆角弧度
+ * @param  @icon-size               图标的大小
+ * @param  @is-light                是否发光
+ * @param  @is-fill                 是否填充父容器
+ * @param  @is-3D                   是否3D
+ * 
+ * */
 html,
 body {
   width: 100%;
@@ -1171,7 +1186,7 @@ input[type='color'] {
   margin: 10px 5px;
 }
 /*---------- Buttons --[Ly]---------*/
-/*---------- Base styles-----------*/
+/*---------- Base styles----[Ly]-------*/
 .btn {
   display: inline-block;
   margin-bottom: 0;
@@ -1221,6 +1236,67 @@ fieldset[disabled] .btn:focus,
 .btn.disabled.focus,
 .btn[disabled].focus,
 fieldset[disabled] .btn.focus {
+  background-color: #0096ff;
+  border-color: transparent;
+}
+.btn-icon {
+  background-color: #0096ff;
+  padding: 0 0.8em;
+  font-size: 1em;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+}
+.btn-icon input {
+  padding: 0.4em 0;
+  background-color: inherit;
+  display: inline-block;
+  font-weight: none;
+}
+.btn-icon,
+.btn-icon input {
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.5em;
+}
+.btn-icon i {
+  font-size: 1em !important;
+}
+.btn-icon:focus,
+.btn-icon.focus,
+.btn-icon:visited,
+.btn-icon.visited {
+  color: #ffffff;
+  background-color: #0096ff;
+  border-color: transparent;
+}
+.btn-icon:active,
+.btn-icon.active {
+  color: #ffffff;
+  background-color: #0084e0;
+  border-color: rgba(0, 0, 0, 0);
+  background-image: none;
+}
+.btn-icon:active:focus,
+.btn-icon.active:focus,
+.btn-icon:active.focus,
+.btn-icon.active.focus {
+  color: #ffffff;
+  background-color: #0084e0;
+  border-color: rgba(0, 0, 0, 0);
+}
+.btn-icon.disabled:focus,
+.btn-icon[disabled]:focus,
+fieldset[disabled] .btn-icon:focus,
+.btn-icon.disabled.focus,
+.btn-icon[disabled].focus,
+fieldset[disabled] .btn-icon.focus {
   background-color: #0096ff;
   border-color: transparent;
 }
