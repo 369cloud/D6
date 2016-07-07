@@ -1,0 +1,57 @@
+ //----border-radius----[Ly]--
+ .borderRadius(@radius){ 
+    -moz-border-radius: @radius; 
+    -webkit-border-radius: @radius; 
+    border-radius: @radius; 
+ }
+
+//----opacity----[Ly]--
+.opacity(@opacity) {
+    opacity: @opacity;
+    // IE8 filter
+    @opacity-ie: (@opacity * 100);
+    filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+//----outline---[Ly]---
+.tab-focus() {
+    // Default
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+//------padding---[Ly]---
+.padding(@padding){
+    padding: @padding;
+}
+.padding-top(@padding){
+    padding-top: @padding;
+}
+.padding-right(@padding){
+    padding-right: @padding;
+}
+.padding-bottom(@padding){
+    padding-bottom: @padding;
+}
+.padding-left(@padding){
+    padding-left: @padding;
+}
+//------margin----[Ly]--
+.margin(@margin){
+    margin: @margin;
+}
+.margin-top(@margin){
+    margin-top: @margin;
+}
+.margin-right(@margin){
+    margin-right: @margin;
+}
+.margin-bottom(@margin){
+    margin-bottom: @margin;
+}
+.margin-left(@margin){
+    margin-left: @margin;
+}
+
