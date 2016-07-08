@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../dist/css/d6.css">
+		<link rel="stylesheet" href="../dist/css/font-awesome.css">
+		<title>buttons</title>
+		<style type="text/css">
+			body {
+				font-family: "微软雅黑" !important;
+			}
+			
+			.padd-default {
+				padding: 0.5em;
+			}
+			
+			.padd-lr-default {
+				padding: 0 .5em;
+			}
+			
+			.mar-t-lg {
+				margin-top: 1em;
+			}
+			.mar-lr-lg {
+				margin:0 1em;
+			}
+			.mar-t-default {
+				margin-top: .5em;
+			}
+			
+			.box {
+				display: -webkit-box !important;
+				display: box !important;
+				display: -webkit-flex;
+				display: flex;
+				position: relative;
+			}
+			/*垂直方向排列方式*/
+			
+			.box-align-start {
+				-webkit-box-align: start;
+				box-align: start;
+			}
+			
+			.box-align-center {
+				-webkit-box-align: center;
+				box-align: center;
+			}
+			
+			.box-align-end {
+				-webkit-box-align: end;
+				box-align: end;
+			}
+			/*水平方向排列方式*/
+			
+			.box-pack-start {
+				-webkit-box-pack: start;
+				box-pack: start;
+			}
+			
+			.box-pack-center {
+				-webkit-box-pack: center;
+				box-pack: center;
+			}
+			
+			.box-pack-end {
+				-webkit-box-pack: end;
+				box-pack: end;
+			}
+			/*平均分配*/
+			
+			.box-pack-justify {
+				-webkit-box-pack: justify;
+				box-pack: justify;
+			}
+			/*垂直排列*/
+			
+			.box-orient-vertical {
+				-webkit-box-orient: vertical;
+				box-orient: vertical;
+			}
+			/*反向排列*/
+			
+			.box-direction-reverse {
+				-webkit-box-direction: reverse;
+				box-direction: reverse;
+			}
+			/*盒子伸缩比例*/
+			
+			.box-flex-1 {
+				position: relative;
+				-webkit-box-flex: 1;
+				box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="ui-nav-bar">
+			<div class="ui-nav-bar-inner">
+				<a class="ui-action-back ui-nav-bar-link">
+					<i class="ui-nav-bar-icon ui-nav-bar-left ui-icon-left-nav"></i>
+				</a>
+				<h1 class="ui-nav-bar-title">Buttons</h1>
+				<a class="ui-nav-bar-link"></a>
+			</div>
+		</header>
+		<div style=" width: 100%; padding-bottom: 2em;">
+			<div class="padd-default light">圆角按钮</div>
+			<div class="box box-flex-1 padd-lr-default">
+				<input type="button" class="btn" value="默认按钮" name="button" />
+			</div>
+			<div class="box box-flex-1 padd-lr-default mar-t-lg">
+				<div class="btn-icon"/>
+					<i class="fa fa-edit"></i>
+					<input type="button" value="默认按钮" name="button"/>
+				</div>
+			</div>
+			<div class="box box-flex-1 padd-lr-default mar-t-lg">
+				<div class="btn-icon"/>
+					<input type="button" value="默认按钮" name="button"/>
+					<i class="fa fa-edit"></i>
+				</div>
+			</div>
+		</div>
+		<script src="../dist/js/zepto.js"></script>
+		<script src="../dist/js/d6.js"></script>
+	</body>
+
+</html>
