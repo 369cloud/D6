@@ -44,18 +44,17 @@
  * @box-orient       子伸缩盒排列方式[horizontal,vertical,inline-axis,block-axis]
  * @box-align        垂直方向排列方式[start,center,end]
  * @box-pack         水平方向排列方式[start,center,end]
- * @box-direction    子元素排列方式[normal,reverse,inherit]
  */
-/* checkpanel-object  复选框 [LY]
- * @param   @no-check-bg        没选中背景图片
- * @param   @checked-bg         选中背景图片
- * @param   @checked-bg-color   选中背景图片颜色 
- * @param   @checkbox-size      图标大小
- * @param   @label-color        文字颜色
- * @param   @label-size         文字大小
- * @param   @btn-position       按钮位置【left;right】
- * @param   @is-fill            按钮文字是否居两边【true;false】
- * @param   @is-label           文字是否存在【true;false】
+/*container-object  容器对象
+ * @param   @background  
+ * @param   @width   
+ * @param   @height   
+ * @param   @is-box           //是否伸缩[true,false]
+ * @param   @box-proportion  //伸缩比例[1,2,3,4....]
+ * @param   @box-orient      //排列方式[horizontal,vertical,inline-axis,block-axis]
+ * @param   @box-align       //垂直方向排列方式[start,center,end]
+ * @param   @box-pack        //水平方向排列方式[start,center,end]  
+>>>>>>> ba2c643c2b5311e11f1766ab1feed3b1f7140291
  */
 html,
 body {
@@ -601,6 +600,28 @@ input[type='color'] {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.cont {
+  width: auto;
+  height: auto;
+  background: #fff;
+  position: relative;
+  display: -webkit-box !important;
+  display: box !important;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+  vertical-align: center;
+  text-align: center;
 }
 /* === badge === */
 .ui-badge {
@@ -3084,4 +3105,76 @@ html:not(.watch-active-state) .ui-accordion-list .ui-accordion-list-item-link:ac
 }
 .ui-box > .ui-box-circle.ui-box-active {
   background: #ededed;
+}
+.ui-box .col-xs-2 {
+  /*.col(@_index) when (@index=16)and(@_index >=12) {
+		&:nth-child(@{_index}){
+			  border-bottom:0px;
+		 } 
+		 .col((@_index - 1));
+	｝*/
+}
+.ui-box .col-xs-2:nth-child(6n) {
+  border-right: 0;
+}
+.ui-box .col-xs-2:nth-child(36) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-2:nth-child(35) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-2:nth-child(34) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-2:nth-child(33) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-2:nth-child(32) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-2:nth-child(31) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-3 {
+  /*.col(@_index) when (@index=16)and(@_index >=12) {
+		&:nth-child(@{_index}){
+			  border-bottom:0px;
+		 } 
+		 .col((@_index - 1));
+	｝*/
+}
+.ui-box .col-xs-3:nth-child(4n) {
+  border-right: 0;
+}
+.ui-box .col-xs-3:nth-child(16) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-3:nth-child(15) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-3:nth-child(14) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-3:nth-child(13) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-4 {
+  /*.col(@_index) when (@index=16)and(@_index >=12) {
+		&:nth-child(@{_index}){
+			  border-bottom:0px;
+		 } 
+		 .col((@_index - 1));
+	｝*/
+}
+.ui-box .col-xs-4:nth-child(3n) {
+  border-right: 0;
+}
+.ui-box .col-xs-4:nth-child(9) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-4:nth-child(8) {
+  border-bottom: 0px;
+}
+.ui-box .col-xs-4:nth-child(7) {
+  border-bottom: 0px;
 }
