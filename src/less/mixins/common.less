@@ -1,11 +1,12 @@
 //---------box---------
-/*box
+/*panel-object
  * @proportion       伸缩盒比例[1,2,3,4...]
  * @box-orient       子伸缩盒排列方式[horizontal,vertical,inline-axis,block-axis]
  * @box-align        垂直方向排列方式[start,center,end]
  * @box-pack         水平方向排列方式[start,center,end]
+ * @box-direction    子元素排列方式[normal,reverse,inherit]
  */
-.box-object(@proportion;@box-orient;@box-align;@box-pack) {
+.panel-object(@proportion;@box-orient;@box-align;@box-pack;@box-direction) {
     position: relative; 
     display: -webkit-box !important;
     display: box !important;
@@ -28,6 +29,8 @@
     -webkit-box-pack: @box-pack;
     box-pack: @box-pack;
     
+    -webkit-box-direction: @box-direction;
+    box-direction: @box-direction;
 }
 
 //----opacity----[Ly]--

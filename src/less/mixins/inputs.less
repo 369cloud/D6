@@ -1,0 +1,73 @@
+/* checkbox-object  复选框 [LY]
+ * @param   @no-check-bg        没选中背景图片
+ * @param   @checked-bg         选中背景图片
+ * @param   @checked-bg-color   选中背景图片颜色 
+ * @param   @checkbox-size      图标大小
+ * @param   @label-color        文字颜色
+ * @param   @label-size         文字大小
+ * @param   @btn-position       按钮位置【left;right】
+ * @param   @is-fill            按钮文字是否居两边【true;false】
+ * @param   @is-label           文字是否存在【true;false】
+ */
+.checkbox-object(@no-check-bg;@checked-bg;@checked-bg-color;@checkbox-size;@label-color;@label-size;@btn-position;@is-fill;@is-label){
+    overflow: hidden;
+    clear: left;
+    position: relative;
+    vertical-align: middle;
+    & input[type=radio],
+    & input[type=checkbox]{
+        display: inline-block;
+        -webkit-appearance: none; 
+        appearance:none;
+        font-size: @checkbox-size;
+    }
+    & input[type=radio]:before,
+    & input[type=checkbox]:before {
+        font-family: FontAwesome;
+        -webkit-font-smoothing: antialiased;
+        content: @no-check-bg; 
+    }
+    & input[type=radio]:checked:before,
+    & input[type=checkbox]:checked:before{   
+        content: @checked-bg;
+        color:@checked-bg-color;
+    }
+    & when not(@is-label){
+        & label{
+            display: none;
+        }
+    }
+    & when (@is-label){
+        & label{
+            display: inline-block;
+            float: none;
+            font-size: @label-size;
+            color: @label-color;
+        }
+        & when (@btn-position=right){
+            .panel-object(1;horizontal;center;start;reverse);
+            & when (@is-fill){
+                & label{
+                    .panel-object(1;horizontal;center;start;normal);
+                } 
+            }
+            & when not(@is-fill){
+                & label{
+                    .panel-object(0;horizontal;center;start;normal);
+                }
+            }
+        }
+        & when (@btn-position=left){
+            .panel-object(1;horizontal;center;start;normal);
+            & when (@is-fill){
+                & label{
+                    .panel-object(1;horizontal;center;end;normal);
+                }
+            }
+        }
+    }
+}
+
+
+
+

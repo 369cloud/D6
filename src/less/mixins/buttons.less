@@ -33,7 +33,7 @@
         -webkit-box-shadow: 0 0 9px @background;
     }
     & when (@is-fill){
-        .box-object(1;false;center;center);
+        .panel-object(1;false;center;center;normal);
     }
     & when (@is-3D){
         -webkit-box-shadow: 0px 5px 0px darken(@background, 10%), 0px 5px 0px darken(@background, 10%);
@@ -53,12 +53,6 @@
         background-color: darken(@background, 6%);
         border-color: darken(@border, 15%);
         background-image: none;
-        &:focus,
-        &.focus {
-            color: @color;
-            background-color: darken(@background, 6%);
-            border-color: darken(@border, 15%);
-        }
     }
     &.disabled,
     &[disabled],
@@ -119,7 +113,7 @@
         -webkit-box-shadow: 0 0 9px @background;
     }
     & when (@is-fill){
-        .box-object(1;false;center;center);
+        .panel-object(1;false;center;center;normal);
     }
     & when (@is-3D){
         -webkit-box-shadow: 0px 5px 0px darken(@background, 10%), 0px 5px 0px darken(@background, 10%);
