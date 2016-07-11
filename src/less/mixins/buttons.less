@@ -28,6 +28,7 @@
     padding: @padding-vertical @padding-horizontal;
     font-size: @font-size;
     line-height: @line-height;
+    -webkit-user-select: none;
     .border-radius(@border-radius);
     & when (@is-light){
         -webkit-box-shadow: 0 0 9px @background;
@@ -81,18 +82,21 @@
  * 
  * */
 
-.btn-icon-object(@color; @background; @border;@padding-vertical;@padding-horizontal; @font-size; @line-height; @border-radius;@icon-size;@is-light;@is-fill;@is-3D) {
+.btn-group-object(@color; @background; @border;@padding-vertical;@padding-horizontal; @font-size; @line-height; @border-radius;@icon-size;@is-light;@is-fill;@is-3D) {
     &{
         background-color: @background;
         padding: 0 @padding-horizontal;
         font-size: @font-size;
         .border-radius(@border-radius);
+        text-align: center;
+        vertical-align: middle;
     }
     & input{
         padding: @padding-vertical 0;
         background-color: inherit;
         display: inline-block;
         font-weight: @btn-font-weight;
+        line-height: @line-height;
     }
     &,
     & input{
@@ -104,7 +108,6 @@
         background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
         border: 1px solid @border;
         white-space: nowrap;
-        line-height: @line-height;
     }
     & i{
        font-size: @icon-size !important;
@@ -114,6 +117,9 @@
     }
     & when (@is-fill){
         .panel-object(1;false;center;center;normal);
+    }
+    & when not(@is-fill){
+        .panel-object(0;false;center;center;normal);
     }
     & when (@is-3D){
         -webkit-box-shadow: 0px 5px 0px darken(@background, 10%), 0px 5px 0px darken(@background, 10%);
