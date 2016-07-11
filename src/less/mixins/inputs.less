@@ -1,5 +1,40 @@
 /* checkbox-object  复选框 [LY]
  * @param   @no-check-bg        没选中背景图片
+ * @param   @no-check-bg-color  没选中背景图片颜色
+ * @param   @checked-bg         选中背景图片
+ * @param   @checked-bg-color   选中背景图片颜色 
+ * @param   @checkbox-size      图标大小
+ */
+.checkbox-object(@no-check-bg;@no-check-bg-color;@checked-bg;@checked-bg-color;@checkbox-size){
+    overflow: hidden;
+    clear: left;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-appearance: none; 
+    appearance:none;
+    font-size: @checkbox-size;
+    &:before{
+        font-family: FontAwesome;
+        -webkit-font-smoothing: antialiased;
+        content: @no-check-bg; 
+        color:@no-check-bg-color;
+    }
+    &:checked:before,
+    &:checked:before{   
+        content: @checked-bg;
+        color:@checked-bg-color;
+    }
+    &[disabled]:before,
+    &[disabled]:before{
+        color:lighten(@no-check-bg-color,15%);
+    }
+}
+
+
+/* checkbox-group-object  复选框组合 [LY]
+ * @param   @no-check-bg        没选中背景图片
+ * @param   @no-check-bg-color  没选中背景图片颜色
  * @param   @checked-bg         选中背景图片
  * @param   @checked-bg-color   选中背景图片颜色 
  * @param   @checkbox-size      图标大小
@@ -9,7 +44,7 @@
  * @param   @is-fill            按钮文字是否居两边【true;false】
  * @param   @is-label           文字是否存在【true;false】
  */
-.checkbox-object(@no-check-bg;@checked-bg;@checked-bg-color;@checkbox-size;@label-color;@label-size;@btn-position;@is-fill;@is-label){
+.checkbox-group-object(@no-check-bg;@no-check-bg-color;@checked-bg;@checked-bg-color;@checkbox-size;@label-color;@label-size;@btn-position;@is-fill;@is-label){
     overflow: hidden;
     clear: left;
     position: relative;
@@ -26,11 +61,16 @@
         font-family: FontAwesome;
         -webkit-font-smoothing: antialiased;
         content: @no-check-bg; 
+        color:@no-check-bg-color;
     }
     & input[type=radio]:checked:before,
     & input[type=checkbox]:checked:before{   
         content: @checked-bg;
         color:@checked-bg-color;
+    }
+    & input[type=radio][disabled]:before,
+    & input[type=checkbox][disabled]:before{
+        color:lighten(@no-check-bg-color,15%);
     }
     & when not(@is-label){
         & label{
@@ -69,5 +109,192 @@
 }
 
 
+/* input-object  输入框 [LY]
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-color            边框颜色
+ * @param  @border-radius           圆角弧度
+ * @param  @width                   宽度[px、em、%]
+ * @param  @text-align              文字位置[left;center;right]
+ */
+.input-object(@color;@background;@padding-vertical;@padding-horizontal;@font-size;@line-height;@border-color;@border-radius;@width;@text-align){
+    color: @color;
+    background-color:@background ;
+    padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size ;
+    line-height: @line-height;
+    border: 1px solid @border-color;
+    -webkit-user-select: none;
+    .border-radius(@border-radius);
+    width: @width;
+    text-align: @text-align;
+}
 
 
+/* input-search-object  搜索输入框 [LY]
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-color            边框颜色
+ * @param  @border-radius           圆角弧度
+ * @param  @width                   宽度[px、em、%] 
+ * @param  @icon-position           搜索图标位置[none,left;center;right]           
+ */
+.input-search-object(@color;@background;@padding-vertical;@padding-horizontal;@font-size;@line-height;@border-color;@border-radius;@width;@icon-position){
+    border: 1px solid @border-color;
+    -webkit-user-select: none;
+    position: relative;
+    &,
+    & input[type=search]{
+        color: @color;
+        background-color:@background ;
+        font-size: @font-size ;
+        line-height: @line-height;
+        .border-radius(@border-radius);
+    }
+    & input[type=search]{
+        & when not(@icon-position=none){
+            background-repeat: no-repeat;
+            & when (@icon-position=left){
+                background-position: @padding-horizontal center;
+                @padd03 : 0.3em;
+                padding: @padding-vertical @padding-horizontal @padding-vertical @padding-horizontal+@font-size+@padd03;
+                text-align: left;
+            }
+            & when (@icon-position=center){
+                background-position: 40% center;
+                padding: @padding-vertical @padding-horizontal;
+                text-align: center;
+            }
+            & when (@icon-position=right){
+                background-position: 95% center;
+                padding: @padding-vertical @padding-horizontal;
+                text-align: left;
+            }
+            
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2013'%20enable-background%3D'new%200%200%2013%2013'%3E%3Cg%3E%3Cpath%20fill%3D'%23939398'%20d%3D'M5%2C1c2.2%2C0%2C4%2C1.8%2C4%2C4S7.2%2C9%2C5%2C9S1%2C7.2%2C1%2C5S2.8%2C1%2C5%2C1%20M5%2C0C2.2%2C0%2C0%2C2.2%2C0%2C5s2.2%2C5%2C5%2C5s5-2.2%2C5-5S7.8%2C0%2C5%2C0%20L5%2C0z'%2F%3E%3C%2Fg%3E%3Cline%20stroke%3D'%23939398'%20stroke-miterlimit%3D'10'%20x1%3D'12.6'%20y1%3D'12.6'%20x2%3D'8.2'%20y2%3D'8.2'%2F%3E%3C%2Fsvg%3E");
+            -webkit-background-size: @font-size @font-size;
+        }
+        & when (@icon-position=none){
+            padding: @padding-vertical @padding-horizontal;
+        }
+        -webkit-appearance:none;
+        border:none;
+        width: @width;
+        
+    }
+    & input[type=search]:focus,
+    & input[type=search].focus{
+        & when (@icon-position=center){
+            background-position: @padding-horizontal center;
+            @padd03 : 0.3em;
+            padding: @padding-vertical @padding-horizontal @padding-vertical @padding-horizontal+@font-size+@padd03;
+            text-align: left;
+        }
+    }
+    & input[type=search]::-webkit-search-cancel-button{
+        display: none;
+    }
+    & .search-clear{
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        right: 0;
+        top: 50%;
+        margin-top: -14px;
+        opacity: 1;
+        pointer-events: none;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2028'%3E%3Ccircle%20cx%3D'14'%20cy%3D'14'%20r%3D'14'%20fill%3D'%238e8e93'%2F%3E%3Cline%20stroke%3D'%23ffffff'%20stroke-width%3D'2'%20stroke-miterlimit%3D'10'%20x1%3D'8'%20y1%3D'8'%20x2%3D'20'%20y2%3D'20'%2F%3E%3Cline%20fill%3D'none'%20stroke%3D'%23ffffff'%20stroke-width%3D'2'%20stroke-miterlimit%3D'10'%20x1%3D'20'%20y1%3D'8'%20x2%3D'8'%20y2%3D'20'%2F%3E%3C%2Fsvg%3E");
+        -webkit-background-size: 14px 14px;
+        background-size: 14px 14px;
+        -webkit-transition-duration: 300ms;
+        transition-duration: 300ms;
+        cursor: pointer;
+        z-index: 9;
+    }
+    & .search-clear-no{
+        .opacity(0);
+    }
+}
+/* input-group-object  输入框组合 [LY]
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @margin-right            输入框到图标的左边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-color            边框颜色
+ * @param  @border-radius           圆角弧度
+ * @param  @width                   宽度[px、em、%]   
+ * @param  @border-style            边框样式[none,all,bottom]           
+ */
+.input-group-object(@color;@background;@padding-vertical;@padding-horizontal;@margin-right;@font-size;@line-height;@border-color;@border-radius;@width;@border-style){
+    -webkit-user-select: none;
+    position: relative;
+    padding: @padding-vertical @padding-horizontal;
+    width:@width;
+    .panel-object(0;horizontal;center;start;normal);
+    &,
+    & input{
+        color: @color;
+        background-color:@background ;
+        font-size: @font-size ;
+        line-height: @line-height;
+        
+        .panel-object(1;horizontal;center;start;normal);
+    }
+    & i{
+        margin-right: @margin-right;
+    }    
+    & when (@border-style=all){
+        border: 1px solid @border-color;
+        &,
+        & input{
+           .border-radius(@border-radius); 
+        }
+    }
+    & when (@border-style=bottom){
+        border-bottom: 1px solid @border-color;
+    } 
+}
+ /*textarea-object    多行输入对象
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-color            边框颜色
+ * @param  @border-radius           圆角弧度
+ * @param  @width                   宽度[px、em、%]
+ * @param  @height                  高[px、em、%]
+ * @param  @text-indent             开头空格
+ */                   
+.textarea-object(@color;@background;@padding-vertical;@padding-horizontal;@font-size;@line-height;@border-color;@border-radius;@width;@height;@text-indent){
+    color: @color;
+    background-color:@background ;
+    padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size ;
+    line-height: @line-height;
+    border: 1px solid @border-color;
+    -webkit-user-select: none;
+    .border-radius(@border-radius);
+    width: @width;
+    height: @height;
+    text-indent:@text-indent;
+    resize: none;
+    -webkit-appearance:none;
+    &:focus{
+        border: 1px solid @border-color;
+    }
+}
