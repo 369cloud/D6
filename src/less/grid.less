@@ -1,15 +1,5 @@
-/* 垂直方向排列 */
-.grid-column{
-	height: 100%;
-	display:-webkit-flex;
-	display: flex;
-	-webkit-flex-direction: column;
-	flex-direction: column;
-} 
-
 .grid-cell {
-	-webkit-flex:1;
-	flex: 1;
+	.flex(1);
 	padding-left:  ceil((@grid-gutter-width / 2));
 	padding-right: floor((@grid-gutter-width / 2));
 }
@@ -19,23 +9,3 @@
 }
 .make-grid-columns();
 .loop-grid-columns(@grid-columns, xs, width);
-
-.container{
-	height: 100%;
-	display:-webkit-flex;
-	display: flex;
-	-webkit-flex-direction: column;
-	flex-direction: column;
-}
-.content{
-	-webkit-flex:1;
-	flex: 1;
-	padding-left: @grid-gutter-width / 2;
-	padding-right: @grid-gutter-width / 2;
-}
-.header{
-	
-}
-.footer{
-	
-}

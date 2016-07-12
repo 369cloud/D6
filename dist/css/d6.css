@@ -9,7 +9,13 @@
 /*---------- padding ------[Ly]-----*/
 /*---------- margin ------[Ly]-----*/
 /*---------- checkbox ------[Ly]-----*/
-/* 栅格化, 参考bootstrap 栅格化 */
+/* 
+	@author: lg
+栅格化, 参考bootstrap 栅格化 */
+.display-flex {
+  display: -webkit-flex;
+  display: flex;
+}
 /* 按钮对象 btn-object [LY]
  * @param  @color                   字体颜色
  * @param  @background              背景颜色
@@ -226,6 +232,67 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #fff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+/* .img-responsive {
+  .img-responsive();
+} */
+/* .img-rounded {
+  border-radius: @border-radius-large;
+} */
+/* .img-thumbnail {
+  padding: @thumbnail-padding;
+  line-height: @line-height-base;
+  background-color: @thumbnail-bg;
+  border: 1px solid @thumbnail-border;
+  border-radius: @thumbnail-border-radius;
+  .transition(all .2s ease-in-out);
+
+  // Keep them at most 100% wide
+  .img-responsive(inline-block);
+}
+
+// Perfect circle
+.img-circle {
+  border-radius: 50%; // set radius in percents
+} */
 * {
   /*
 			当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。
@@ -269,309 +336,343 @@ input[type='color'] {
   -ms-user-select: text;
   user-select: text;
 }
-/* === icon === */
 @font-face {
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/ui.ttf") format("truetype");
+  font-family: "iconfont";
+  src: url('../fonts/iconfont.eot?t=1468304910');
+  /* IE9*/
+  src: url('../fonts/iconfont.eot?t=1468304910#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/iconfont.woff?t=1468304910') format('woff'), /* chrome, firefox */ url('../fonts/iconfont.ttf?t=1468304910') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('../fonts/iconfont.svg?t=1468304910#iconfont') format('svg');
+  /* iOS 4.1- */
 }
-.ui-icon {
-  display: inline-block;
-  font-family: FontAwesome;
-  font-size: 24px;
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
   font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  text-decoration: none;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
 }
-.ui-icon-contact:before {
-  content: "\e100";
+.icon-woman:before {
+  content: "\e694";
 }
-.ui-icon-person:before {
-  content: "\e101";
+.icon-vip:before {
+  content: "\e693";
 }
-.ui-icon-personadd:before {
-  content: "\e102";
+.icon-userinformation:before {
+  content: "\e692";
 }
-.ui-icon-contact-filled:before {
-  content: "\e130";
+.icon-userempty:before {
+  content: "\e691";
 }
-.ui-icon-person-filled:before {
-  content: "\e131";
+.icon-user:before {
+  content: "\e690";
 }
-.ui-icon-personadd-filled:before {
-  content: "\e132";
+.icon-toilet:before {
+  content: "\e68f";
 }
-.ui-icon-phone:before {
-  content: "\e200";
+.icon-tint:before {
+  content: "\e68e";
 }
-.ui-icon-email:before {
-  content: "\e201";
+.icon-tagempty:before {
+  content: "\e68d";
 }
-.ui-icon-chatbubble:before {
-  content: "\e202";
+.icon-tagblank:before {
+  content: "\e68c";
 }
-.ui-icon-chatboxes:before {
-  content: "\e203";
+.icon-tag:before {
+  content: "\e68b";
 }
-.ui-icon-phone-filled:before {
-  content: "\e230";
+.icon-stop:before {
+  content: "\e68a";
 }
-.ui-icon-email-filled:before {
-  content: "\e231";
+.icon-stepforward:before {
+  content: "\e689";
 }
-.ui-icon-chatbubble-filled:before {
-  content: "\e232";
+.icon-stepbackward:before {
+  content: "\e688";
 }
-.ui-icon-chatboxes-filled:before {
-  content: "\e233";
+.icon-steeringwheel:before {
+  content: "\e687";
 }
-.ui-icon-weibo:before {
-  content: "\e260";
+.icon-starhalf:before {
+  content: "\e686";
 }
-.ui-icon-weixin:before {
-  content: "\e261";
+.icon-sofa:before {
+  content: "\e684";
 }
-.ui-icon-pengyouquan:before {
-  content: "\e262";
+.icon-shoppingcart:before {
+  content: "\e683";
 }
-.ui-icon-chat:before {
-  content: "\e263";
+.icon-shoppingcartempty:before {
+  content: "\e682";
 }
-.ui-icon-videocam:before {
-  content: "\e300";
+.icon-shoppingcartblank:before {
+  content: "\e681";
 }
-.ui-icon-camera:before {
-  content: "\e301";
+.icon-shoppingcart1:before {
+  content: "\e680";
 }
-.ui-icon-mic:before {
-  content: "\e302";
+.icon-shopping:before {
+  content: "\e67f";
 }
-.ui-icon-location:before {
-  content: "\e303";
+.icon-shieldempty:before {
+  content: "\e67e";
 }
-.ui-icon-mic-filled:before,
-.ui-icon-speech:before {
-  content: "\e332";
+.icon-shield:before {
+  content: "\e67d";
 }
-.ui-icon-location-filled:before {
-  content: "\e333";
+.icon-shareblank:before {
+  content: "\e67c";
 }
-.ui-icon-micoff:before {
-  content: "\e360";
+.icon-starempty:before {
+  content: "\e685";
 }
-.ui-icon-image:before {
-  content: "\e363";
+.icon-share:before {
+  content: "\e67b";
 }
-.ui-icon-map:before {
-  content: "\e364";
+.icon-search:before {
+  content: "\e67a";
 }
-.ui-icon-compose:before {
-  content: "\e400";
+.icon-questionsign:before {
+  content: "\e679";
 }
-.ui-icon-trash:before {
-  content: "\e401";
+.icon-question:before {
+  content: "\e678";
 }
-.ui-icon-upload:before {
-  content: "\e402";
+.icon-playleft:before {
+  content: "\e677";
 }
-.ui-icon-download:before {
-  content: "\e403";
+.icon-play:before {
+  content: "\e676";
 }
-.ui-icon-close:before {
-  content: "\e404";
+.icon-planesign:before {
+  content: "\e675";
 }
-.ui-icon-redo:before {
-  content: "\e405";
+.icon-pause:before {
+  content: "\e674";
 }
-.ui-icon-undo:before {
-  content: "\e406";
+.icon-oksign:before {
+  content: "\e673";
 }
-.ui-icon-refresh:before {
-  content: "\e407";
+.icon-microphone:before {
+  content: "\e672";
 }
-.ui-icon-star:before {
-  content: "\e408";
+.icon-star:before {
+  content: "\e671";
 }
-.ui-icon-plus:before {
-  content: "\e409";
+.icon-mapmarkerempty:before {
+  content: "\e66f";
 }
-.ui-icon-minus:before {
-  content: "\e410";
+.icon-meatstring:before {
+  content: "\e670";
 }
-.ui-icon-circle:before,
-.ui-icon-checkbox:before {
-  content: "\e411";
+.icon-mapmarker:before {
+  content: "\e66e";
 }
-.ui-icon-close-filled:before,
-.ui-icon-clear:before {
-  content: "\e434";
+.icon-man:before {
+  content: "\e66d";
 }
-.ui-icon-refresh-filled:before {
-  content: "\e437";
+.icon-lock:before {
+  content: "\e66c";
 }
-.ui-icon-star-filled:before {
-  content: "\e438";
+.icon-hotpot:before {
+  content: "\e66b";
 }
-.ui-icon-plus-filled:before {
-  content: "\e439";
+.icon-home:before {
+  content: "\e66a";
 }
-.ui-icon-minus-filled:before {
-  content: "\e440";
+.icon-highheeledshoes:before {
+  content: "\e669";
 }
-.ui-icon-circle-filled:before {
-  content: "\e441";
+.icon-highlightheart:before {
+  content: "\e668";
 }
-.ui-icon-checkbox-filled:before {
-  content: "\e442";
+.icon-heartempty:before {
+  content: "\e667";
 }
-.ui-icon-closeempty:before {
-  content: "\e460";
+.icon-heart:before {
+  content: "\e666";
 }
-.ui-icon-refreshempty:before {
-  content: "\e461";
+.icon-FavoriteStores:before {
+  content: "\e665";
 }
-.ui-icon-reload:before {
-  content: "\e462";
+.icon-cocktail:before {
+  content: "\e663";
 }
-.ui-icon-starhalf:before {
-  content: "\e463";
+.icon-gift:before {
+  content: "\e662";
 }
-.ui-icon-spinner:before {
-  content: "\e464";
+.icon-gasstationsign:before {
+  content: "\e661";
 }
-.ui-icon-spinner-cycle:before {
-  content: "\e465";
+.icon-cocktailblank:before {
+  content: "\e664";
 }
-.ui-icon-search:before {
-  content: "\e466";
+.icon-gasstation:before {
+  content: "\e660";
 }
-.ui-icon-plusempty:before {
-  content: "\e468";
+.icon-gamepad:before {
+  content: "\e65f";
 }
-.ui-icon-forward:before {
-  content: "\e470";
+.icon-footprint:before {
+  content: "\e65c";
 }
-.ui-icon-back:before,
-.ui-icon-left-nav:before {
-  content: "\e471";
+.icon-food:before {
+  content: "\e65b";
 }
-.ui-icon-checkmarkempty:before {
-  content: "\e472";
+.icon-flag:before {
+  content: "\e659";
 }
-.ui-icon-home:before {
-  content: "\e500";
+.icon-flower:before {
+  content: "\e65a";
 }
-.ui-icon-navigate:before {
-  content: "\e501";
+.icon-film:before {
+  content: "\e658";
 }
-.ui-icon-gear:before {
-  content: "\e502";
+.icon-exclamationsign:before {
+  content: "\e657";
 }
-.ui-icon-paperplane:before {
-  content: "\e503";
+.icon-envelopeopen:before {
+  content: "\e656";
 }
-.ui-icon-info:before {
-  content: "\e504";
+.icon-dumbbell:before {
+  content: "\e655";
 }
-.ui-icon-help:before {
-  content: "\e505";
+.icon-diamond:before {
+  content: "\e654";
 }
-.ui-icon-locked:before {
-  content: "\e506";
+.icon-cup:before {
+  content: "\e652";
 }
-.ui-icon-more:before {
-  content: "\e507";
+.icon-coupon:before {
+  content: "\e651";
 }
-.ui-icon-flag:before {
-  content: "\e508";
+.icon-iconcontrastratio:before {
+  content: "\e64f";
 }
-.ui-icon-home-filled:before {
-  content: "\e530";
+.icon-cutlery:before {
+  content: "\e653";
 }
-.ui-icon-gear-filled:before {
-  content: "\e532";
+.icon-contrastratiocircle:before {
+  content: "\e650";
 }
-.ui-icon-info-filled:before {
-  content: "\e534";
+.icon-compass:before {
+  content: "\e64e";
 }
-.ui-icon-help-filled:before {
-  content: "\e535";
+.icon-commenting:before {
+  content: "\e64d";
 }
-.ui-icon-more-filled:before {
-  content: "\e537";
+.icon-comment:before {
+  content: "\e64c";
 }
-.ui-icon-settings:before {
-  content: "\e560";
+.icon-commentheart:before {
+  content: "\e64b";
 }
-.ui-icon-list:before {
-  content: "\e562";
+.icon-forward:before {
+  content: "\e649";
 }
-.ui-icon-bars:before {
-  content: "\e563";
+.icon-coffee:before {
+  content: "\e64a";
 }
-.ui-icon-loop:before {
-  content: "\e565";
+.icon-chevronleft:before {
+  content: "\e648";
 }
-.ui-icon-paperclip:before {
-  content: "\e567";
+.icon-capsule:before {
+  content: "\e646";
 }
-.ui-icon-arrowup:before {
-  content: "\e580";
+.icon-car:before {
+  content: "\e647";
 }
-.ui-icon-arrowdown:before {
-  content: "\e581";
+.icon-cake:before {
+  content: "\e645";
 }
-.ui-icon-arrowleft:before {
-  content: "\e582";
+.icon-brightnesshalf:before {
+  content: "\e644";
 }
-.ui-icon-arrowright:before {
-  content: "\e583";
+.icon-brightnessempty:before {
+  content: "\e643";
 }
-.ui-icon-arrowthinup:before {
-  content: "\e584";
+.icon-bath:before {
+  content: "\e641";
 }
-.ui-icon-arrowthindown:before {
-  content: "\e585";
+.icon-brightness:before {
+  content: "\e642";
 }
-.ui-icon-arrowthinleft:before {
-  content: "\e586";
+.icon-basket:before {
+  content: "\e640";
 }
-.ui-icon-arrowthinright:before {
-  content: "\e587";
+.icon-backward:before {
+  content: "\e63e";
 }
-.ui-icon-pulldown:before {
-  content: "\e588";
+.icon-badge:before {
+  content: "\e63f";
 }
-/* 垂直方向排列 */
-.grid-column {
-  height: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+.icon-auxiliary:before {
+  content: "\e63d";
+}
+.icon-atm:before {
+  content: "\e63c";
+}
+.icon-arrowright:before {
+  content: "\e63b";
+}
+.icon-picksign:before {
+  content: "\e63a";
+}
+.icon-angleleft:before {
+  content: "\e638";
+}
+.icon-angleright:before {
+  content: "\e639";
+}
+.icon-clothes:before {
+  content: "\e637";
+}
+.icon-clean:before {
+  content: "\e636";
+}
+.icon-chevronright:before {
+  content: "\e635";
+}
+.icon-forward1:before {
+  content: "\e630";
+}
+.icon-ok-circle:before {
+  content: "\e634";
+}
+.icon-food1:before {
+  content: "\e62e";
+}
+.icon-flower1:before {
+  content: "\e62d";
+}
+.icon-film1:before {
+  content: "\e62b";
+}
+.icon-flag1:before {
+  content: "\e62c";
+}
+.icon-footprint1:before {
+  content: "\e62f";
 }
 .grid-cell {
   -webkit-flex: 1;
   flex: 1;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .row {
   display: -webkit-flex;
   -webkit-flex-wrap: wrap;
   display: flex;
   flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .col-xs-12 {
   -webkit-flex: 0 0 100%;
@@ -631,45 +732,8 @@ input[type='color'] {
 .content {
   -webkit-flex: 1;
   flex: 1;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-/* === layout === */
-.ui-card {
-  margin: 0 15px;
-  overflow: hidden;
-  background-color: white;
-  background-clip: padding-box;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-.ui-group-card {
-  border: solid 1px #ddd;
-  border-radius: 5px;
-  margin: 10px;
-  overflow: hidden;
-  background-color: #ddd;
-}
-.ui-group-card input {
-  border: none;
-  margin: 0px;
-  font-size: 18px;
-  padding: 15px !important;
-  border-radius: 0px;
-  height: auto;
-}
-.ui-group-card input:first-child {
-  margin-bottom: 1px;
-}
-.ui-card .ui-input-group:before,
-.ui-card .ui-input-group:after {
-  height: 0;
-}
-.ui-content {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 /* === badge === */
 .ui-badge {
@@ -1406,9 +1470,9 @@ input[type='color'] {
   white-space: nowrap;
   color: #ffffff;
   background-color: #0096ff;
-  padding: 0.4em 0.8em;
+  padding: 6px 12px;
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.42857143;
   -webkit-user-select: none;
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
@@ -1439,7 +1503,7 @@ fieldset[disabled] .btn.focus {
 }
 .btn-group {
   background-color: #0096ff;
-  padding: 0 0.8em;
+  padding: 0 12px;
   font-size: 1em;
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
@@ -1460,11 +1524,11 @@ fieldset[disabled] .btn.focus {
   box-direction: normal;
 }
 .btn-group input {
-  padding: 0.4em 0;
+  padding: 6px 0;
   background-color: inherit;
   display: inline-block;
   font-weight: none;
-  line-height: 1.5em;
+  line-height: 1.42857143;
 }
 .btn-group,
 .btn-group input {
@@ -2747,9 +2811,6 @@ html:not(.watch-active-state) .ui-accordion .ui-accordion-item-link:active {
 /* === Accordion-list === */
 .ui-accordion-list ul {
   background: #FFFFFF;
-}
-.ui-accordion-list-item {
-  display: inline;
 }
 .ui-accordion-list-item-content {
   position: relative;

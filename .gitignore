@@ -1,9 +1,7 @@
 node_modules/
-dist/css
-dist/js
 
-aaa/*/*
-aaa/*
-aaa/
+dist/*/*
+dist/*
+dist/
 
 !.gitignore
