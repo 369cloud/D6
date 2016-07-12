@@ -1,11 +1,25 @@
 /*---------- Buttons --[Ly]---------*/
 
 /*---------- Base styles----[Ly]-------*/
+/* 按钮对象 btn-object [LY]
+ * @param  @color                   字体颜色                    #ffffff
+ * @param  @background              背景颜色                    #0096ff
+ * @param  @border                  边框                           transparent
+ * @param  @padding-vertical        上下边距                    0.4em
+ * @param  @padding-horizontal      左右边距                    0.8em
+ * @param  @font-size               字体大小                    1em
+ * @param  @line-height             行间距                        1.5em
+ * @param  @border-radius           圆角弧度                    0.3em
+ * @param  @is-light                是否发光                    false
+ * @param  @is-fill                 是否填充父容器          false
+ * @param  @is-3D                   是否3D             false
+ * 
+ * */
 .btn {
     .btn-object( @btn-default-color; @btn-default-bg; @btn-default-border;@padding-base-vertical; @padding-base-horizontal; @font-size-md; @line-height-base; @border-radius-xs;false;false;false);
 }
 
-.btn-icon {
-    .btn-icon-object( @btn-default-color; @btn-default-bg; @btn-default-border;@padding-base-vertical; @padding-base-horizontal; @font-size-md; @line-height-base; @border-radius-xs;@font-size-md;false;false;false);
+.btn-group {
+    .btn-group-object( @btn-default-color; @btn-default-bg; @btn-default-border;@padding-base-vertical; @padding-base-horizontal; @font-size-md; @line-height-base; @border-radius-xs;@font-size-lg;false;false;false);
 }
 
