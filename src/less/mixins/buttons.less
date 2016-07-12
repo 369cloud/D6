@@ -28,15 +28,98 @@
     padding: @padding-vertical @padding-horizontal;
     font-size: @font-size;
     line-height: @line-height;
-    .borderRadius(@border-radius);
+    -webkit-user-select: none;
+    .border-radius(@border-radius);
     & when (@is-light){
         -webkit-box-shadow: 0 0 9px @background;
     }
     & when (@is-fill){
-        .box;
-        .box-flex-1;
-        .box-pack-center;
-        .box-align-center;
+        .panel-object(1;false;center;center;normal);
+    }
+    & when (@is-3D){
+        -webkit-box-shadow: 0px 5px 0px darken(@background, 10%), 0px 5px 0px darken(@background, 10%);
+        box-shadow: 0px 5px 0px darken(@background, 10%), 0px 5px 0px darken(@background, 10%);
+    }
+    &:focus,
+    &.focus,
+    &:visited,
+    &.visited {
+        color: @color;
+        background-color: @background;
+        border-color: @border;
+    }
+    &:active,
+    &.active {
+        color: @color;
+        background-color: darken(@background, 6%);
+        border-color: darken(@border, 15%);
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:focus,
+        &.focus {
+            background-color: @background;
+            border-color: @border;
+        }
+    }
+}
+
+/* 图标按钮对象 btn-icon-object [LY]
+ * @param  @color                   字体颜色
+ * @param  @background              背景颜色
+ * @param  @border                  边框
+ * @param  @padding-vertical        上下边距
+ * @param  @padding-horizontal      左右边距
+ * @param  @font-size               字体大小
+ * @param  @line-height             行间距
+ * @param  @border-radius           圆角弧度
+ * @param  @icon-size               图标的大小
+ * @param  @is-light                是否发光
+ * @param  @is-fill                 是否填充父容器
+ * @param  @is-3D                   是否3D
+ * 
+ * */
+
+.btn-group-object(@color; @background; @border;@padding-vertical;@padding-horizontal; @font-size; @line-height; @border-radius;@icon-size;@is-light;@is-fill;@is-3D) {
+    &{
+        background-color: @background;
+        padding: 0 @padding-horizontal;
+        font-size: @font-size;
+        .border-radius(@border-radius);
+        text-align: center;
+        vertical-align: middle;
+    }
+    & input{
+        padding: @padding-vertical 0;
+        background-color: inherit;
+        display: inline-block;
+        font-weight: @btn-font-weight;
+        line-height: @line-height;
+    }
+    &,
+    & input{
+        color: @color;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+        border: 1px solid @border;
+        white-space: nowrap;
+    }
+    & i{
+       font-size: @icon-size !important;
+    }
+    & when (@is-light){
+        -webkit-box-shadow: 0 0 9px @background;
+    }
+    & when (@is-fill){
+        .panel-object(1;false;center;center;normal);
+    }
+    & when not(@is-fill){
+        .panel-object(0;false;center;center;normal);
     }
     & when (@is-3D){
         -webkit-box-shadow: 0px 5px 0px darken(@background, 10%), 0px 5px 0px darken(@background, 10%);
