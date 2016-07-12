@@ -144,7 +144,7 @@
 @hover-border: 1px solid #0096ff;
 ) {
     width: @width;
-    padding: 0px 5px;
+    padding: 0px (@grid-gutter-width/2);
     text-align: center;
     overflow: hidden;
     bottom: 0px;
@@ -162,6 +162,7 @@
             position: relative;
             padding: 5px 0px;
             background: @background;
+            text-decoration:none;
             .ui-nav-cont {
                 display: block;
                 border-right: @column-rule;
