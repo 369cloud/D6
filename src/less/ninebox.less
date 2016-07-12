@@ -1,3 +1,8 @@
+/*
+    time:2016-07-08
+    autor:maweichao
+    desc:九宫格
+ */
 .ui-box {
     @width: auto;
     @height: auto;
@@ -50,10 +55,12 @@
 }
 .mx-ui-circle(@width:100%;@height:auto;@border:1px solid #eee;@background:#f2f2f2;@min-height:50px;@overflow:hidden) {
     width: @width;
+    display: table-cell;
     height: @height;
     min-height: @min-height;
     background: @background;
     border: 0;
+    vertical-align: middle;
     border-right: @border;
     border-bottom: @border;
     overflow: @overflow;

@@ -3300,6 +3300,11 @@ html:not(.watch-active-state) .ui-accordion-list .ui-accordion-list-item-link:ac
   border-width: 1px 1px 0 0;
   overflow-y: auto;
 }
+/*
+    time:2016-07-08
+    autor:maweichao
+    desc:九宫格
+ */
 .ui-box {
   width: auto;
   height: auto;
@@ -3313,10 +3318,12 @@ html:not(.watch-active-state) .ui-accordion-list .ui-accordion-list-item-link:ac
 }
 .ui-box > .ui-box-circle {
   width: 100%;
+  display: table-cell;
   height: auto;
   min-height: 50px;
   background: #f2f2f2;
   border: 0;
+  vertical-align: middle;
   border-right: 1px solid #eee;
   border-bottom: 1px solid #eee;
   overflow: hidden;
@@ -3398,4 +3405,109 @@ html:not(.watch-active-state) .ui-accordion-list .ui-accordion-list-item-link:ac
 }
 .ui-box .col-xs-4:nth-child(7) {
   border-bottom: 0px;
+}
+.table {
+  display: table;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+.table-caption {
+  display: table-caption;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+.table-column-group {
+  display: table-column-group;
+}
+.table-column {
+  display: table-column;
+  width: 100px;
+}
+.table-row-group {
+  display: table-row-group;
+}
+.table-row {
+  display: table-row;
+}
+.table-cell {
+  display: table-cell;
+  padding: 0 5px;
+  border: 1px solid #ccc;
+}
+.table-header-group {
+  display: table-header-group;
+  background: #eee;
+  font-weight: bold;
+}
+.table-footer-group {
+  display: table-footer-group;
+}
+/*
+	time:2016-07-11
+	autor:maweichao
+	desc:导航用到的属性值有，下划线，中间线，背景色，字体，字体大小，
+
+
+	@hover-border-direction:bottom|top|none 解释：导航底部或者头部的横线
+	@column-rule:1px solid blue;  解释：导航中间的竖线
+
+ */
+.ui-nav {
+  width: 100%;
+  padding: 0px 5px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  left: 0px;
+  bottom: 0px;
+  -webkit-box-shadow: 0px -2px 15px 1px #dddddd;
+  box-shadow: 0px -2px 15px 1px #dddddd;
+}
+.ui-nav .row {
+  border: 0px;
+  border-top: 1px solid #0096ff;
+  border-bottom: 0px;
+  position: relative;
+  background: #fff;
+}
+.ui-nav .row .ui-nav-item {
+  position: relative;
+  padding: 8px 0px;
+  background: #fff;
+}
+.ui-nav .row .ui-nav-item .ui-nav-cont {
+  display: block;
+  border-right: 0px;
+  color: #80868A;
+  font-size: 16px;
+}
+.ui-nav .row .ui-nav-item:hover {
+  cursor: pointer;
+  background: #fff;
+}
+.ui-nav .row .ui-nav-item:hover .ui-nav-cont {
+  color: #0195FF;
+}
+.ui-nav .row .ui-nav-item:hover:after {
+  content: "";
+  border: 1px solid #0096ff;
+  height: 1px;
+  width: 100%;
+  left: 0px;
+  position: absolute;
+  display: block;
+  top: 0px;
+  bottom: auto;
+}
+.ui-nav .row .ui-nav-item:last-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui-nav .row .ui-nav-item:last-child .ui-nav-cont {
+  border-right: 0px;
+}
+.ui-nav .row .ui-nav-item:first-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
