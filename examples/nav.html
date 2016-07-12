@@ -8,16 +8,22 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="../dist/css/d6.css">
-    <style type="text/css">
+    <style type="text/css" media="screen">
+    .bottom-nav {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
 
+    
     </style>
 </head>
 
 <body>
     <h1>文字导航</h1>
-    <div class="ui-nav">
+    <div class="ui-nav1">
         <nav class="row">
-            <a class="col-xs-3 ui-nav-item">
+            <a class="col-xs-3 ui-nav-item  active">
                 <span class="ui-nav-cont">
             		 <span class="ui-nav-text">首页</span>
                 <span class="ui-nav-left-line"></span>
@@ -41,10 +47,10 @@
         </nav>
     </div>
     <br>
-    <h1>文字下划线导航</h1>
-    <div class="ui-nav">
+    <h1>导航分割线头部划线</h1>
+    <div class="ui-nav2">
         <nav class="row">
-            <a class="col-xs-3 ui-nav-item">
+            <a class="col-xs-3 ui-nav-item active">
                 <span class="ui-nav-cont">
                 	<span class="ui-nav-text">首页</span>
                 </span>
@@ -68,11 +74,12 @@
     </div>
     <br>
     <h1>图文左右组合</h1>
-    <div class="ui-nav">
+    <div class="ui-nav3">
         <nav class="row">
-            <a class="col-xs-3 ui-nav-item">
+            <a class="col-xs-3 ui-nav-item active">
                 <span class="ui-nav-cont">
-               		 <span class="ui-nav-text">首页</span>
+                	<span class="ui-nav-text">首页</span>
+                <span class="ui-nav-text">首页</span>
                 </span>
             </a>
             <a class="col-xs-3 ui-nav-item">
@@ -94,12 +101,12 @@
     </div>
     <br>
     <h1>图文上下组合</h1>
-    <div class="ui-nav">
+    <div class="ui-nav4">
         <nav class="row">
-            <a class="col-xs-4 ui-nav-item">
+            <a class="col-xs-4 ui-nav-item active">
                 <span class="ui-nav-cont">
 	                <dl class="ui-nav-dl">
-	                    <dt><img src="" alt=""></dt>
+	                    <dt><img src="" alt="">首页</dt>
 	                    <dd>首页</dd>
 	                </dl>
                 </span>
@@ -123,21 +130,31 @@
         </nav>
     </div>
     <br>
-    <h1>按钮组合</h1>
-    <div class="ui-nav">
-        <nav class="row">
-            <a class="col-xs-3 ui-nav-item">
-                <span class="ui-nav-cont">
-                <button>首页</button>
-               </span>
-            </a>
-            <a class="col-xs-3 ui-nav-item">
-                <button>消息</button>
-            </a>
-            <a class="col-xs-3 ui-nav-item">
-                <button>通讯录</button>
-            </a>
-        </nav>
+    <div class="bottom-nav">
+        <div class="ui-nav6">
+            <nav class="row">
+                <a class="col-xs-3 ui-nav-item active">
+                    <span class="ui-nav-cont">
+            		 <span class="ui-nav-text">首页</span>
+                    </span>
+                </a>
+                <a class="col-xs-3 ui-nav-item">
+                    <span class="ui-nav-cont">
+                <span class="ui-nav-text">消息</span>
+                    </span>
+                </a>
+                <a class="col-xs-3 ui-nav-item">
+                    <span class="ui-nav-cont">
+                <span class="ui-nav-text">通讯录通</span>
+                    </span>
+                </a>
+                <a class="col-xs-3 ui-nav-item">
+                    <span class="ui-nav-cont">
+                <span class="ui-nav-text">设置</span>
+                    </span>
+                </a>
+            </nav>
+        </div>
     </div>
 </body>
 
