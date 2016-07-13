@@ -7,11 +7,11 @@
  * @box-direction    子元素排列方式[normal,reverse,inherit]
  */
 .panel-object(@proportion;@box-orient;@box-align;@box-pack;@box-direction) {
-    position: relative; 
     display: -webkit-box !important;
     display: box !important;
     display: -webkit-flex;
     display: flex;
+    position: relative;
     
     & when (@proportion > 0){
         -webkit-box-flex: @proportion;
@@ -32,7 +32,41 @@
     -webkit-box-direction: @box-direction;
     box-direction: @box-direction;
 }
-
+/*panel-object
+ * @proportion       伸缩盒比例[1,2,3,4...]
+ * @box-orient       子伸缩盒排列方式[horizontal,vertical,inline-axis,block-axis]
+ * @box-direction    子元素排列方式[normal,reverse,inherit]
+ */
+.panel-default-object(@proportion;@box-orient;@box-direction){
+    display: -webkit-box !important;
+    display: box !important;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;  
+    
+    & when (@proportion > 0){
+        
+        -webkit-box-flex: @proportion;
+        box-flex: @proportion;
+        -webkit-flex: @proportion;
+        flex: @proportion;
+    }
+    -webkit-box-orient: @box-orient;
+    box-orient: @box-orient;
+    
+    -webkit-box-direction: @box-direction;
+    box-direction: @box-direction;
+}
+/*line-clamp    显示几行
+ * @line        行数[1,2,3,4...]
+ */
+.line-clamp(@line){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+}
 //----opacity----[Ly]--
 .opacity(@opacity) {
     opacity: @opacity;
