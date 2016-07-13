@@ -1,7 +1,14 @@
 node_modules/
+<<<<<<< HEAD
+dist/*/*
+dist/*
+dist/
+
+=======
 
 dist/*/*
 dist/*
 dist/
 
+>>>>>>> e32c88bdf8d7a2c166138c7ad0b642cec7f16886
 !.gitignore

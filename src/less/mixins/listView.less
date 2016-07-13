@@ -1,0 +1,108 @@
+/* listview-panel-object   外容器对象
+ * @param    @margin-left               左外边距
+ * @param    @border-color              下边框颜色[none,颜色值] 
+ * @param    @background                背景颜色
+ * @param    @padding-vertical          上下边距
+ * @param    @box-direction             子元素排列方式[normal,reverse,inherit]
+ */
+.listview-panel-object(@margin-left;@border-color;@background;@padding-vertical;@box-direction){
+    margin-left: @margin-left;
+    & when not(@border-color=none){
+        border-bottom: 0.062em solid @border-color;
+    }
+    background-color:@background;
+    padding: @padding-vertical 0; 
+    .panel-object(1;horizontal;center;start;@box-direction);
+}
+
+
+/* listview-img-object
+ * @param    @visibility                 是否显示[true;false]
+ * @param    @padding-left               左边距
+ * @param    @padding-right              右边距
+ * @param    @border-radius              圆角
+ * @param    @width                      宽度
+ */
+.listview-img-object(@visibility;@padding-left;@padding-right;@border-radius;@width){
+    padding-left: @padding-left;
+    padding-right: @padding-right;
+    & img{
+        width: @width;
+        .border-radius(@border-radius);
+        float: left;
+    }
+    & when (@visibility=false){
+        display: none;
+    } 
+}
+
+/* listview-content-object
+ * @param    @padding-left                      左边距
+ * @param    @padding-right                     右边距
+ * @param    @margin-top                        上外边距
+ * @param    @left-size                         大小[大小]
+ * @param    @left-color                        颜色
+ * @param    @line                              几行
+ * @param    @is-weight                         是否加粗[true,false]
+ * @param    @line-height                       行高
+ * @param    @is-box-f1                         伸缩盒比例[true,false]
+ * @param    @is-right                          是否有右边[true,false]
+ * @param    @right-size                        大小[大小]
+ * @param    @right-color                       颜色
+ */
+
+.listview-content-object(@padding-left;@padding-right;@margin-top;@left-size;@left-color;@line;@is-weight;@line-height;@is-box-f1;@is-right;@right-size;@right-color){
+    & when (@is-box-f1=true){
+        .panel-default-object(1;horizontal;normal);
+    }
+    
+    
+    margin-top: @margin-top;
+    line-height:@line-height;
+    & when (@is-weight=true){
+        font-weight: bold;
+    }
+    & when (@is-right=true){
+        & div{
+            .panel-default-object(1;horizontal;normal);
+            font-size: @left-size;
+            color: @left-color;
+            padding-left: @padding-left;
+        }
+        & span{
+            font-size: @right-size;
+            color: @right-color;
+            padding-right: @padding-right;
+        }
+    }
+    & when (@is-right=false){
+        font-size: @left-size;
+        color: @left-color;
+        padding-left: @padding-left;
+        padding-right: @padding-right;
+        .line-clamp(@line);
+     }
+}
+
+/* listview-right-object
+ * @param    @visibility                 是否显示[true;false]
+ * @param    @padding-left               左边距
+ * @param    @padding-right              右边距
+ * @param    @size                       大小
+ * @param    @color                      颜色
+ */
+.listview-right-object(@visibility;@padding-left;@padding-right;@size;@color){
+    & when (@visibility=true){
+        padding-left: @padding-left;
+        padding-right: @padding-right;
+        &,
+        & i{
+            font-size: @size;
+            color: @color;
+        }
+    }
+    & when (@visibility=false){
+        display: none;
+    }
+    
+}

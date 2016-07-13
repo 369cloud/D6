@@ -34,9 +34,14 @@ ul, ol, dl, dd, li{
 }
 
 //---[Ly]-----
-input[type="button"], input[type="submit"], input[type="reset"] {
+input,textarea{
     -webkit-appearance: none;
 }
 input,button,select,textarea{
     outline:none;
+//  -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: text;
+} 
+input:focus, textarea:focus {
+    outline: none;
 }
