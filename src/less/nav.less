@@ -1,0 +1,214 @@
+/*
+	time:2016-07-11
+	autor:maweichao
+	desc:导航用到的属性值有，下划线，中间线，背景色，字体，字体大小，
+	@hover-border-direction:bottom|top|none 解释：导航底部或者头部的横线
+	@column-rule:1px solid blue;  解释：导航中间的竖线
+	
+ */
+
+.ui-nav1 {
+    .ui-nav( @border-radius: 0px;
+    @box-shadow: 0px -2px 15px 1px #dddddd;
+    @background: #fff;
+    @border-top: 0px solid #0096ff;
+    @border-bottom: 1px solid #b5b5b5;
+    @border: 0px;
+    @column-rule: 0px solid #0195FF;
+    @font-size: 16px;
+    @width: 100%;
+    @height: auto;
+    @line-height: auto;
+    @hover-bg-color: #fff;
+    @hover-text-color: #0195FF;
+    @hover-border-direction: bottom;
+    @hover-border: 1px solid #0096ff;
+    );
+}
+.ui-nav2{
+    .ui-nav( @border-radius: 0px;
+    @box-shadow: 0px -2px 15px 1px #dddddd;
+    @background: #fff;
+    @border-top:0px solid #0096ff;
+    @border-bottom:0px;
+    @border: 0px;
+    @column-rule: 1px solid #e5e5e5;
+    @font-size: 16px;
+    @width: 100%;  
+    @height: auto;
+    @line-height: auto;
+
+    @hover-bg-color: #fff;
+    @hover-text-color: #ea3d44;
+    @hover-border-direction: top;
+    @hover-border: 1px solid #ea3d44;
+    );
+}
+.ui-nav3 {
+    .ui-nav( @border-radius: 0px;
+    @box-shadow: 0px -2px 15px 1px #dddddd;
+    @background: #fff;
+    @border-top: 1px solid #0096ff;
+    @border-bottom: 0px;
+    @border: 0px;
+    @column-rule: 0px solid #0195FF;
+    @font-size: 16px;
+    @width: 100%;
+    @height: auto;
+    @line-height: auto;
+    @hover-bg-color: #fff;
+    @hover-text-color: #0195FF;
+    @hover-border-direction: none;
+    @hover-border: 1px solid #0096ff;
+    );
+}
+.ui-nav4 {
+    .ui-nav( @border-radius: 0px;
+    @box-shadow: 0px -2px 15px 1px #dddddd;
+    @background: #fff;
+    @border-top: 1px solid #0096ff;
+    @border-bottom: 0px;
+    @border: 0px;
+    @column-rule:0px solid #0195FF;
+    @font-size: 16px;
+    @width: 100%;
+    @height: auto;
+    @line-height: auto;
+    @hover-bg-color: #fff;
+    @hover-text-color: #0195FF;
+    @hover-border-direction: none;
+    @hover-border: 1px solid #0096ff;
+    );
+}
+.ui-nav5 {
+    .ui-nav( @border-radius: 0px;
+    @box-shadow: 0px -2px 15px 1px #dddddd;
+    @background: #fff;
+    @border-top: 1px solid #0096ff;
+    @border-bottom: 0px;
+    @border: 0px;
+    @column-rule:0px solid #0195FF;
+    @font-size: 16px;
+    @width: 100%;
+    @height: auto;
+    @line-height: auto;
+    @hover-bg-color: #fff;
+    @hover-text-color: #0195FF;
+    @hover-border-direction: none;
+    @hover-border: 1px solid #0096ff;
+    );
+}
+
+.ui-nav6 {
+    .ui-nav( @border-radius: 0px;
+	    @box-shadow: 0px -2px 15px 1px #dddddd;
+	    @background: #302e2e;
+	    @border-top:0px solid #0096ff;
+	    @border-bottom: 0px;
+	    @border: 0px;
+	    @color:#fff;
+	    @column-rule:0px solid #0195FF;
+	    @font-size: 16px;
+	    @width: 100%;
+	    @height: auto;
+	    @line-height: auto;
+
+	    @hover-bg-color: #fff;
+	    @hover-text-color: #0195FF;
+	    @hover-border-direction:top;
+	    @hover-border: 1px solid #0096ff;
+    );
+}
+
+
+
+
+.ui-nav {
+    .ui-nav;
+}
+.ui-nav( @border-radius: 0px;
+@box-shadow: 0px -2px 15px 1px #dddddd;
+@background: #fff;
+@border-top: 1px solid #0096ff;
+@border-bottom: 0px;
+@border: 0px;
+@color:#80868A;
+@column-rule: 0px solid #0195FF;
+@font-size: 16px;
+@width: 100%;
+@height: auto;
+@line-height: auto;
+@hover-bg-color: #fff;
+@hover-text-color: #0195FF;
+@hover-border-direction: top;
+@hover-border: 1px solid #0096ff;
+) {
+    width: @width;
+    padding: 0px (@grid-gutter-width/2);
+    text-align: center;
+    overflow: hidden;
+    bottom: 0px;
+    height: @height;
+    .box-shadow(@box-shadow);
+    .row {
+        border: @border;
+        border-top: @border-top;
+        border-bottom: @border-bottom;
+        position: relative;
+        background: @background;
+        height: 100%;
+        line-height: @line-height;
+        .ui-nav-item {
+            position: relative;
+            padding: 5px 0px;
+            background: @background;
+            text-decoration:none;
+            .ui-nav-cont {
+                display: block;
+                border-right: @column-rule;
+                color:@color;
+                font-size: @font-size;
+            }
+            &:hover{
+                .active;
+            }
+            &:last-child {
+                .ui-nav-cont {
+                    border-right: 0px;
+                }
+                border-top-right-radius:@border-radius;
+                border-bottom-right-radius: @border-radius;
+            }
+            &:first-child {
+                border-top-left-radius: @border-radius;
+                border-bottom-left-radius: @border-radius;
+            }
+        }
+        .active{
+            cursor: pointer;
+            background: @hover-bg-color;
+            .ui-nav-cont {
+                color: @hover-text-color;
+            }
+            &:after {
+                border: @hover-border;
+                height: 1px;
+                width: 100%;
+                left: 0px;
+                position: absolute;
+                display: block;
+                .vdct(@hover-border-direction);
+                .vdct(@hover-border-direction) when (@hover-border-direction =top) {
+                    content: "";
+                    top: 0px;
+                    bottom: auto;
+                }
+                .vdct(@hover-border-direction) when (@hover-border-direction =bottom) {
+                    content: "";
+                    bottom: 0px;
+                    top: auto;
+                }
+            }
+        }
+    }
+}

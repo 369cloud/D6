@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Hello UI</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="stylesheet" href="../dist/css/d6.css">
-        <style type="text/css">
-        </style>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../dist/css/d6.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
         <header class="ui-nav-bar">
             <div class="ui-nav-bar-inner">
                 <h1 class="ui-nav-bar-title">D6  Widgets</h1>
             </div>
         </header>
-        <div class="ui-accordion-list ui-content">
-            <h3>全局css</h3>
-            <ul>
+        <div class="content">
+            <h3 class="ui-title">全局css</h3>
+            <ul class="ui-accordion-list">
                 <li class="ui-accordion-list-item" data-target="layout.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -26,7 +30,6 @@
                         </div>
                     </a>
                 </li>
-
                 <li class="ui-accordion-list-item" data-target="grid.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -34,11 +37,16 @@
                         </div>
                     </a>
                 </li>
-            
-                
+                <li class="ui-accordion-list-item" data-target="iconfont.html">
+                    <a class="ui-accordion-list-item-link">
+                        <div class="ui-accordion-list-item-inner">
+                            iconfont
+                        </div>
+                    </a>
+                </li>
             </ul>
-            <h3>css 组件</h3>    
-            <ul>
+            <h3 class="ui-title">css 组件</h3>
+            <ul class="ui-accordion-list">
                 <li class="ui-accordion-list-item" data-target="header.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -46,7 +54,13 @@
                         </div>
                     </a>
                 </li>
-
+                <li class="ui-accordion-list-item" data-target="nav.html">
+                    <a class="ui-accordion-list-item-link">
+                        <div class="ui-accordion-list-item-inner">
+                            菜单
+                        </div>
+                    </a>
+                </li>
                 <li class="ui-accordion-list-item" data-target="accordion.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -90,9 +104,8 @@
                     </a>
                 </li>
             </ul>
-
-            <h3>javascript 组件</h3>    
-            <ul>
+            <h3 class="ui-title">javascript 组件</h3>
+            <ul class="ui-accordion-list">
                 <li class="ui-accordion-list-item" data-target="fullpage.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -128,7 +141,6 @@
                         </div>
                     </a>
                 </li>
-                
                 <li class="ui-accordion-list-item" data-target="slider.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -157,8 +169,6 @@
                         </div>
                     </a>
                 </li>
-
-                
                 <li class="ui-accordion-list-item" data-target="swipelistview.html">
                     <a class="ui-accordion-list-item-link">
                         <div class="ui-accordion-list-item-inner">
@@ -168,17 +178,19 @@
                 </li>
             </ul>
         </div>
-        <script src="../dist/js/zepto.js"></script>
-        <script src="../dist/js/d6.js"></script>
-    </body>
-    <script>
-    $(function(require) {
-        
-        $('.ui-accordion-list').accordionList({});
-        // $('.ui-accordion-list').accordionList({});
-        $('.ui-accordion-list').on('tapped', function(e, el) {
-            window.location.href = $(el).data('target')
-        })
+    </div>
+    <script src="../dist/js/zepto.js"></script>
+    <script src="../dist/js/d6.js"></script>
+</body>
+<script>
+$(function(require) {
+
+    $('.ui-accordion-list').accordionList({});
+    // $('.ui-accordion-list').accordionList({});
+    $('.ui-accordion-list').on('tapped', function(e, el) {
+        window.location.href = $(el).data('target')
     })
-    </script>
+})
+</script>
+
 </html>
